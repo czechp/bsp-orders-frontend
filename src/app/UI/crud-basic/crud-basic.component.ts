@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { ModifyObjectComponent } from '../modify-object/modify-object.component';
 
 @Component({
   selector: 'app-crud-basic',
@@ -16,10 +17,22 @@ export class CrudBasicComponent implements OnInit {
   @Input("fieldsNames")
   public fieldsNames: string[];
 
+  @Input("statement")
+  public statement: string;
+
+  @ViewChild(ModifyObjectComponent)
+  public modifyObjectComponent: ModifyObjectComponent;
+
+  @Output()
+  public modifyObjectArrayEmitter = new EventEmitter();
+
+
+
   public objectToModify: any;
   public visibilityModifyPanel: boolean = false;
 
   constructor() {
+    this.statement = "";
   }
 
   ngOnInit(): void {
@@ -27,7 +40,15 @@ export class CrudBasicComponent implements OnInit {
 
   public readObjectToModify(i) {
     this.objectToModify = this.objects[i];
-    this.visibilityModifyPanel = true;
+    this.visibilityModifyPanel = !this.visibilityModifyPanel;
+    this.statement = "";
+  }
+
+  public modifyObject(success) {
+    if (success === true) {
+        this.modifyObjectArrayEmitter.emit(this.modifyObjectComponent.valuesArray);
+    }
+    this.visibilityModifyPanel = false;
   }
 
 

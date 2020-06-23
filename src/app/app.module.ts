@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { CrudBasicComponent } from './UI/crud-basic/crud-basic.component';
 import { ShowTableComponent } from './UI/show-table/show-table.component';
 import { ModifyObjectComponent } from './UI/modify-object/modify-object.component';
+import { CrudStatementComponent } from './UI/crud-statement/crud-statement.component';
+import { ProducerComponent } from './ModelCRUD/producer/producer.component';
 @NgModule({
   declarations: [
     AppComponent,
     CrudBasicComponent,
     ShowTableComponent,
     ModifyObjectComponent,
+    CrudStatementComponent,
+    ProducerComponent,
   ],
   imports: [
     BrowserModule,

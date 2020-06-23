@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modify-object',
@@ -13,6 +13,9 @@ export class ModifyObjectComponent implements OnInit {
   @Input()
   public fieldsName: string[];
 
+  @Output()
+  public acceptModifiying = new EventEmitter();
+
   public reducedFieldsName:string[];
   public valuesArray:string[];
 
@@ -25,8 +28,12 @@ export class ModifyObjectComponent implements OnInit {
     this.valuesArray = Object.values(this.objectToModify);
   }
 
-  public  show(){
-    console.log(this.valuesArray);
+  public modifyObject(){
+    this.acceptModifiying.emit(true);
+  }
+
+  public cancelModifing(){
+    this.acceptModifiying.emit(false);
   }
 
 }
