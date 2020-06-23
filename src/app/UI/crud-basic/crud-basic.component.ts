@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ModifyObjectComponent } from '../modify-object/modify-object.component';
+import { CreateObjectComponent } from '../create-object/create-object.component';
 
 @Component({
   selector: 'app-crud-basic',
@@ -23,10 +24,16 @@ export class CrudBasicComponent implements OnInit {
   @ViewChild(ModifyObjectComponent)
   public modifyObjectComponent: ModifyObjectComponent;
 
+  @ViewChild(CreateObjectComponent)
+  public createObjectComponent: CreateObjectComponent;
+
+
   @Output()
   public modifyObjectArrayEmitter = new EventEmitter();
 
 
+  @Output()
+  public createObjectArrayEmitter = new EventEmitter();
 
   public objectToModify: any;
   public visibilityModifyPanel: boolean = false;
@@ -46,10 +53,15 @@ export class CrudBasicComponent implements OnInit {
 
   public modifyObject(success) {
     if (success === true) {
-        this.modifyObjectArrayEmitter.emit(this.modifyObjectComponent.valuesArray);
+      this.modifyObjectArrayEmitter.emit(this.modifyObjectComponent.valuesArray);
     }
     this.visibilityModifyPanel = false;
   }
 
+  public createObject(success) {
+    if (success) {
+      this.createObjectArrayEmitter.emit(this.createObjectComponent.valuesArray);
+    }
+  }
 
 }

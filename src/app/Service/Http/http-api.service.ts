@@ -11,4 +11,8 @@ export class HttpApiService {
   public get(endpoint: string) {
     return this.httpClient.get<any[]>(URL + endpoint);
   }
+
+  public post(endpoint, object){
+    return this.httpClient.post<any>(URL + endpoint, object);
+  }
 }
