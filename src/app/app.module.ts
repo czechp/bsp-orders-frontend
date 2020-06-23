@@ -8,6 +8,9 @@ import { ShowTableComponent } from './UI/show-table/show-table.component';
 import { ModifyObjectComponent } from './UI/modify-object/modify-object.component';
 import { CrudStatementComponent } from './UI/crud-statement/crud-statement.component';
 import { ProducerComponent } from './ModelCRUD/producer/producer.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,7 @@ import { ProducerComponent } from './ModelCRUD/producer/producer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

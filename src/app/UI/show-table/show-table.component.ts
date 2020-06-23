@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-show-table',
   templateUrl: './show-table.component.html',
   styleUrls: ['./show-table.component.css']
 })
-export class ShowTableComponent implements OnInit {
+export class ShowTableComponent implements OnInit, OnChanges {
 
   @Input("objects")
   public objects: any[];
@@ -23,6 +23,11 @@ export class ShowTableComponent implements OnInit {
 
   constructor() {
     this.objectMatrix=[];
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.convertObjArrayToMatrixArray();
   }
 
   ngOnInit(): void {
