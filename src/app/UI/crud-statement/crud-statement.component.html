@@ -1,0 +1,10 @@
+<div class=" text-white jumbotron jumbotron-fluid text-center border border-warning mt-2" [ngClass]="
+{
+    'bg-success': statement[0]==='S',
+    'bg-danger': statement[0]==='B'
+}
+">
+    <h3>
+        {{statement}}
+    </h3>
+</div>
