@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-show-table',
@@ -15,6 +15,9 @@ export class ShowTableComponent implements OnInit {
 
   @Input("fieldsName")
   public fieldsName: string[];
+
+  @Output()
+  public modifyChanges = new EventEmitter();
 
   public objectMatrix: string[][];
 
@@ -34,4 +37,7 @@ export class ShowTableComponent implements OnInit {
     }
   }
 
+  public emitObjectToModify(i:string){
+    this.modifyChanges.emit(i);
+  }
 }
