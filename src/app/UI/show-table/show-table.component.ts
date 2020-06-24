@@ -19,6 +19,9 @@ export class ShowTableComponent implements OnInit, OnChanges {
   @Output()
   public modifyChanges = new EventEmitter();
 
+  @Output()
+  public deleteChanges = new EventEmitter();
+
   public objectMatrix: string[][];
 
   constructor() {
@@ -44,5 +47,9 @@ export class ShowTableComponent implements OnInit, OnChanges {
 
   public emitObjectToModify(i:string){
     this.modifyChanges.emit(i);
+  }
+
+  public emitObjectToDelete (i:string){
+      this.deleteChanges.emit(i);
   }
 }

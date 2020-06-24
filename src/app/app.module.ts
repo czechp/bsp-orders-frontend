@@ -9,7 +9,10 @@ import { ModifyObjectComponent } from './UI/modify-object/modify-object.componen
 import { CrudStatementComponent } from './UI/crud-statement/crud-statement.component';
 import { ProducerComponent } from './ModelCRUD/producer/producer.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CreateObjectComponent } from './UI/create-object/create-object.component';
+import { AuthorizationInterceptorService } from './Service/Authorization/authorization-interceptor.service';
+import { DeleteObjectComponent } from './UI/delete-object/delete-object.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModifyObjectComponent,
     CrudStatementComponent,
     ProducerComponent,
+    CreateObjectComponent,
+    DeleteObjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthorizationInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

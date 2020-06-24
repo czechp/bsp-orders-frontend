@@ -4,7 +4,7 @@
         <tr *ngFor="let object of objects; let i = index" [attr.data-index]="i">
             <td class="text-center" *ngFor="let value of objectMatrix[i]">{{value}}</td>
             <td class="text-center"><button type="button" class="button-min-width btn btn-outline-warning" (click)="emitObjectToModify(i)">Modyfikuj</button></td>
-            <td class="text-center"><button type="button" class="button-min-width btn btn-outline-danger">Usuń</button></td>
+            <td class="text-center"><button type="button" class="button-min-width btn btn-outline-danger" (click)="emitObjectToDelete(i)">Usuń</button></td>
 
         </tr>
     </thead>
