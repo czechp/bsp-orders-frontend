@@ -45,8 +45,8 @@ export class ProducerComponent implements OnInit {
     let producerToCreate = this.convertArrayToProducer(valueArray);
     if (producerToCreate.name.length > 2) {
       this.httpApi.post(producerEndpoint, producerToCreate)
-        .subscribe(data => this.getProducers(),
-          error => this.statement = "Błąd! Problem podczas zapisywania producenta");
+        .subscribe(data => {this.getProducers(); this.statement="Sukces! Obiekt dodany"},
+          error => this.statement = "Błąd! Problem podczas zapisywania obiektu");
 
       this.statement = "";
     } else {

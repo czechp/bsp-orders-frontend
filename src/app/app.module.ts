@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateObjectComponent } from './UI/create-object/create-object.component';
 import { AuthorizationInterceptorService } from './Service/Authorization/authorization-interceptor.service';
 import { DeleteObjectComponent } from './UI/delete-object/delete-object.component';
+import { ProviderComponent } from './ModelCRUD/provider/provider.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DeleteObjectComponent } from './UI/delete-object/delete-object.componen
     ProducerComponent,
     CreateObjectComponent,
     DeleteObjectComponent,
+    ProviderComponent,
   ],
   imports: [
     BrowserModule,
