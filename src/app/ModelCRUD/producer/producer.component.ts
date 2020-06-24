@@ -21,7 +21,12 @@ export class ProducerComponent implements OnInit {
   }
 
   public modifyProducer(valueArray) {
-    console.log(this.convertArrayToProducer(valueArray));
+    this.statement="";
+    const producerToModify = this.convertArrayToProducer(valueArray);
+    this.httpApi.patch(producerEndPoint, producerToModify.id, producerToModify)
+      .subscribe(
+        data => { this.statement = "Sukces! Modyfikacja zakończona powodzeniem"; this.getProducers() },
+        error => this.statement = "Błąd podczas modyfikowania obiektu");
   }
 
 
@@ -40,9 +45,9 @@ export class ProducerComponent implements OnInit {
     let producerToCreate = this.convertArrayToProducer(valueArray);
     if (producerToCreate.name.length > 2) {
       this.httpApi.post(producerEndPoint, producerToCreate)
-      .subscribe(data => this.getProducers(),
-      error => this.statement = "Błąd! Problem podczas zapisywania producenta");
- 
+        .subscribe(data => this.getProducers(),
+          error => this.statement = "Błąd! Problem podczas zapisywania producenta");
+
       this.statement = "";
     } else {
       this.statement = "Błąd! Wybrana nazwa jest za krótka !!!"

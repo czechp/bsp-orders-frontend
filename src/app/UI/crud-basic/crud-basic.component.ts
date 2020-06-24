@@ -29,11 +29,11 @@ export class CrudBasicComponent implements OnInit {
 
 
   @Output()
-  public modifyObjectArrayEmitter = new EventEmitter();
+  public modifyObjectEmitter = new EventEmitter();
 
 
   @Output()
-  public createObjectArrayEmitter = new EventEmitter();
+  public createObjectEmitter = new EventEmitter();
 
   public objectToModify: any;
   public visibilityModifyPanel: boolean = false;
@@ -53,14 +53,14 @@ export class CrudBasicComponent implements OnInit {
 
   public modifyObject(success) {
     if (success === true) {
-      this.modifyObjectArrayEmitter.emit(this.modifyObjectComponent.valuesArray);
+      this.modifyObjectEmitter.emit(this.modifyObjectComponent.valuesArray);
     }
     this.visibilityModifyPanel = false;
   }
 
   public createObject(success) {
     if (success) {
-      this.createObjectArrayEmitter.emit(this.createObjectComponent.valuesArray);
+      this.createObjectEmitter.emit(this.createObjectComponent.valuesArray);
     }
   }
 
