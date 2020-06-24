@@ -5,6 +5,7 @@
 <div class=" container d-flex flex-column align-items-center ">
     <app-create-object class="w-100" [fieldsNames]="fieldsNames" (acceptCreating)="createObject($event)"></app-create-object>
     <app-modify-object class="w-100 " *ngIf="visibilityModifyPanel " (acceptModifiying)="modifyObject($event)" [objectToModify]=" objectToModify " [fieldsName]="fieldsNames "></app-modify-object>
-    <app-show-table [objects]=objects [objectName]="objectName " [fieldsName]="fieldsNames " (modifyChanges)="readObjectToModify($event) ">
+    <app-delete-object class="w-100" *ngIf="visibilityDeletePanel" (acceptDeleting)="deleteObject($event)" [objectToDelete]="objectToDelete" [fieldsName]="fieldsNames "></app-delete-object>
+    <app-show-table [objects]=objects [objectName]="objectName " [fieldsName]="fieldsNames " (modifyChanges)="readObjectToModify($event)" (deleteChanges)="readObjectToDelete($event)">
     </app-show-table>
 </div>

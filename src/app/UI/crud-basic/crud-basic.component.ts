@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ModifyObjectComponent } from '../modify-object/modify-object.component';
 import { CreateObjectComponent } from '../create-object/create-object.component';
+import { DeleteObjectComponent } from '../delete-object/delete-object.component';
 
 @Component({
   selector: 'app-crud-basic',
@@ -27,6 +28,9 @@ export class CrudBasicComponent implements OnInit {
   @ViewChild(CreateObjectComponent)
   public createObjectComponent: CreateObjectComponent;
 
+  @ViewChild(DeleteObjectComponent)
+  public deleteObjectComponent: DeleteObjectComponent;
+
 
   @Output()
   public modifyObjectEmitter = new EventEmitter();
@@ -35,8 +39,14 @@ export class CrudBasicComponent implements OnInit {
   @Output()
   public createObjectEmitter = new EventEmitter();
 
+  @Output()
+  deleteObjectEmitter = new EventEmitter();
+
   public objectToModify: any;
+  public objectToDelete: any;
+
   public visibilityModifyPanel: boolean = false;
+  public visibilityDeletePanel: boolean = false;
 
   constructor() {
     this.statement = "";
@@ -62,6 +72,19 @@ export class CrudBasicComponent implements OnInit {
     if (success) {
       this.createObjectEmitter.emit(this.createObjectComponent.valuesArray);
     }
+  }
+
+  public deleteObject(success){
+    if(success){
+      this.deleteObjectEmitter.emit(this.deleteObjectComponent.values[0]);
+    }
+    this.visibilityDeletePanel =!this.visibilityDeletePanel;
+  }
+
+  public readObjectToDelete(i){
+    this.objectToDelete = this.objects[i];
+    this.visibilityDeletePanel = !this.visibilityDeletePanel;
+    this.statement = "";
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producer } from 'src/app/Model/Producer';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
-import { producerEndPoint } from "../../Service/Http/URL";
+import { producerEndpoint } from "../../Service/Http/URL";
 @Component({
   selector: 'app-producer',
   templateUrl: './producer.component.html',
@@ -21,9 +21,9 @@ export class ProducerComponent implements OnInit {
   }
 
   public modifyProducer(valueArray) {
-    this.statement="";
+    this.statement = "";
     const producerToModify = this.convertArrayToProducer(valueArray);
-    this.httpApi.patch(producerEndPoint, producerToModify.id, producerToModify)
+    this.httpApi.patch(producerEndpoint, producerToModify.id, producerToModify)
       .subscribe(
         data => { this.statement = "Sukces! Modyfikacja zakończona powodzeniem"; this.getProducers() },
         error => this.statement = "Błąd podczas modyfikowania obiektu");
@@ -35,7 +35,7 @@ export class ProducerComponent implements OnInit {
   }
 
   private getProducers() {
-    this.httpApi.get(producerEndPoint)
+    this.httpApi.get(producerEndpoint)
       .subscribe(data => { this.producers = data; this.producers = this.producers.slice() },
         error => this.statement = "Błąd podczas pobierania danych z serwera");
   }
@@ -44,7 +44,7 @@ export class ProducerComponent implements OnInit {
     valueArray[0] = null;
     let producerToCreate = this.convertArrayToProducer(valueArray);
     if (producerToCreate.name.length > 2) {
-      this.httpApi.post(producerEndPoint, producerToCreate)
+      this.httpApi.post(producerEndpoint, producerToCreate)
         .subscribe(data => this.getProducers(),
           error => this.statement = "Błąd! Problem podczas zapisywania producenta");
 
@@ -52,6 +52,12 @@ export class ProducerComponent implements OnInit {
     } else {
       this.statement = "Błąd! Wybrana nazwa jest za krótka !!!"
     }
+  }
+
+  public deleteProducer(id) {
+    this.httpApi.delete(producerEndpoint, id)
+      .subscribe(data => { this.statement = "Sukces! Obiekt usunięty"; this.getProducers(); },
+        error => this.statement = "Błąd! Nie udało się usunąć obiektu");
   }
 
 }

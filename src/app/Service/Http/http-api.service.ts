@@ -19,4 +19,8 @@ export class HttpApiService {
   public patch(endpoint, id, object) {
     return this.httpClient.patch<any>(URL + endpoint + "/" + id, object);
   }
+
+  public delete(endpoint, id){
+    return this.httpClient.delete<any>(URL+endpoint+"/"+id);
+  }
 }

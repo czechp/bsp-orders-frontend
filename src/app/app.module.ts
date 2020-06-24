@@ -12,6 +12,7 @@ import { ProducerComponent } from './ModelCRUD/producer/producer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateObjectComponent } from './UI/create-object/create-object.component';
 import { AuthorizationInterceptorService } from './Service/Authorization/authorization-interceptor.service';
+import { DeleteObjectComponent } from './UI/delete-object/delete-object.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthorizationInterceptorService } from './Service/Authorization/authori
     CrudStatementComponent,
     ProducerComponent,
     CreateObjectComponent,
+    DeleteObjectComponent,
   ],
   imports: [
     BrowserModule,
