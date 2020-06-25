@@ -14,6 +14,7 @@ import { CreateObjectComponent } from './UI/create-object/create-object.componen
 import { AuthorizationInterceptorService } from './Service/Authorization/authorization-interceptor.service';
 import { DeleteObjectComponent } from './UI/delete-object/delete-object.component';
 import { ProviderComponent } from './ModelCRUD/provider/provider.component';
+import { CategoryComponent } from './ModelCRUD/category/category.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProviderComponent } from './ModelCRUD/provider/provider.component';
     CreateObjectComponent,
     DeleteObjectComponent,
     ProviderComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
