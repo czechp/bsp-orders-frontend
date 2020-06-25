@@ -19,7 +19,6 @@ export class ProviderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProviders();
-    console.log(this.providers);
   }
 
   private getProviders() {
