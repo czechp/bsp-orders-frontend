@@ -16,6 +16,7 @@ import { DeleteObjectComponent } from './UI/delete-object/delete-object.componen
 import { ProviderComponent } from './ModelCRUD/provider/provider.component';
 import { CategoryComponent } from './ModelCRUD/category/category.component';
 import { NavbarComponent } from './UI/navbar/navbar.component';
+import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NavbarComponent } from './UI/navbar/navbar.component';
     ProviderComponent,
     CategoryComponent,
     NavbarComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
