@@ -1,0 +1,16 @@
+.nav-button {
+    min-width: 200px;
+    margin-right: 15px;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    color: black;
+}
+
+.login-input-form {
+    width: 200px;
+}

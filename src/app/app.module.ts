@@ -15,6 +15,7 @@ import { AuthorizationInterceptorService } from './Service/Authorization/authori
 import { DeleteObjectComponent } from './UI/delete-object/delete-object.component';
 import { ProviderComponent } from './ModelCRUD/provider/provider.component';
 import { CategoryComponent } from './ModelCRUD/category/category.component';
+import { NavbarComponent } from './UI/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CategoryComponent } from './ModelCRUD/category/category.component';
     DeleteObjectComponent,
     ProviderComponent,
     CategoryComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

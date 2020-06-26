@@ -1,0 +1,48 @@
+<div class="navbar bg-dark text-white navbar-expand-lg">
+    <div class="navbar-brand"><img src="assets/img/bispol_logo.png" alt="" width="200px"></div>
+    <div class="navbar-nav mr-auto">
+        <div class="nav-item dropdown">
+            <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Zamówienia</button>
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" href="#">Nowe</a>
+                <a class="dropdown-item" href="#">Aktualne</a>
+                <a class="dropdown-item" href="#">Zakończone</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Baza</button>
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" routerLink="/producer">Prodcuenci</a>
+                <a class="dropdown-item" routerLink="/category">Kategorie</a>
+                <a class="dropdown-item" routerLink="/provider">Dostawcy</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Elementy</a>
+
+            </div>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary">Zamówienie warsztatowe</button>
+        </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0 ">
+        <div class="input-group mr-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-warning" id="basic-addon1">Login:</span>
+            </div>
+            <input type="text" class="form-control login-input-form" placeholder="Wpisz login" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mr-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text bg-warning" id="basic-addon1">Hasło:</span>
+            </div>
+            <input type="text" class="form-control login-input-form" placeholder="Wpisz hasło" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button>
+    </form>
+
+    <form class="form-inline my-2 my-lg-0 ">
+        <button class="btn btn-outline-danger ml-3">Wyloguj</button>
+    </form>
+</div>
