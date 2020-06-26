@@ -10,3 +10,7 @@
 .dropdown-item:hover {
     color: black;
 }
+
+.login-input-form {
+    width: 200px;
+}
