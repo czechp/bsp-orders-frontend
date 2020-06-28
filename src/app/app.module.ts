@@ -17,6 +17,7 @@ import { ProviderComponent } from './ModelCRUD/provider/provider.component';
 import { CategoryComponent } from './ModelCRUD/category/category.component';
 import { NavbarComponent } from './UI/navbar/navbar.component';
 import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
+import { ItemComponent } from './ModelCRUD/item/item.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
     CategoryComponent,
     NavbarComponent,
     NotFoundComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,

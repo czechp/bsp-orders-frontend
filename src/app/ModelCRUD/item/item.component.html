@@ -1,0 +1,10 @@
+<div class="contaier">
+    <h1 class="bg-success text-white text-center py-3 m-0">Elementy</h1>
+
+    <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+    <div class=" container d-flex flex-column align-items-center ">
+
+        <app-show-table [objects]="flatItemArray" [objectName]="'Elementy' " [fieldsName]="fieldsName "
+            (modifyChanges)="test()" (deleteChanges)="test()"></app-show-table>
+    </div>
+</div>
