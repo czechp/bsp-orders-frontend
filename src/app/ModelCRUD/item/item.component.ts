@@ -122,6 +122,19 @@ export class ItemComponent implements OnInit {
   }
 
   public getItemToDelete(i) {
+    this.itemToDelete = this.items[i];
+    this.deleteVisbility = !this.deleteVisbility;
+  }
+
+  public deleteItem(item: Item){
+    if(item !== null){
+      this.httpApi.delete(itemEndpoint, item.id)
+      .subscribe(
+        data => {this.statement = "Sukces! Obiekt usunięty"; this.getItems()},
+        error => this.statement = "Błąd! Nie udało się usunąć obiektu"
+      );
+    }
+    this.deleteVisbility = !this.deleteVisbility;
   }
 }
 
