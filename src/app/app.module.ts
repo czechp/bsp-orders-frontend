@@ -20,6 +20,7 @@ import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
 import { ItemComponent } from './ModelCRUD/item/item.component';
 import { ItemCreateComponent } from './ModelCRUD/CRUD/item-create/item-create.component';
 import { SelectObjectComponent } from './UI/select-object/select-object.component';
+import { ItemModifyComponent } from './ModelCRUD/CRUD/item-modify/item-modify.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SelectObjectComponent } from './UI/select-object/select-object.componen
     ItemComponent,
     ItemCreateComponent,
     SelectObjectComponent,
+    ItemModifyComponent,
   ],
   imports: [
     BrowserModule,

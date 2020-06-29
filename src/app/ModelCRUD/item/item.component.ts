@@ -29,6 +29,13 @@ export class ItemComponent implements OnInit {
   public itemCategories: Category[];
 
   public flatItemArray: ItemFlat[];
+  public itemToModify: Item;
+  public modifyVisibility: boolean = false;
+
+  public itemToDelete: Item;
+  public deleteVisbility: boolean = false;
+
+
 
   constructor(private httpApi: HttpApiService) {
     this.items = [];
@@ -47,13 +54,13 @@ export class ItemComponent implements OnInit {
         error => this.statement = "Błąd podczas pobierania danych z serwera"
       );
 
-      this.httpApi.get(providerEndpoint)
+    this.httpApi.get(providerEndpoint)
       .subscribe(
         data => { this.providers = data; this.providers = this.providers.slice() },
         error => this.statement = "Błąd podczas pobierania danych z serwera"
       );
 
-      this.httpApi.get(categoryEndpoint)
+    this.httpApi.get(categoryEndpoint)
       .subscribe(
         data => { this.itemCategories = data; this.itemCategories = this.itemCategories.slice() },
         error => this.statement = "Błąd podczas pobierania danych z serwera"
@@ -90,16 +97,32 @@ export class ItemComponent implements OnInit {
 
   }
 
-  public createItem(item:Item){
+  public createItem(item: Item) {
     this.httpApi.post(itemEndpoint, item)
-    .subscribe(
-      data => {this.statement = "Sukces! Obiekt zapisany poprawnie"; this.getItems()},
-      error=>this.statement = "Błąd podczas zapisywania obiektu!!! Sprawdź połączenie z serwerm lub poprawność danych."
-    );
+      .subscribe(
+        data => { this.statement = "Sukces! Obiekt zapisany poprawnie"; this.getItems() },
+        error => this.statement = "Błąd podczas zapisywania obiektu!!! Sprawdź połączenie z serwerm lub poprawność danych."
+      );
   }
 
-  public test() { };
+  public getItemToModify(i) {
+    this.itemToModify = this.items[parseInt(i)];
+    this.modifyVisibility = !this.modifyVisibility;
+  }
 
+  public modifyItem(item: Item) {
+    if (item !== null) {
+      this.httpApi.patch(itemEndpoint, item.id, item)
+        .subscribe(
+          data => { this.statement = "Sukces! Obiekt zmodyfikowany poprawnie"; this.getItems() },
+          error => { this.statement = "Błąd podczas modyfikowania obiektu!!! Sprawdź połączenie z serwerm lub poprawność danych." }
+        );
+    }
+    this.modifyVisibility = !this.modifyVisibility;
+  }
+
+  public getItemToDelete(i) {
+  }
 }
 
 interface ItemFlat {
