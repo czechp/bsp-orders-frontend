@@ -34,7 +34,7 @@ export class ProducerComponent implements OnInit {
     return { id: valueArray[0], name: valueArray[1] };
   }
 
-  private getProducers() {
+  public getProducers() {
     this.httpApi.get(producerEndpoint)
       .subscribe(data => { this.producers = data; this.producers = this.producers.slice() },
         error => this.statement = "Błąd podczas pobierania danych z serwera");

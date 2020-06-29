@@ -3,8 +3,7 @@
 
     <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
     <div class=" container d-flex flex-column align-items-center ">
-
-        <app-show-table [objects]="flatItemArray" [objectName]="'Elementy' " [fieldsName]="fieldsName "
-            (modifyChanges)="test()" (deleteChanges)="test()"></app-show-table>
+        <app-item-create class="w-100" [producers]="producers" [providers]="providers" [itemCategories]="itemCategories" (createItemEmitter)="createItem($event)"></app-item-create>
+        <app-show-table [objects]="flatItemArray" [objectName]="'Elementy' " [fieldsName]="fieldsName " (modifyChanges)="test()" (deleteChanges)="test()"></app-show-table>
     </div>
 </div>
