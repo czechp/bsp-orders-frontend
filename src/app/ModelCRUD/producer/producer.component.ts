@@ -25,7 +25,7 @@ export class ProducerComponent implements OnInit {
     const producerToModify = this.convertArrayToProducer(valueArray);
     this.httpApi.patch(producerEndpoint, producerToModify.id, producerToModify)
       .subscribe(
-        data => { this.statement = "Sukces! Modyfikacja zakończona powodzeniem"; this.getProducers() },
+        data => {  this.getProducers(); this.statement = "Sukces! Modyfikacja zakończona powodzeniem"; },
         error => this.statement = "Błąd podczas modyfikowania obiektu");
   }
 
@@ -34,29 +34,29 @@ export class ProducerComponent implements OnInit {
     return { id: valueArray[0], name: valueArray[1] };
   }
 
-  private getProducers() {
+  public getProducers() {
     this.httpApi.get(producerEndpoint)
       .subscribe(data => { this.producers = data; this.producers = this.producers.slice() },
         error => this.statement = "Błąd podczas pobierania danych z serwera");
   }
 
   public createProducer(valueArray) {
+    this.statement="";
     valueArray[0] = null;
     let producerToCreate = this.convertArrayToProducer(valueArray);
     if (producerToCreate.name.length > 2) {
       this.httpApi.post(producerEndpoint, producerToCreate)
         .subscribe(data => {this.getProducers(); this.statement="Sukces! Obiekt dodany"},
           error => this.statement = "Błąd! Problem podczas zapisywania obiektu");
-
-      this.statement = "";
     } else {
       this.statement = "Błąd! Wybrana nazwa jest za krótka !!!"
     }
   }
 
   public deleteProducer(id) {
+    this.statement="";
     this.httpApi.delete(producerEndpoint, id)
-      .subscribe(data => { this.statement = "Sukces! Obiekt usunięty"; this.getProducers(); },
+      .subscribe(data => { this.getProducers(); this.statement = "Sukces! Obiekt usunięty"; },
         error => this.statement = "Błąd! Nie udało się usunąć obiektu");
   }
 

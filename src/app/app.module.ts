@@ -18,6 +18,10 @@ import { CategoryComponent } from './ModelCRUD/category/category.component';
 import { NavbarComponent } from './UI/navbar/navbar.component';
 import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
 import { ItemComponent } from './ModelCRUD/item/item.component';
+import { ItemCreateComponent } from './ModelCRUD/CRUD/item-create/item-create.component';
+import { SelectObjectComponent } from './UI/select-object/select-object.component';
+import { ItemModifyComponent } from './ModelCRUD/CRUD/item-modify/item-modify.component';
+import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { ItemComponent } from './ModelCRUD/item/item.component';
     NavbarComponent,
     NotFoundComponent,
     ItemComponent,
+    ItemCreateComponent,
+    SelectObjectComponent,
+    ItemModifyComponent,
+    ItemDeleteComponent,
   ],
   imports: [
     BrowserModule,

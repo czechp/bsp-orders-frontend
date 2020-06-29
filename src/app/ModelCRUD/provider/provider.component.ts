@@ -28,18 +28,21 @@ export class ProviderComponent implements OnInit {
   }
 
   public deleteProvider(id) {
+    this.statement="";
     this.httpApi.delete(providerEndpoint, id)
       .subscribe(data => { this.getProviders(); this.statement = "Sukces! Obiekt usunięty" },
         error => this.statement = "Błąd! Nie udało się usunąć obiektu");
   }
 
   public modifyProvider(valueArray) {
+    this.statement="";
     this.httpApi.patch(providerEndpoint, valueArray[0], this.createProviderFromArray(valueArray))
       .subscribe(data => { this.statement = "Sukces! Modyfikacja zakończona powodzeniem"; this.getProviders() },
         error => this.statement = "Błąd podczas modyfikowania obiektu");
   }
 
   public createProvider(valueArray) {
+    this.statement="";
     let provider = this.createProviderFromArray(valueArray);
     provider.id = null;
     if (provider.name.length > 2) {
