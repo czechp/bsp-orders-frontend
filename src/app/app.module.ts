@@ -22,6 +22,7 @@ import { ItemCreateComponent } from './ModelCRUD/CRUD/item-create/item-create.co
 import { SelectObjectComponent } from './UI/select-object/select-object.component';
 import { ItemModifyComponent } from './ModelCRUD/CRUD/item-modify/item-modify.component';
 import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.component';
+import { LoginComponent } from './UI/login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.co
     SelectObjectComponent,
     ItemModifyComponent,
     ItemDeleteComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
