@@ -3,14 +3,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppUser } from 'src/app/Model/AppUser';
 import { URL, loginEndpoint } from '../Http/URL';
 import { CurrentUser } from './CurrentUser';
+import {  Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
   public static username;
+  private loggingSubject = new Subject<any>(); 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
+
 
   public login(username: string, password: string){
     let appUser: AppUser = {
@@ -25,18 +29,29 @@ export class AuthorizationService {
     .subscribe(
       data => {
         sessionStorage.setItem("isLogin", "true");
+        sessionStorage.setItem("username", data.username);
         sessionStorage.setItem("credentials", credentials);
         CurrentUser.appUser = data;
+        this.router.navigate(["/"]);
+        this.loggingSubject.next();
       },
       error => {}
     );
   }
 
   public logout(){
-    sessionStorage.setItem("isLogin", "false");
+        this.router.navigate(["/login"]);
+        sessionStorage.setItem("isLogin", "false");
   }
 
   public isLogin():boolean{
     return sessionStorage.getItem("isLogin") === "true" ? true : false;
   }
+
+
+  public getSubscription(){
+    return this.loggingSubject.asObservable();
+  }
+
+
 }

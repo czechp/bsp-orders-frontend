@@ -6,15 +6,18 @@ import { ProviderComponent } from './ModelCRUD/provider/provider.component';
 import { NotFoundComponent } from './Wildcards/not-found/not-found.component';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './ModelCRUD/item/item.component';
+import { LoginComponent } from './UI/login/login.component';
+import { AuthorizationGuardService } from './Service/Authorization/authorization-guard.service';
 
 
 const routes: Routes = [
-  { path: "producer", component: ProducerComponent },
-  { path: "provider", component: ProviderComponent },
-  { path: "category", component: CategoryComponent },
-  { path: "not-found", component: NotFoundComponent },
-  { path: "item", component: ItemComponent },
-  { path: "", redirectTo: "/item", pathMatch: "full"},
+  { path: "producer", component: ProducerComponent, canActivate: [AuthorizationGuardService] },
+  { path: "provider", component: ProviderComponent, canActivate: [AuthorizationGuardService] },
+  { path: "category", component: CategoryComponent, canActivate: [AuthorizationGuardService] },
+  { path: "not-found", component: NotFoundComponent, canActivate: [AuthorizationGuardService] },
+  { path: "item", component: ItemComponent, canActivate: [AuthorizationGuardService] },
+  {path: "login", component: LoginComponent},
+  { path: "", redirectTo: "/item", pathMatch: "full",  canActivate: [AuthorizationGuardService]},
   { path: "**", redirectTo: "/not-found" }
 ];
 
