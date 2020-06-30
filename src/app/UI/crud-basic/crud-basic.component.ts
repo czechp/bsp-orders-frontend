@@ -56,7 +56,7 @@ export class CrudBasicComponent implements OnInit {
   }
 
   public readObjectToModify(i) {
-    this.objectToModify = this.objects[i];
+    this.objectToModify = this.findElementById(i);
     this.visibilityModifyPanel = !this.visibilityModifyPanel;
     this.statement = "";
   }
@@ -82,9 +82,17 @@ export class CrudBasicComponent implements OnInit {
   }
 
   public readObjectToDelete(i){
-    this.objectToDelete = this.objects[i];
+    this.objectToDelete = this.findElementById(i);
     this.visibilityDeletePanel = !this.visibilityDeletePanel;
     this.statement = "";
+  }
+
+  private findElementById(id:number){
+    for(let object of this.objects){
+      if(object.id === id){
+        return object;
+      }
+    }
   }
 
 }

@@ -105,8 +105,8 @@ export class ItemComponent implements OnInit {
       );
   }
 
-  public getItemToModify(i) {
-    this.itemToModify = this.items[parseInt(i)];
+  public getItemToModify(id) {
+    this.itemToModify = this.findItemById(id);
     this.modifyVisibility = !this.modifyVisibility;
   }
 
@@ -121,8 +121,8 @@ export class ItemComponent implements OnInit {
     this.modifyVisibility = !this.modifyVisibility;
   }
 
-  public getItemToDelete(i) {
-    this.itemToDelete = this.items[i];
+  public getItemToDelete(id) {
+    this.itemToDelete = this.findItemById(id);
     this.deleteVisbility = !this.deleteVisbility;
   }
 
@@ -135,6 +135,14 @@ export class ItemComponent implements OnInit {
       );
     }
     this.deleteVisbility = !this.deleteVisbility;
+  }
+
+  private findItemById(id){
+    for(let item of this.items){
+      if(item.id === parseInt(id)){
+        return item;
+      }
+    }
   }
 }
 
