@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './ModelCRUD/item/item.component';
 import { LoginComponent } from './UI/login/login.component';
 import { AuthorizationGuardService } from './Service/Authorization/authorization-guard.service';
+import { LoginErrorComponent } from './UI/login-error/login-error.component';
 
 
 const routes: Routes = [
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: "category", component: CategoryComponent, canActivate: [AuthorizationGuardService] },
   { path: "not-found", component: NotFoundComponent, canActivate: [AuthorizationGuardService] },
   { path: "item", component: ItemComponent, canActivate: [AuthorizationGuardService] },
-  {path: "login", component: LoginComponent},
-  { path: "", redirectTo: "/item", pathMatch: "full",  canActivate: [AuthorizationGuardService]},
+  { path: "login", component: LoginComponent },
+  { path: "login-error", component: LoginErrorComponent },
+  { path: "", redirectTo: "/item", pathMatch: "full", canActivate: [AuthorizationGuardService] },
   { path: "**", redirectTo: "/not-found" }
 ];
 

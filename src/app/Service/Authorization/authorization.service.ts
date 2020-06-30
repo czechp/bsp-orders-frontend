@@ -35,7 +35,9 @@ export class AuthorizationService {
         this.router.navigate(["/"]);
         this.loggingSubject.next();
       },
-      error => {}
+      error => {
+        this.router.navigate(["/login-error"]);
+      }
     );
   }
 
