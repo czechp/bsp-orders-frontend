@@ -1,0 +1,11 @@
+<div class="row mb-5">
+    <div class="card bg-dark">
+        <div class="card-header text-center bg-success">
+            Filtruj wyniki:
+        </div>
+        <div class="input-group card-body my-2 ">
+            <div class="input-group-prepend"><span class="input-group-text">Wpisz tekst: </span></div>
+            <input type="text" class="form-control" (keyup)="filter($event.target.value)">
+        </div>
+    </div>
+</div>
