@@ -24,6 +24,7 @@ import { ItemModifyComponent } from './ModelCRUD/CRUD/item-modify/item-modify.co
 import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.component';
 import { LoginComponent } from './UI/login/login.component';
 import { LoginErrorComponent } from './UI/login-error/login-error.component';
+import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { LoginErrorComponent } from './UI/login-error/login-error.component';
     ItemDeleteComponent,
     LoginComponent,
     LoginErrorComponent,
+    FilterArrayComponent,
   ],
   imports: [
     BrowserModule,

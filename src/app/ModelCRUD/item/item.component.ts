@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { itemEndpoint, producerEndpoint, providerEndpoint, categoryEndpoint } from "../../Service/Http/URL";
 import { Item } from 'src/app/Model/Item';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
@@ -45,6 +45,7 @@ export class ItemComponent implements OnInit {
     this.providers = [];
     this.itemCategories = [];
   }
+
 
   ngOnInit(): void {
     this.getItems();
@@ -143,7 +144,14 @@ export class ItemComponent implements OnInit {
         return item;
       }
     }
+  } 
+
+  public filterItems(filteredItems: Item[]){
+    this.flatItemArray = this.itemArrayToItemFlatArray(filteredItems);
   }
+
+
+
 }
 
 interface ItemFlat {
