@@ -7,28 +7,28 @@
                 <!-- Login -->
                 <div class="input-group mt-3">
                     <div class="input-group-prepend ">
-                        <span class="input-group-text label-width ">Login:</span>
+                        <span class="input-group-text label-width bg-warning ">Login:</span>
                     </div>
                     <input type="text" #login class="form-control" (focusout)="loginIsCorrect(login.value)">
                 </div>
                 <!-- Email -->
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text label-width">Email:</span>
+                        <span class="input-group-text label-width bg-warning">Email:</span>
                     </div>
                     <input type="email" #email class="form-control">
                 </div>
                 <!-- Password -->
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text label-width">Hasło:</span>
+                        <span class="input-group-text label-width bg-warning">Hasło:</span>
                     </div>
                     <input type="password" #password class="form-control" (focusout)="passwordIsCorrect(password.value)">
                 </div>
                 <!-- Password confirmation -->
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text label-width">Hasło conf.:</span>
+                        <span class="input-group-text label-width bg-warning">Hasło conf.:</span>
                     </div>
                     <input type="password" #passwordConfirm class="form-control" (focusout)="passwordIsCorrect(passwordConfirm.value)" (focusout)="comparePassword(password.value, passwordConfirm.value)">
                 </div>
