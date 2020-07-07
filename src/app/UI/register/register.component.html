@@ -1,0 +1,39 @@
+<app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+<div class="row" class="text-white" style="margin-top: 100px;">
+    <div class="d-flex justify-content-center">
+        <div class="jumbotron text-center bg-dark" style="width: 500px;">
+            <h1 class="mb-5">Rejestracja:</h1>
+            <div class="form-group mt-4">
+                <!-- Login -->
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text label-width ">Login:</span>
+                    </div>
+                    <input type="text" #login class="form-control" (focusout)="loginIsCorrect(login.value)">
+                </div>
+                <!-- Email -->
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text label-width">Email:</span>
+                    </div>
+                    <input type="email" #email class="form-control">
+                </div>
+                <!-- Password -->
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text label-width">Hasło:</span>
+                    </div>
+                    <input type="password" #password class="form-control" (focusout)="passwordIsCorrect(password.value)">
+                </div>
+                <!-- Password confirmation -->
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text label-width">Hasło conf.:</span>
+                    </div>
+                    <input type="password" #passwordConfirm class="form-control" (focusout)="passwordIsCorrect(passwordConfirm.value)" (focusout)="comparePassword(password.value, passwordConfirm.value)">
+                </div>
+            </div>
+            <button class=" btn btn-outline-primary w-50 mt-5 " (click)="register(login.value, email.value, password.value, passwordConfirm.value) ">Rejestruj</button>
+        </div>
+    </div>
+</div>

@@ -27,6 +27,7 @@ import { LoginErrorComponent } from './UI/login-error/login-error.component';
 import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array.component';
 import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
 import { OrderCreateComponent } from './ModelCRUD/CRUD/order-create/order-create.component';
+import { RegisterComponent } from './UI/register/register.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { OrderCreateComponent } from './ModelCRUD/CRUD/order-create/order-create
     FilterArrayComponent,
     OrderNewComponent,
     OrderCreateComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

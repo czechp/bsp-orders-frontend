@@ -1,0 +1,6 @@
+.label-width {
+    min-width: 120px;
+    background-color: blue;
+    color: white;
+    opacity: 0.9;
+}

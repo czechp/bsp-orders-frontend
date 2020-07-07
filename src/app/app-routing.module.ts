@@ -10,6 +10,7 @@ import { LoginComponent } from './UI/login/login.component';
 import { AuthorizationGuardService } from './Service/Authorization/authorization-guard.service';
 import { LoginErrorComponent } from './UI/login-error/login-error.component';
 import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
+import { RegisterComponent } from './UI/register/register.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "item", component: ItemComponent, canActivate: [AuthorizationGuardService] },
   { path: "order-new", component: OrderNewComponent, canActivate: [AuthorizationGuardService]},
   { path: "login", component: LoginComponent },
+  {path: "register", component: RegisterComponent},
   { path: "login-error", component: LoginErrorComponent },
   { path: "", redirectTo: "/item", pathMatch: "full", canActivate: [AuthorizationGuardService] },
   { path: "**", redirectTo: "/not-found" }
