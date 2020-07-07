@@ -25,6 +25,8 @@ import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.co
 import { LoginComponent } from './UI/login/login.component';
 import { LoginErrorComponent } from './UI/login-error/login-error.component';
 import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array.component';
+import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
+import { OrderCreateComponent } from './ModelCRUD/CRUD/order-create/order-create.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array
     LoginComponent,
     LoginErrorComponent,
     FilterArrayComponent,
+    OrderNewComponent,
+    OrderCreateComponent,
   ],
   imports: [
     BrowserModule,
