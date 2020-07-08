@@ -11,15 +11,23 @@ import { orderEndpoint } from 'src/app/Service/Http/URL';
 export class OrderNewComponent implements OnInit {
 
   public statement: string;
+  public orderList: Order[];
+
   constructor(private httpApiService: HttpApiService) {
     this.statement = "";
+    this.orderList = [];
   }
 
   ngOnInit(): void {
+    this.getOrders();
   }
 
-  public getOrders(){
-
+  private getOrders(){
+      this.httpApiService.get(orderEndpoint)
+      .subscribe(
+        data => {this.orderList = data; console.log(this.orderList);},
+        error =>{this.statement = "Błąd!!! Nie udało się pobrać danych z serwera"}
+      );
   }
 
   public createOrder(order: Order) {

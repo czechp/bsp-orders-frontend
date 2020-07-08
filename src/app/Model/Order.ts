@@ -8,5 +8,5 @@ export interface Order {
     itemsInOrder: ItemInOrder[];
     creationDate: Date;
     closedDate: Date;
-    status: string;
+    orderStatus: string;
 }
