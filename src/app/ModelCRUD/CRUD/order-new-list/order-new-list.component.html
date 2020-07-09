@@ -10,7 +10,11 @@
         <tr *ngFor="let order of orderList">
             <td>{{order.id}}</td>
             <td>{{order.name}}</td>
-            <td>{{order.orderStatus}}</td>
+            <td>
+                <span *ngIf="order.orderStatus == 'NEW';else realiseOrder">Nowe</span>
+                <ng-template #realiseOrder>W trakcie realizacji</ng-template>
+
+            </td>
             <td>{{order.creationDate | date: 'H:mm:ss EEEE dd-MM-yyyy' }}</td>
             <td><button class="btn btn-outline-warning">Modyfikuj</button></td>
         </tr>

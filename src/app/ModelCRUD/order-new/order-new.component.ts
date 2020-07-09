@@ -12,10 +12,12 @@ export class OrderNewComponent implements OnInit {
 
   public statement: string;
   public orderList: Order[];
+  public orderListWithOutFinished: Order[];
 
   constructor(private httpApiService: HttpApiService) {
     this.statement = "";
     this.orderList = [];
+    this.orderListWithOutFinished = [];
   }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class OrderNewComponent implements OnInit {
   private getOrders(){
       this.httpApiService.get(orderEndpoint)
       .subscribe(
-        data => {this.orderList = data; console.log(this.orderList);},
+        data => {this.orderList = data; console.log(this.orderList); this.withOutFinishedOrder()},
         error =>{this.statement = "Błąd!!! Nie udało się pobrać danych z serwera"}
       );
   }
@@ -40,6 +42,14 @@ export class OrderNewComponent implements OnInit {
     }
     else{
       this.statement ="Błąd! Za krótka nazwa";
+    }
+  }
+
+  private withOutFinishedOrder(){
+    for(let order of this.orderList){
+      if(order.orderStatus !=="FINISHED"){
+        this.orderListWithOutFinished.push(order);
+      }
     }
   }
 
