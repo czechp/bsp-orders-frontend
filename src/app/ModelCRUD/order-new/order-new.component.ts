@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/Model/Order';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { orderEndpoint } from 'src/app/Service/Http/URL';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-new',
@@ -12,45 +13,49 @@ export class OrderNewComponent implements OnInit {
 
   public statement: string;
   public orderList: Order[];
-  public orderListWithOutFinished: Order[];
 
-  constructor(private httpApiService: HttpApiService) {
+  constructor(private httpApiService: HttpApiService, private router: Router) {
     this.statement = "";
     this.orderList = [];
-    this.orderListWithOutFinished = [];
   }
 
   ngOnInit(): void {
     this.getOrders();
   }
 
-  private getOrders(){
-      this.httpApiService.get(orderEndpoint)
+  private getOrders() {
+    this.httpApiService.get(orderEndpoint)
       .subscribe(
-        data => {this.orderList = data; console.log(this.orderList); this.withOutFinishedOrder()},
-        error =>{this.statement = "Błąd!!! Nie udało się pobrać danych z serwera"}
+        data => { this.orderList = data;  this.onlyNewOrders() },
+        error => { this.statement = "Błąd!!! Nie udało się pobrać danych z serwera" }
       );
   }
 
   public createOrder(order: Order) {
-    if (order.name.length >= 3){
+    if (order.name.length >= 3) {
       this.httpApiService.post(orderEndpoint, order)
-      .subscribe(
-        data=>{this.statement="Sukces! Zamówienie zapisane poprawnie"; this.getOrders()},
-        error=>this.statement="Błąd podczas zapisywania zamówienia"
-      );
+        .subscribe(
+          data => { this.statement = "Sukces! Zamówienie zapisane poprawnie"; this.getOrders() },
+          error => this.statement = "Błąd podczas zapisywania zamówienia"
+        );
     }
-    else{
-      this.statement ="Błąd! Za krótka nazwa";
+    else {
+      this.statement = "Błąd! Za krótka nazwa";
     }
   }
 
-  private withOutFinishedOrder(){
-    for(let order of this.orderList){
-      if(order.orderStatus !=="FINISHED"){
-        this.orderListWithOutFinished.push(order);
+  private onlyNewOrders() {
+    let result: Order[] = [];
+    for (let order of this.orderList) {
+      if (order.orderStatus === "NEW") {
+        result.push(order);
       }
     }
+    this.orderList = result; 
+  }
+
+  public routeToOrderDetails(id: number){
+    this.router.navigate(["/order-details", id]);
   }
 
 }

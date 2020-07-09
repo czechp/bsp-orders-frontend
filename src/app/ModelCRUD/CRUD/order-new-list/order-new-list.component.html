@@ -4,7 +4,7 @@
         <th scope="col" class="text-center">Nazwa: </th>
         <th scope="col" class="text-center">Status: </th>
         <th scope="col" class="text-center">Data utworzenia:</th>
-        <th scope="col" class="text-center">Modyfikuj:</th>
+        <th scope="col" class="text-center">Uzupełnij:</th>
     </thead>
     <tbody>
         <tr *ngFor="let order of orderList">
@@ -16,7 +16,7 @@
 
             </td>
             <td>{{order.creationDate | date: 'H:mm:ss EEEE dd-MM-yyyy' }}</td>
-            <td><button class="btn btn-outline-warning">Modyfikuj</button></td>
+            <td><button class="btn btn-outline-warning" (click)="getOrderId(order.id)">Uzupełnij</button></td>
         </tr>
     </tbody>
 </div>

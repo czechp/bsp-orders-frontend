@@ -29,6 +29,8 @@ import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
 import { OrderCreateComponent } from './ModelCRUD/CRUD/order-create/order-create.component';
 import { RegisterComponent } from './UI/register/register.component';
 import { OrderNewListComponent } from './ModelCRUD/CRUD/order-new-list/order-new-list.component';
+import { OrderCurrentComponent } from './ModelCRUD/order-current/order-current.component';
+import { OrderDetailsComponent } from './ModelCRUD/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { OrderNewListComponent } from './ModelCRUD/CRUD/order-new-list/order-new
     OrderCreateComponent,
     RegisterComponent,
     OrderNewListComponent,
+    OrderCurrentComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
