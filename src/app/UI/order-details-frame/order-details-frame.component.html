@@ -24,7 +24,7 @@
                     Ilość elementów: 
                 </span>
             </div>
-            <input type="text" class="form-control" value="{{order.itemsInOrder.length}} " readonly>
+            <input type="text" class="form-control" value="{{order.itemsInOrder.length}}" readonly>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
         <div class="input-group" style="width: 400px;">
             <div class="input-group-prepend">
                 <span class="input-group-text ">
-                    Data stworzenia: 
+                    Data utworzenia: 
                 </span>
             </div>
             <input type="text" class="form-control" value="{{order.creationDate| date: 'H:mm:ss EEEE dd-MM-yyyy' }} " readonly>
@@ -56,9 +56,9 @@
                     Nowa nazwa: 
                 </span>
             </div>
-            <input type="text" class="form-control">
+            <input #changeNameText type="text" class="form-control">
         </div>
-        <button class="btn btn-outline-warning w-25 ">Zmień nazwę</button>
+        <button class="btn btn-outline-warning w-25 " (click)="changeName(changeNameText.value)">Zmień nazwę</button>
     </div>
 
 </div>

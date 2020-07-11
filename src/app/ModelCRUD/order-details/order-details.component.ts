@@ -33,5 +33,9 @@ export class OrderDetailsComponent implements OnInit {
   
   }
 
+  public changeName(name: string){
+    console.log(name);
+  }
+
 
 }

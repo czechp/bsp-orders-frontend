@@ -4,3 +4,8 @@
 
 
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
+<div class="container">
+    <div class="row">
+        <app-order-details-frame class="w-100" [order]="order" (changeNameEmit)="changeName($event)"></app-order-details-frame>
+    </div>
+</div>

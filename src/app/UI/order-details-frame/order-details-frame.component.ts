@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from 'src/app/Model/Order';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-order-details-frame',
@@ -15,10 +14,15 @@ export class OrderDetailsFrameComponent implements OnInit {
   @Output()
   public changeNameEmit = new EventEmitter();
 
-  constructor() { }
+  public amountItemsInOrder:number;
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
 
+  public changeName(name: string){
+    this.changeNameEmit.emit(name);
+  }
 
 }
