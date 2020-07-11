@@ -1,0 +1,64 @@
+<div class="jumbotron d-block bg-secondary">
+    <div class="form-group d-flex justify-content-around">
+        <div class="input-group w-25">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    ID: 
+                </span>
+            </div>
+            <input type="text" class="form-control" value="{{order.id}}" readonly>
+        </div>
+
+        <div class="input-group w-25">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Nazwa: 
+                </span>
+            </div>
+            <input type="text" class="form-control" value="{{order.name}}" readonly>
+        </div>
+
+        <div class="input-group w-25">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Ilość elementów: 
+                </span>
+            </div>
+            <input type="text" class="form-control" value="{{order.itemsInOrder.length}} " readonly>
+        </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-around">
+        <div class="input-group w-25">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Status zamówienia:
+                </span>
+            </div>
+            <input type="text" class="form-control" [value]="order.orderStatus=='NEW' ? 'Nowe' : 'W realizacji'" readonly>
+        </div>
+
+        <div class="input-group" style="width: 400px;">
+            <div class="input-group-prepend">
+                <span class="input-group-text ">
+                    Data stworzenia: 
+                </span>
+            </div>
+            <input type="text" class="form-control" value="{{order.creationDate| date: 'H:mm:ss EEEE dd-MM-yyyy' }} " readonly>
+        </div>
+    </div>
+
+    <h2 class="text-white text-center">Zmień nazwę: </h2>
+    <div class="d-flex justify-content-around mt-3">
+        <div class="input-group w-50">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Nowa nazwa: 
+                </span>
+            </div>
+            <input type="text" class="form-control">
+        </div>
+        <button class="btn btn-outline-warning w-25 ">Zmień nazwę</button>
+    </div>
+
+</div>
