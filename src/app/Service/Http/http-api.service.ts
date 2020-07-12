@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
 import { URL } from "./URL";
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,12 @@ export class HttpApiService {
 
   public getElement(endpoint, id) {
     return this.httpClient.get<any>(URL + endpoint + "/" + id);
+  }
+
+  public patchWithParams(endpoint, id, body, paramName, paramValue) {
+    let params = new HttpParams()
+      .set(paramName, paramValue);
+    return this.httpClient
+      .patch(URL + endpoint + "/" + id, body, { params: params });
   }
 }

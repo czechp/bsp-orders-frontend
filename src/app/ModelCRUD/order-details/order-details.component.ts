@@ -34,7 +34,16 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   public changeName(name: string){
-    console.log(name);
+    if(name.length > 3){
+      this.httpApiService
+      .patchWithParams(orderEndpoint + "/name", this.order.id, {}, "name", name)
+      .subscribe(
+        data => {this.statement = "Sukces! Nazwa została zmieniona"; this.getOrder()},
+        error => {this.statement= "Błąd podczas zmiany nazwy"}
+      );
+    }else{
+      this.statement = "Błąd! Za krótka nazwa zamówienia";
+    }
   }
 
 

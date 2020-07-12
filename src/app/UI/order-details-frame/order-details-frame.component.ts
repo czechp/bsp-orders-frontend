@@ -22,7 +22,7 @@ export class OrderDetailsFrameComponent implements OnInit {
   }
 
   public changeName(name: string){
-    this.changeNameEmit.emit(name);
+    this.changeNameEmit.emit(name)
   }
 
 }
