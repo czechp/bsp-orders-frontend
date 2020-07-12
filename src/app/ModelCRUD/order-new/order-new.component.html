@@ -1,0 +1,8 @@
+<h1 class="bg-success text-white text-center py-3 m-0">Zamówienia</h1>
+<h4 class="bg-success text-white text-center py-3 m-0">Nowe</h4>
+
+<app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
+<div class=" container d-flex flex-column align-items-center ">
+    <app-order-create (createEmitter)="createOrder($event)" class="w-100"></app-order-create>
+    <app-order-new-list [orderList]="orderList" (orderIdEmit)="routeToOrderDetails($event)"></app-order-new-list>
+</div>

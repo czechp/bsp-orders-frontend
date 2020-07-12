@@ -20,7 +20,11 @@ export class HttpApiService {
     return this.httpClient.patch<any>(URL + endpoint + "/" + id, object);
   }
 
-  public delete(endpoint, id){
-    return this.httpClient.delete<any>(URL+endpoint+"/"+id);
+  public delete(endpoint, id) {
+    return this.httpClient.delete<any>(URL + endpoint + "/" + id);
+  }
+
+  public getElement(endpoint, id) {
+    return this.httpClient.get<any>(URL + endpoint + "/" + id);
   }
 }

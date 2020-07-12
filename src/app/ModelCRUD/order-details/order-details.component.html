@@ -1,0 +1,11 @@
+<h1 class="bg-success text-white text-center py-3 m-0">Zamówienie - {{order.name}}</h1>
+<h4 class="bg-success text-white text-center py-3 m-0">Szczegóły</h4>
+
+
+
+<app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
+<div class="container">
+    <div class="row">
+        <app-order-details-frame class="w-100" [order]="order" (changeNameEmit)="changeName($event)"></app-order-details-frame>
+    </div>
+</div>

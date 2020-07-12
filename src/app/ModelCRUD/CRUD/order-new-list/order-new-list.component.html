@@ -1,0 +1,22 @@
+<div class="table bg-white">
+    <thead class="thead-dark">
+        <th scope="col" class="text-center">Id:</th>
+        <th scope="col" class="text-center">Nazwa: </th>
+        <th scope="col" class="text-center">Status: </th>
+        <th scope="col" class="text-center">Data utworzenia:</th>
+        <th scope="col" class="text-center">Uzupełnij:</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orderList">
+            <td>{{order.id}}</td>
+            <td>{{order.name}}</td>
+            <td>
+                <span *ngIf="order.orderStatus == 'NEW';else realiseOrder">Nowe</span>
+                <ng-template #realiseOrder>W trakcie realizacji</ng-template>
+
+            </td>
+            <td>{{order.creationDate | date: 'H:mm:ss EEEE dd-MM-yyyy' }}</td>
+            <td><button class="btn btn-outline-warning" (click)="getOrderId(order.id)">Uzupełnij</button></td>
+        </tr>
+    </tbody>
+</div>

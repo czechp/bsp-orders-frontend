@@ -3,5 +3,6 @@ export const producerEndpoint = "producer";
 export const providerEndpoint = "provider";
 export const categoryEndpoint = "itemCategory";
 export const itemEndpoint = "item";
-export const loginEndpoint = "login"
-
+export const loginEndpoint = "login";
+export const orderEndpoint = "order";
+export const registerEndpoint="register";

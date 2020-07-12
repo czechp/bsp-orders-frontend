@@ -25,6 +25,13 @@ import { ItemDeleteComponent } from './ModelCRUD/CRUD/item-delete/item-delete.co
 import { LoginComponent } from './UI/login/login.component';
 import { LoginErrorComponent } from './UI/login-error/login-error.component';
 import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array.component';
+import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
+import { OrderCreateComponent } from './ModelCRUD/CRUD/order-create/order-create.component';
+import { RegisterComponent } from './UI/register/register.component';
+import { OrderNewListComponent } from './ModelCRUD/CRUD/order-new-list/order-new-list.component';
+import { OrderCurrentComponent } from './ModelCRUD/order-current/order-current.component';
+import { OrderDetailsComponent } from './ModelCRUD/order-details/order-details.component';
+import { OrderDetailsFrameComponent } from './UI/order-details-frame/order-details-frame.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +55,13 @@ import { FilterArrayComponent } from './ModelCRUD/CRUD/filter-array/filter-array
     LoginComponent,
     LoginErrorComponent,
     FilterArrayComponent,
+    OrderNewComponent,
+    OrderCreateComponent,
+    RegisterComponent,
+    OrderNewListComponent,
+    OrderCurrentComponent,
+    OrderDetailsComponent,
+    OrderDetailsFrameComponent,
   ],
   imports: [
     BrowserModule,
