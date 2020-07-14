@@ -14,9 +14,10 @@ export class OrderDetailsComponent implements OnInit {
   public statement: string;
   public id: number;
   public order: Order;
-  constructor(private activatedRoute: ActivatedRoute, private httpApiService: HttpApiService) { 
-    this.statement="";
-    this.order = {name: ""};
+
+  constructor(private activatedRoute: ActivatedRoute, private httpApiService: HttpApiService) {
+    this.statement = "";
+    this.order = { name: "" };
   }
 
   ngOnInit(): void {
@@ -26,25 +27,32 @@ export class OrderDetailsComponent implements OnInit {
 
   private getOrder() {
     this.httpApiService.getElement(orderEndpoint, this.id)
-    .subscribe(
-      data=>{this.order = data;},
-      error =>{this.statement ="Błąd! Takie zamówienie nie istnieje";}
-    );
-  
+      .subscribe(
+        data => { this.order = data; },
+        error => { this.statement = "Błąd! Takie zamówienie nie istnieje"; }
+      );
   }
 
-  public changeName(name: string){
-    if(name.length > 3){
+
+
+  public changeName(name: string) {
+    if (name.length > 3) {
       this.httpApiService
-      .patchWithParams(orderEndpoint + "/name", this.order.id, {}, "name", name)
-      .subscribe(
-        data => {this.statement = "Sukces! Nazwa została zmieniona"; this.getOrder()},
-        error => {this.statement= "Błąd podczas zmiany nazwy"}
-      );
-    }else{
+        .patchWithParams(orderEndpoint + "/name", this.order.id, {}, "name", name)
+        .subscribe(
+          data => { this.statement = "Sukces! Nazwa została zmieniona"; this.getOrder() },
+          error => { this.statement = "Błąd podczas zmiany nazwy" }
+        );
+    } else {
       this.statement = "Błąd! Za krótka nazwa zamówienia";
     }
   }
 
-
+  public changeStatus(status: string){
+    this.httpApiService.patchWithParams(orderEndpoint+"/status",this.order.id, {}, "status", status)
+    .subscribe(
+      data=>{this.statement = "Sukces! Status zostaył zmieniony"; this.getOrder();},
+      error => {this.statement = "Błąd podczas zmiany statusu"}
+    );
+  }
 }
