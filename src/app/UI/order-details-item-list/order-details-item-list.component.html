@@ -1,1 +1,38 @@
-<p>order-details-item-list works!</p>
+<div class="table d-flex justify-content-center w-100">
+    <table class="table">
+        <thead class="thead-dark">
+            <th scope="col">Id:</th>
+            <th scope="col">Nazwa:</th>
+            <th scope="col">Nr. seryjny</th>
+            <th scope="col">Opis:</th>
+            <th scope="col">Url:</th>
+            <th scope="col">Producent:</th>
+            <th scope="col">Dostawca:</th>
+            <th scope="col">Kategoria:</th>
+            <th scope="col">Ilość:</th>
+            <th scope="col">Zmień ilość:</th>
+            <th scope="col">Usuń:</th>
+        </thead>
+        <tbody class="bg-white">
+            <tr *ngFor="let itemInOrder of itemsInOrderList">
+                <td>{{itemInOrder.id}}</td>
+                <td>{{itemInOrder.name}}</td>
+                <td>{{itemInOrder.serialNumber}}</td>
+                <td>{{itemInOrder.description}}</td>
+                <td>
+                    <a href="{{itemInOrder.url}}" class="">Klik</a>
+                </td>
+                <td>{{itemInOrder.producer.name}}</td>
+                <td>{{itemInOrder.provider.name}}</td>
+                <td>{{itemInOrder.itemCategory.name}}</td>
+                <td><input type="text" class="form-control text-center" style="width: 100px;" [(ngModel)]="itemInOrder.amount"></td>
+                <td><button class="btn btn-outline-warning">Klik</button></td>
+                <td><button class="btn btn-outline-danger">Klik</button></td>
+
+
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
