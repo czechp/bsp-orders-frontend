@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { Order } from 'src/app/Model/Order';
-import { orderEndpoint } from 'src/app/Service/Http/URL';
+import { orderEndpoint, itemInOrderEndpoint } from 'src/app/Service/Http/URL';
+import { ItemInOrder } from 'src/app/Model/ItemInOrder';
 
 @Component({
   selector: 'app-order-details',
@@ -48,11 +49,20 @@ export class OrderDetailsComponent implements OnInit {
     }
   }
 
-  public changeStatus(status: string){
-    this.httpApiService.patchWithParams(orderEndpoint+"/status",this.order.id, {}, "status", status)
-    .subscribe(
-      data=>{this.statement = "Sukces! Status zostaył zmieniony"; this.getOrder();},
-      error => {this.statement = "Błąd podczas zmiany statusu"}
-    );
+  public changeStatus(status: string) {
+    this.httpApiService.patchWithParams(orderEndpoint + "/status", this.order.id, {}, "status", status)
+      .subscribe(
+        data => { this.statement = "Sukces! Status zostaył zmieniony"; this.getOrder(); },
+        error => { this.statement = "Błąd podczas zmiany statusu" }
+      );
+  }
+
+  public modifiyItemAmount(itemInOrder: ItemInOrder) {
+    this.httpApiService.put(itemInOrderEndpoint, itemInOrder)
+      .subscribe(
+        data => { this.statement = "Sukces! Ilość została zmieniona"; this.getOrder() },
+        error => { this.statement = "Błąd! Nie udało się zmienić ilości" }
+      );
+
   }
 }

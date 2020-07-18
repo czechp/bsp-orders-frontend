@@ -7,5 +7,6 @@
 <div class="container">
     <div class="row">
         <app-order-details-frame class="w-100" [order]="order" (changeNameEmit)="changeName($event)" (changeStatusEmit)="changeStatus($event)"></app-order-details-frame>
-        <app-order-details-item-list class="w-100" [itemsInOrderList]="order.itemsInOrder"></app-order-details-item-list>
+        <app-order-details-item-list class="w-100" [itemsInOrderList]="order.itemsInOrder" (modifyAmountEmit)="modifiyItemAmount($event)"></app-order-details-item-list>
     </div>
+</div>

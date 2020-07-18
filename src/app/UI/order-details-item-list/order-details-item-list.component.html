@@ -26,7 +26,7 @@
                 <td>{{itemInOrder.provider.name}}</td>
                 <td>{{itemInOrder.itemCategory.name}}</td>
                 <td><input type="text" class="form-control text-center" style="width: 100px;" [(ngModel)]="itemInOrder.amount"></td>
-                <td><button class="btn btn-outline-warning">Klik</button></td>
+                <td><button class="btn btn-outline-warning" (click)="changeAmount(itemInOrder.id)">Klik</button></td>
                 <td><button class="btn btn-outline-danger">Klik</button></td>
 
 
