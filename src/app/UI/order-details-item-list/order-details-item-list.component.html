@@ -14,7 +14,10 @@
             <th scope="col">Usuń:</th>
         </thead>
         <tbody class="bg-white">
-            <tr class="bg-danger" *ngFor="let itemInOrder of itemsInOrderList">
+            <tr *ngFor="let itemInOrder of itemsInOrderList" class="bg-success" [ngClass]="{
+                'bg-warning': itemInOrder.delivered === false,
+                'bg-danger': itemInOrder.ordered === false
+            }">
                 <td>{{itemInOrder.id}}</td>
                 <td>{{itemInOrder.name}}</td>
                 <td>{{itemInOrder.serialNumber}}</td>
@@ -26,8 +29,8 @@
                 <td>{{itemInOrder.provider.name}}</td>
                 <td>{{itemInOrder.itemCategory.name}}</td>
                 <td><input type="text" class="form-control text-center" style="width: 100px;" [(ngModel)]="itemInOrder.amount"></td>
-                <td><button class="btn btn-outline-warning" (click)="changeAmount(itemInOrder)">Zmień</button></td>
-                <td><button class="btn btn-outline-dark">Usuń</button></td>
+                <td><button class="btn btn-outline-warning" (click)="changeAmount(itemInOrder.id)">Zmień</button></td>
+                <td><button class="btn btn-outline-dark" (click)="delete(itemInOrder.id)">Usuń</button></td>
 
 
 

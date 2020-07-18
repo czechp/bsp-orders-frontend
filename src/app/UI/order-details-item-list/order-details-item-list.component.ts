@@ -14,6 +14,9 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
   @Output()
   public modifyAmountEmit = new EventEmitter();
 
+  @Output()
+  public deleteEmit = new EventEmitter();
+
   constructor() {
     this.itemsInOrderList = [];
   }
@@ -26,9 +29,14 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
   }
 
   public changeAmount(id: number) {
+
     if (this.findById(id) !== null) {
       this.modifyAmountEmit.emit(this.findById(id));
     }
+  }
+
+  public delete(id:number){
+    this.deleteEmit.emit(id);
   }
 
   private findById(id: number): ItemInOrder {
