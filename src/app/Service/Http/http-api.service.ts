@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
-import { URL } from "./URL";
+import { URL, orderEndpoint } from "./URL";
 import { ItemInOrder } from 'src/app/Model/ItemInOrder';
 @Injectable({
   providedIn: 'root'
@@ -39,5 +39,11 @@ export class HttpApiService {
       .set(paramName, paramValue);
     return this.httpClient
       .patch(URL + endpoint + "/" + id, body, { params: params });
+  }
+
+  public addItemToOrder(orderId , itemId , amount){
+    let params = new HttpParams()
+    .set("amount", amount.toString());
+     return this.httpClient.get(URL + orderEndpoint + "/" + orderId + "/item/" + itemId, {params: params}  );
   }
 }

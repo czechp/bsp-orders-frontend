@@ -86,4 +86,9 @@ export class OrderDetailsComponent implements OnInit {
     }
     return false;
   }
+
+  public refresh(){
+    console.log("Working");
+    this.getOrder();
+  }
 }

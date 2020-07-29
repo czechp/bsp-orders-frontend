@@ -1,0 +1,35 @@
+<h1 class="w-100 p-3 text-white text-center bg-success">Dodaj</h1>
+<app-crud-statement class="w-100" [statement]="statement" *ngIf="statement.length !== 0"></app-crud-statement>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <th scope="col">Id:</th>
+        <th scope="col">Nazwa:</th>
+        <th scope="col">Nr. seryjny</th>
+        <th scope="col">Opis:</th>
+        <th scope="col">Url:</th>
+        <th scope="col">Producent:</th>
+        <th scope="col">Dostawca:</th>
+        <th scope="col">Kategoria:</th>
+        <th scope="col">Ilość:</th>
+        <th scope="col">Dodaj:</th>
+    </thead>
+    <tbody class="bg-white">
+        <tr *ngFor="let item of itemList" class="bg-success">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.serialNumber}}</td>
+            <td>{{item.description}}</td>
+            <td>
+                <a href="{{item.url}}" class="">Klik</a>
+            </td>
+            <td>{{item.producer.name}}</td>
+            <td>{{item.provider.name}}</td>
+            <td>{{item.itemCategory.name}}</td>
+            <td><input #amount type="text" class="form-control text-center" style="width: 100px;"></td>
+            <td><button type="button" class="btn btn-outline-primary" (click)="saveNewItem(amount.value, item.id)">Dodaj</button></td>
+
+        </tr>
+    </tbody>
+</table>
