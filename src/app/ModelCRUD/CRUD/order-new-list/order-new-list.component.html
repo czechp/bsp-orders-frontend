@@ -11,12 +11,14 @@
             <td>{{order.id}}</td>
             <td>{{order.name}}</td>
             <td>
-                <span *ngIf="order.orderStatus == 'NEW';else realiseOrder">Nowe</span>
-                <ng-template #realiseOrder>W trakcie realizacji</ng-template>
+                <span *ngIf="order.orderStatus == 'NEW';">Nowe</span>
+                <span *ngIf="order.orderStatus == 'REALISE';">W trakcie realizacji</span>
+                <span *ngIf="order.orderStatus == 'FINISHED';">Zakończone</span>
+
 
             </td>
             <td>{{order.creationDate | date: 'H:mm:ss EEEE dd-MM-yyyy' }}</td>
-            <td><button class="btn btn-outline-warning" (click)="getOrderId(order.id)">Uzupełnij</button></td>
+            <td><button class=" btn btn-outline-warning " (click)="getOrderId(order.id) ">Uzupełnij</button></td>
         </tr>
     </tbody>
 </div>

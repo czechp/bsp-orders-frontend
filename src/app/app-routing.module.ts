@@ -13,6 +13,7 @@ import { OrderNewComponent } from './ModelCRUD/order-new/order-new.component';
 import { RegisterComponent } from './UI/register/register.component';
 import { OrderCurrentComponent } from './ModelCRUD/order-current/order-current.component';
 import { OrderDetailsComponent } from './ModelCRUD/order-details/order-details.component';
+import { OrderFinishedComponent } from './ModelCRUD/order-finished/order-finished.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "order-new", component: OrderNewComponent, canActivate: [AuthorizationGuardService] },
   { path: "order-current", component: OrderCurrentComponent, canActivate: [AuthorizationGuardService] },
   { path: "order-details/:id", component: OrderDetailsComponent, canActivate: [AuthorizationGuardService] },
+  {path: "order-finished", component: OrderFinishedComponent, canActivate: [AuthorizationGuardService]},
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login-error", component: LoginErrorComponent },

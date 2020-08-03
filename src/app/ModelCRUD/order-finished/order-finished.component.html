@@ -1,8 +1,9 @@
 <h1 class="bg-success text-white text-center py-3 m-0">Zamówienia</h1>
-<h4 class="bg-success text-white text-center py-3 m-0">Akutalne</h4>
+<h4 class="bg-success text-white text-center py-3 m-0">Zakończone</h4>
 
 
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
 <div class=" container d-flex flex-column align-items-center ">
+
     <app-order-new-list class="mt-4" [orderList]="orderList" (orderIdEmit)="goToDetails($event)"></app-order-new-list>
 </div>

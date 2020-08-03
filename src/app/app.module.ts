@@ -34,6 +34,7 @@ import { OrderDetailsComponent } from './ModelCRUD/order-details/order-details.c
 import { OrderDetailsFrameComponent } from './UI/order-details-frame/order-details-frame.component';
 import { OrderDetailsItemListComponent } from './UI/order-details-item-list/order-details-item-list.component';
 import { OrderDetailAddListComponent } from './UI/order-detail-add-list/order-detail-add-list.component';
+import { OrderFinishedComponent } from './ModelCRUD/order-finished/order-finished.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { OrderDetailAddListComponent } from './UI/order-detail-add-list/order-de
     OrderDetailsFrameComponent,
     OrderDetailsItemListComponent,
     OrderDetailAddListComponent,
+    OrderFinishedComponent,
   ],
   imports: [
     BrowserModule,
