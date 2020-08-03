@@ -29,7 +29,7 @@ export class OrderDetailsComponent implements OnInit {
   private getOrder() {
     this.httpApiService.getElement(orderEndpoint, this.id)
       .subscribe(
-        data => { this.order = data; },
+        data => { this.order = data; this.statement=""},
         error => { this.statement = "Błąd! Takie zamówienie nie istnieje"; }
       );
   }
@@ -88,7 +88,6 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   public refresh(){
-    console.log("Working");
     this.getOrder();
   }
 }

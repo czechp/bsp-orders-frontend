@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { Item } from 'src/app/Model/Item';
 import { itemEndpoint } from 'src/app/Service/Http/URL';
+import { FindInArrayService } from 'src/app/Service/Utilities/find-in-array.service';
 
 @Component({
   selector: 'app-order-detail-add-list',
@@ -11,6 +12,7 @@ import { itemEndpoint } from 'src/app/Service/Http/URL';
 export class OrderDetailAddListComponent implements OnInit {
 
   public itemList: Item[]=[];
+  public filteredItemList: Item[]=[];
   public statement: string = ""
   
   @Input()
@@ -20,12 +22,13 @@ export class OrderDetailAddListComponent implements OnInit {
   public refreshEmit = new EventEmitter();
 
 
-  constructor(private httpApiService:HttpApiService) { }
+  constructor(private httpApiService:HttpApiService,
+  private findInArray:FindInArrayService) { }
 
   ngOnInit(): void {
     this.httpApiService.get(itemEndpoint)
     .subscribe(
-      data => {this.itemList=data},
+      data => {this.itemList=data; this.filteredItemList=data},
       error  =>{this.statement = "Błąd podczas pobierania listy elementów"}
     );
   }
@@ -33,9 +36,13 @@ export class OrderDetailAddListComponent implements OnInit {
   public saveNewItem(amount: number, itemId:number ){
     this.httpApiService.addItemToOrder(this.currentOrderId, itemId, amount)
     .subscribe(
-      data => {this.refreshEmit.emit()},
+      data => {this.refreshEmit.emit(); this.statement=""},
       error => {this.statement = "Błąd nie udało się dodać elementu"}
     );
+  }
+
+  public filterItems(key: string){
+    this.filteredItemList = this.findInArray.findByKey(this.itemList, key);
   }
 
 }
