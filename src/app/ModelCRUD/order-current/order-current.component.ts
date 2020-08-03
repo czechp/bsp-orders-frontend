@@ -23,6 +23,10 @@ export class OrderCurrentComponent implements OnInit {
     this.getOrders();
   }
 
+  public goToDetails(id):void{
+    this.router.navigate(["/order-details", id]);
+  }
+
   private getOrders(){
     this.httpApiService.get(orderEndpoint)
     .subscribe(

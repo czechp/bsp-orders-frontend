@@ -47,7 +47,6 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
     this.statusArray = [];
     this.statusArray.push({ status: "NEW", statusName: "Nowe" });
     this.statusArray.push({ status: "REALISE", statusName: "W realizacji" });
-    this.statusArray.push({ status: "FINISHED", statusName: "Zakończone" });
   }
 
   public changeStatus(){
