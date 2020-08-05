@@ -31,6 +31,7 @@ export class AuthorizationService {
         sessionStorage.setItem("isLogin", "true");
         sessionStorage.setItem("username", data.username);
         sessionStorage.setItem("credentials", credentials);
+        sessionStorage.setItem("role", data.role);
         CurrentUser.appUser = data;
         this.router.navigate(["/"]);
         this.loggingSubject.next();
@@ -44,7 +45,9 @@ export class AuthorizationService {
   public logout(){
         this.router.navigate(["/login"]);
         sessionStorage.setItem("isLogin", "false");
-        CurrentUser.appUser = undefined;
+        sessionStorage.setItem("username", "");
+        sessionStorage.setItem("credentials", "");
+        sessionStorage.setItem("role", "");
   }
 
   public isLogin():boolean{

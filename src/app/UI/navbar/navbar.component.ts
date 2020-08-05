@@ -39,6 +39,4 @@ export class NavbarComponent implements OnInit {
     this.loginFormVisibility = true;
   }
 
-
-
 }

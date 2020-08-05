@@ -10,10 +10,10 @@ export class SuperuserGuardService implements CanActivate {
   constructor(private router:Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if(sessionStorage.getItem("isLogin")==="true"){
-      if(CurrentUser.appUser.role ==="SUPERUSER"){
-        this.router.navigate(["/order-superuser"])
+      if(sessionStorage.getItem("role") ==="SUPERUSER"){
+        return true;
       }else{
-        this.router.navigate(["/not-enough-permissions"])
+        this.router.navigate(["/not-enough-permissions"]);
       }
     }else
     {
