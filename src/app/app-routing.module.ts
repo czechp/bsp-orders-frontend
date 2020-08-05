@@ -14,6 +14,9 @@ import { RegisterComponent } from './UI/register/register.component';
 import { OrderCurrentComponent } from './ModelCRUD/order-current/order-current.component';
 import { OrderDetailsComponent } from './ModelCRUD/order-details/order-details.component';
 import { OrderFinishedComponent } from './ModelCRUD/order-finished/order-finished.component';
+import { OrderSuperuserComponent } from './ModelCRUD/order-superuser/order-superuser.component';
+import { NotEnoughPermissionsComponent } from './Wildcards/not-enough-permissions/not-enough-permissions.component';
+import { SuperuserGuardService } from './Service/Utilities/superuser-guard.service';
 
 
 const routes: Routes = [
@@ -26,9 +29,11 @@ const routes: Routes = [
   { path: "order-current", component: OrderCurrentComponent, canActivate: [AuthorizationGuardService] },
   { path: "order-details/:id", component: OrderDetailsComponent, canActivate: [AuthorizationGuardService] },
   {path: "order-finished", component: OrderFinishedComponent, canActivate: [AuthorizationGuardService]},
+  {path: "order-superuser", component: OrderSuperuserComponent, canActivate: [AuthorizationGuardService, SuperuserGuardService]},
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login-error", component: LoginErrorComponent },
+  {path: "not-enough-permissions", component:NotEnoughPermissionsComponent},
   { path: "", redirectTo: "/item", pathMatch: "full", canActivate: [AuthorizationGuardService] },
   { path: "**", redirectTo: "/not-found" }
 ];

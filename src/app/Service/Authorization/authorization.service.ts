@@ -44,6 +44,7 @@ export class AuthorizationService {
   public logout(){
         this.router.navigate(["/login"]);
         sessionStorage.setItem("isLogin", "false");
+        CurrentUser.appUser = undefined;
   }
 
   public isLogin():boolean{
