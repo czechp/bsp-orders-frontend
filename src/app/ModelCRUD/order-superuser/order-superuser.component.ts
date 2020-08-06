@@ -22,7 +22,7 @@ export class OrderSuperuserComponent implements OnInit {
   private getCurrentOrders():void{
     this.httpApiService.get(orderEndpoint + "/" +  superuserOrderStatusEndpoint + "REALISE")
     .subscribe(
-      response => {this.currentOrders = response; },
+      response => {this.currentOrders = response;},
       error => {this.statement="Błąd!!! Nie udało się pobrać zamówień z serwera"}
     );
   }

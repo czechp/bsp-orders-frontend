@@ -3,7 +3,7 @@ import { ItemInOrder } from './ItemInOrder';
 
 export interface Order {
     id?: number;
-    user?: AppUser;
+    appUser?: AppUser;
     name?: string;
     itemsInOrder?: ItemInOrder[];
     creationDate?: Date;
