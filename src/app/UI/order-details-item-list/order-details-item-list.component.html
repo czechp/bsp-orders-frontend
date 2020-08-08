@@ -12,6 +12,7 @@
             <th scope="col">Ilość:</th>
             <th scope="col">Zmień ilość:</th>
             <th scope="col">Usuń:</th>
+            <th scope="col">Szczegóły:</th>
         </thead>
         <tbody class="bg-white">
             <tr *ngFor="let itemInOrder of itemsInOrderList" class="bg-success" [ngClass]="{
@@ -29,8 +30,9 @@
                 <td>{{itemInOrder.provider.name}}</td>
                 <td>{{itemInOrder.itemCategory.name}}</td>
                 <td><input type="text" class="form-control text-center" style="width: 100px;" [(ngModel)]="itemInOrder.amount"></td>
-                <td><button class="btn btn-outline-warning" (click)="changeAmount(itemInOrder.id)">Zmień</button></td>
+                <td><button class="btn btn-outline-dark" (click)="changeAmount(itemInOrder.id)">Zmień</button></td>
                 <td><button class="btn btn-outline-dark" (click)="delete(itemInOrder.id)">Usuń</button></td>
+                <td><button class="btn btn-outline-dark" type="button" (click)="goToItemDetails(itemInOrder.id)">Szczegóły</button></td>
 
 
 

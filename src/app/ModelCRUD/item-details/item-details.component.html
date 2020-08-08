@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid bg-secondary">
+        <h1 class="text-center text-white mb-5">Szczegóły: </h1>
+        <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Id: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.id}}" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Nazwa: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.name}}" readonly>
+            </div>
+        </div>
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Nr. seryjny: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.serialNumber}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">URL: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.url}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Producent: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.producer.name}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Dostawca: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.provider.name}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Kategoria: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.itemCategory.name}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Ilość: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.amount}}" readonly>
+            </div>
+        </div>
+
+
+        <div class="form-group d-flex  justify-content-center mt-1" *ngIf="itemInOrder.orderDate!== null">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Data zamówienia: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.orderDate | date:'HH:mm:ss dd-MM-yyyy' }}" readonly>
+            </div>
+        </div>
+
+
+
+        <div class="form-group d-flex  justify-content-center mt-1" *ngIf="itemInOrder.deliverDate!== null">
+            <div class="input-group w-50">
+                <div class="input-group-prepend mb-3">
+                    <span class="input-group-text">Data dostarczenia: </span>
+                </div>
+                <input type="text" style="width: 100px;" class="form-control text-center" value="{{itemInOrder.deliverDate | date:'HH:mm:ss dd-MM-yyyy' }}" readonly>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>

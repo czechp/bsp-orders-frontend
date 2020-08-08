@@ -14,7 +14,6 @@ export class OrderSuperuserDetailsInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.order);
   }
 
 }

@@ -24,7 +24,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
   private getOrder() {
     this.httpApi.getElement(orderEndpoint, this.id)
       .subscribe(
-        response => { this.order = response; console.log(this.order); },
+        response => { this.order = response;},
         error => { this.statement = "Błąd! Nie udało się pobrać elementu z serwera" }
       );
   }

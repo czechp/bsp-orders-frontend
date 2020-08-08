@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { ItemInOrder } from 'src/app/Model/ItemInOrder';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details-item-list',
@@ -17,7 +18,7 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
   @Output()
   public deleteEmit = new EventEmitter();
 
-  constructor() {
+  constructor(private router: Router) {
     this.itemsInOrderList = [];
   }
 
@@ -39,6 +40,10 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
     this.deleteEmit.emit(id);
   }
 
+  public goToItemDetails(id: number){
+    this.router.navigate(["/item-details", id]);
+  }
+
   private findById(id: number): ItemInOrder {
     for (let item of this.itemsInOrderList) {
       if (item.id === id) {
@@ -47,5 +52,7 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
     }
     return null;
   }
+
+
 
 }

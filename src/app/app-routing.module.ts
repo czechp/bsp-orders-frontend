@@ -18,6 +18,7 @@ import { OrderSuperuserComponent } from './ModelCRUD/order-superuser/order-super
 import { NotEnoughPermissionsComponent } from './Wildcards/not-enough-permissions/not-enough-permissions.component';
 import { SuperuserGuardService } from './Service/Utilities/superuser-guard.service';
 import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-details/order-superuser-details.component';
+import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: "order-superuser-details/:id", component: OrderSuperuserDetailsComponent, canActivate:[AuthorizationGuardService, SuperuserGuardService]},
   {path: "order-finished", component: OrderFinishedComponent, canActivate: [AuthorizationGuardService]},
   {path: "order-superuser", component: OrderSuperuserComponent, canActivate: [AuthorizationGuardService, SuperuserGuardService]},
+  {path: "item-details/:id", component: ItemDetailsComponent, canActivate:[AuthorizationGuardService]},
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login-error", component: LoginErrorComponent },
