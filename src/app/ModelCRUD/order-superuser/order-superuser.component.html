@@ -5,18 +5,20 @@
         <h2 class="text-center mb-5">Aktualne:</h2>
         <div class="d-flex justify-content-center">
             <ul class="list-group w-75">
-                <li class="list-group-item  text-center" *ngFor="let orderCurrent of currentOrders">
-                    {{orderCurrent.name}} --- {{orderCurrent.appUser.username}}</li>
+                <li (click)="goToOrderDetails(orderCurrent.id)" class="list-group-item  text-center" *ngFor="let orderCurrent of currentOrders">
+                    {{orderCurrent.name}}
+                    <-------> {{orderCurrent.appUser.username}}</li>
             </ul>
         </div>
     </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark text-white">
+    <div class="jumbotron jumbotron-fluid bg-dark ">
         <h2 class="text-center mb-5">Zakończone:</h2>
         <div class="d-flex justify-content-center">
             <ul class="list-group w-75">
-                <li class="list-group-item  text-center" *ngFor="let orderFinished of finishedOrders">
-                    {{orderFinished.name}} --- {{orderFinished.appUser.username}}</li>
+                <li (click)="goToFinishedOrderDetails(orderFinished.id)" class="list-group-item  text-center" *ngFor="let orderFinished of finishedOrders">
+                    {{orderFinished.name}}
+                    <-------> {{orderFinished.appUser.username}}</li>
             </ul>
         </div>
     </div>

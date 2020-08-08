@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/Model/Order';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { orderEndpoint, superuserOrderStatusEndpoint } from 'src/app/Service/Http/URL';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-superuser',
@@ -13,10 +14,13 @@ export class OrderSuperuserComponent implements OnInit {
   public currentOrders: Order[] = [];
   public finishedOrders: Order[] = [];
   public statement: string ="";
-  constructor(private httpApiService: HttpApiService) { }
+  constructor(private httpApiService: HttpApiService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
     this.getCurrentOrders();
+    this.getFinishedOrders();
   }
 
   private getCurrentOrders():void{
@@ -33,9 +37,15 @@ export class OrderSuperuserComponent implements OnInit {
       response => {this.finishedOrders = response},
       error => {this.statement="Błąd!!! Nie udało się pobrać zamówień z serwera";}
     );
-
   }
 
+  public goToOrderDetails(id: number){
+    this.router.navigate(["/order-superuser-details", id]);
+  }
+
+  public goToFinishedOrderDetails(id: number){
+    this.router.navigate(["/order-details", id]);
+  }
   
 
 }
