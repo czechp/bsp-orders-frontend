@@ -38,6 +38,7 @@ import { OrderFinishedComponent } from './ModelCRUD/order-finished/order-finishe
 import { OrderSuperuserComponent } from './ModelCRUD/order-superuser/order-superuser.component';
 import { NotEnoughPermissionsComponent } from './Wildcards/not-enough-permissions/not-enough-permissions.component';
 import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-details/order-superuser-details.component';
+import { OrderSuperuserDetailsInfoComponent } from './UI/order-superuser-details-info/order-superuser-details-info.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-deta
     OrderSuperuserComponent,
     NotEnoughPermissionsComponent,
     OrderSuperuserDetailsComponent,
+    OrderSuperuserDetailsInfoComponent,
   ],
   imports: [
     BrowserModule,
