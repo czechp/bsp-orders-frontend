@@ -20,6 +20,7 @@
                 <th scope="col">Kategoria:</th>
                 <th scope="col">Zamówiono: </th>
                 <th scope="col">Dostarczono: </th>
+                <th scope="col">Szczegóły</th>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +37,10 @@
                 <td>{{item.producer.name}}</td>
                 <td>{{item.provider.name}}</td>
                 <td>{{item.itemCategory.name}}</td>
-                <td><button type="button" class="btn btn-outline-primary" (click)="orderItem(item.id)">Zamówiono</button></td>
-                <td><button type="button" class="btn btn-outline-primary" (click)="deliverItem(item.id)">Dostarczono</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="orderItem(item.id)">Zamówiono</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="deliverItem(item.id)">Dostarczono</button></td>
+                <td><button type="button" class="btn btn-primary" (click)="goToItemDetails(item.id)">Szczegóły</button></td>
+
             </tr>
         </tbody>
 

@@ -14,7 +14,8 @@ export class OrderSuperuserDetailsComponent implements OnInit {
   public statement: string = "";
   public order: Order;
   constructor(private activatedRoute: ActivatedRoute,
-    private httpApi: HttpApiService) { }
+    private httpApi: HttpApiService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get("id"));
@@ -45,6 +46,10 @@ export class OrderSuperuserDetailsComponent implements OnInit {
         response => { this.getOrder(); },
         error => { this.statement = "Błąd! Nie udało się zmienić statusu " }
       );
+  }
+
+  public goToItemDetails(id: number):void{
+    this.router.navigate(["/item-details", id]);
   }
 
 
