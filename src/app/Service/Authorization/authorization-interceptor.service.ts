@@ -14,7 +14,7 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
       let request = req.clone(
         {
           setHeaders: {
-            Authorization: "Basic " + btoa("user" + ":" + "user")
+            Authorization: sessionStorage.getItem("credentials")
           }
         }
       );
