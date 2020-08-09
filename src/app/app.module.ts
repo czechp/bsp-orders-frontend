@@ -40,6 +40,7 @@ import { NotEnoughPermissionsComponent } from './Wildcards/not-enough-permission
 import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-details/order-superuser-details.component';
 import { OrderSuperuserDetailsInfoComponent } from './UI/order-superuser-details-info/order-superuser-details-info.component';
 import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.component';
+import { SortItemsInOrderComponent } from './UI/sort-items-in-order/sort-items-in-order.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.comp
     OrderSuperuserDetailsComponent,
     OrderSuperuserDetailsInfoComponent,
     ItemDetailsComponent,
+    SortItemsInOrderComponent,
   ],
   imports: [
     BrowserModule,

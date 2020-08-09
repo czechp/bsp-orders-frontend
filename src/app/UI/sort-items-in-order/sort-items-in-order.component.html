@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid bg-dark text-white">
+        <h2 class="text-center mb-3">Sortuj elementy: </h2>
+        <div class="form-group d-flex justify-content-around">
+            <div class="input-group w-50">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        Sortuj według: 
+                    </span>
+                </div>
+                <select class="custom-select text-center" [(ngModel)]="option" >
+                    <option>Nazwa</option>
+                    <option>Producent</option>
+                    <option>Dostawca</option>
+                    <option>Kategoria</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-outline-primary w-25" (click)="sort()">Sortuj</button>
+        </div>
+    </div>
+</div>
