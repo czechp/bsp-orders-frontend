@@ -41,6 +41,7 @@ import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-deta
 import { OrderSuperuserDetailsInfoComponent } from './UI/order-superuser-details-info/order-superuser-details-info.component';
 import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.component';
 import { SortItemsInOrderComponent } from './UI/sort-items-in-order/sort-items-in-order.component';
+import { AdminPanelComponent } from './ModelCRUD/admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { SortItemsInOrderComponent } from './UI/sort-items-in-order/sort-items-i
     OrderSuperuserDetailsInfoComponent,
     ItemDetailsComponent,
     SortItemsInOrderComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

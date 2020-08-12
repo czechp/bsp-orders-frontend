@@ -19,6 +19,8 @@ import { NotEnoughPermissionsComponent } from './Wildcards/not-enough-permission
 import { SuperuserGuardService } from './Service/Utilities/superuser-guard.service';
 import { OrderSuperuserDetailsComponent } from './ModelCRUD/order-superuser-details/order-superuser-details.component';
 import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.component';
+import { AdminPanelComponent } from './ModelCRUD/admin-panel/admin-panel.component';
+import { AdminGuardService } from './Service/Utilities/admin-guard.service';
 
 
 const routes: Routes = [
@@ -34,6 +36,7 @@ const routes: Routes = [
   { path: "order-finished", component: OrderFinishedComponent, canActivate: [AuthorizationGuardService] },
   { path: "order-superuser", component: OrderSuperuserComponent, canActivate: [AuthorizationGuardService, SuperuserGuardService] },
   { path: "item-details/:id", component: ItemDetailsComponent, canActivate: [AuthorizationGuardService] },
+  { path: "admin-panel", component: AdminPanelComponent, canActivate: [AuthorizationGuardService, AdminGuardService] },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "login-error", component: LoginErrorComponent },

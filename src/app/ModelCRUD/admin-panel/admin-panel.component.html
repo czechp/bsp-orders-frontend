@@ -1,0 +1,45 @@
+<h1 class="bg-success text-center text-white p-5">Panel administratora</h1>
+<app-crud-statement *ngIf="statement.length>0" [statement]="statement"></app-crud-statement>
+<div class="container mt-3">
+    <div class="jumbotron jumbotron-fluid bg-success">
+        <h2 class="text-center text-white">Użytkownicy: </h2>
+        <div class="d-flex justify-content-center" *ngFor="let user of appUsers">
+            <div class="card my-3 bg-primary text-white" style="width: 400px;">
+                <div class="card-body">
+                    <div class="card-title text-center">{{user.username}}</div>
+                </div>
+                <div class="card-text text-center">Id: {{user.id}}</div>
+                <div class="card-text text-center">Uprawnienia: {{user.role}}</div>
+                <div class="card-text text-center">Email: {{user.email}}</div>
+                <div class="form-group w-100 d-flex justify-content-center mt-2">
+
+                    <div class="input-group w-100 mx-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Wybierz role:</span>
+                        </div>
+                        <select class="custom-select  text-center" #role>
+                            <option>USER</option>
+                            <option>SUPERUSER</option>
+                            <option>ADMIN</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-warning" (click)="changeRole(user.id, role.value)">Wykonaj</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mb-4">
+                    <button class="btn btn-danger w-50" data-toggle="collapse" [attr.data-target]="'#deleteConfirm' + user.id">Usuń</button>
+                </div>
+                <div class="collapse" [attr.id]="'deleteConfirm'+user.id">
+                    <h5 class="text-center">Czy napewno chcesz usunąć użytkownika <b>{{user.username}}</b>
+                        <div class="d-flex justify-content-around">
+                            <button class="btn btn-success w-25" data-toggle="collapse" [attr.data-target]="'#deleteConfirm'+user.id" (click)="deleteUser(user.id)">Tak</button> <button class="btn btn-danger w-25" data-toggle="collapse" [attr.data-target]="'#deleteConfirm'+user.id">Nie</button>
+                        </div>
+                    </h5>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
