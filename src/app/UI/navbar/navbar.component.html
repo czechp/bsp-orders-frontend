@@ -38,14 +38,14 @@
             <div class="input-group-prepend ">
                 <span class="input-group-text bg-warning " id="basic-addon1 ">Login:</span>
             </div>
-            <input type="text" #username class="form-control login-input-form " placeholder="Wpisz login " aria-label="Username " aria-describedby="basic-addon1 ">
+            <input type="text" #username class="form-control login-input-form " style="width: 150px;" placeholder="Wpisz login " aria-label="Username " aria-describedby="basic-addon1 ">
         </div>
 
         <div class="input-group mr-2 ">
             <div class="input-group-prepend ">
                 <span class="input-group-text bg-warning " id="basic-addon1 ">Hasło:</span>
             </div>
-            <input type="password" #password class="form-control login-input-form " placeholder="Wpisz hasło " aria-label="Username " aria-describedby="basic-addon1 ">
+            <input type="password" #password class="form-control login-input-form " style="width: 150px;" placeholder="Wpisz hasło " aria-label="Username " aria-describedby="basic-addon1 ">
         </div>
 
         <button class="btn btn-outline-success my-2 my-sm-0 " type="submit " (click)="login( username.value, password.value) ">Zaloguj</button>
