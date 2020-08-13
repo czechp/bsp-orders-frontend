@@ -9,7 +9,8 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "postinstall": "ng build --aot -prod",
-        "heroku-postbuild": "ng build --prod"
+        "heroku-prebuild": "npm install -f",
+        "heroku-postbuild": "npm run build"
     },
     "private": true,
     "dependencies": {
