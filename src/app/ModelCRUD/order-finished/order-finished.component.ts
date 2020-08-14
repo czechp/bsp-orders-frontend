@@ -14,31 +14,36 @@ export class OrderFinishedComponent implements OnInit {
 
   public statement: string = "";
   public orderList: Order[];
-  
+
   constructor(private httpApi: HttpApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.httpApi.get(orderEndpoint)
-    .subscribe(response => {
-      this.orderList = this.getOnlyFinishedOrder(response);
-      console.log(response);
-    },
-    error => {this.statement = "Błąd! Podczas pobierania zamówien z serwera"})
+    this.getOrders();
   }
 
-  private getOnlyFinishedOrder(list: Order[]): Order[]{
+  private getOrders() {
+    this.httpApi.get(orderEndpoint)
+      .subscribe(response => {
+        this.orderList = this.getOnlyFinishedOrder(response);
+      },
+        error => { this.statement = "Błąd! Podczas pobierania zamówien z serwera" })
+  }
+
+  private getOnlyFinishedOrder(list: Order[]): Order[] {
     let result: Order[] = [];
-    for(let order of list){
-        if(order.orderStatus === "FINISHED")
-        {
-          result.push(order);
-        }
+    for (let order of list) {
+      if (order.orderStatus === "FINISHED") {
+        result.push(order);
+      }
     }
     return result;
   }
 
-  public goToDetails(id: string):void{
+  public goToDetails(id: string): void {
     this.router.navigate(["/order-details", id]);
   }
 
+  public refereshOrdersList(){
+    this.getOrders();
+  }
 }

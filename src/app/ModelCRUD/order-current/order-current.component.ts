@@ -23,17 +23,20 @@ export class OrderCurrentComponent implements OnInit {
     this.getOrders();
   }
 
-  public goToDetails(id):void{
+  public goToDetails(id): void {
     this.router.navigate(["/order-details", id]);
   }
 
-  private getOrders(){
+  private getOrders() {
     this.httpApiService.get(orderEndpoint)
-    .subscribe(
-      data => {this.orderList = data; this.onlyCurrentOrders()},
-      error => {this.statement = "Błąd! Nie udało sie pobrać danych z serwer"}
-    );
+      .subscribe(
+        data => { this.orderList = data; this.onlyCurrentOrders() },
+        error => { this.statement = "Błąd! Nie udało sie pobrać danych z serwer" }
+      );
+  }
 
+  public refreshOrderList(){
+    this.getOrders();
   }
 
 

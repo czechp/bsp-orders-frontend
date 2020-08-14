@@ -6,5 +6,5 @@
 
 <div class=" container d-flex flex-column align-items-center ">
 
-    <app-order-new-list class="mt-4" [orderList]="orderList" (orderIdEmit)="goToDetails($event)"></app-order-new-list>
+    <app-order-new-list class="mt-4" (getNewOrderList)="refereshOrdersList()" [orderList]="orderList" (orderIdEmit)="goToDetails($event)"></app-order-new-list>
 </div>

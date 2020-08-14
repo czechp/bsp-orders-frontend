@@ -1,10 +1,19 @@
-<div class="table bg-white">
+<div class="jumbotron bg-danger text-white collapse" id="delete-frame">
+    <h2 class="text-center">Czy napewno chcesz usunąć zamówienie <br> {{orderToDelete.name}}: </h2>
+    <div class="d-flex justify-content-around mt-4">
+        <button class="btn btn-outline-dark" style="min-width: 200px;" (click)="deleteOrder()" data-toggle="collapse" data-target="#delete-frame">Tak</button>
+        <button class="btn btn-outline-warning" style="min-width: 200px;" data-toggle="collapse" data-target="#delete-frame">Nie</button>
+    </div>
+</div>
+<app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+<div class="table bg-white ">
     <thead class="thead-dark">
         <th scope="col" class="text-center">Id:</th>
         <th scope="col" class="text-center">Nazwa: </th>
         <th scope="col" class="text-center">Status: </th>
         <th scope="col" class="text-center">Data utworzenia:</th>
         <th scope="col" class="text-center">Uzupełnij:</th>
+        <th scope="col" class="text-center">Usuń:</th>
     </thead>
     <tbody>
         <tr *ngFor="let order of orderList">
@@ -19,6 +28,7 @@
             </td>
             <td>{{order.creationDate | date: 'H:mm:ss EEEE dd-MM-yyyy' }}</td>
             <td><button class=" btn btn-outline-warning " (click)="getOrderId(order.id) ">Uzupełnij</button></td>
+            <td><button class="btn btn-outline-danger" style="min-width: 100px;" (click)="this.orderToDelete=order" data-toggle="collapse" data-target="#delete-frame">Usuń: </button></td>
         </tr>
     </tbody>
 </div>

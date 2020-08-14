@@ -58,4 +58,8 @@ export class OrderNewComponent implements OnInit {
     this.router.navigate(["/order-details", id]);
   }
 
+  public refreshOrderList(){
+    this.getOrders();
+  }
+
 }
