@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class OrderDetailsItemListComponent implements OnInit, OnChanges {
 
   @Input()
+  public orderStatus: string;
+
+  @Input()
   public itemsInOrderList: ItemInOrder[];
 
   @Output()
