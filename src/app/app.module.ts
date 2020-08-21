@@ -42,6 +42,7 @@ import { OrderSuperuserDetailsInfoComponent } from './UI/order-superuser-details
 import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.component';
 import { SortItemsInOrderComponent } from './UI/sort-items-in-order/sort-items-in-order.component';
 import { AdminPanelComponent } from './ModelCRUD/admin-panel/admin-panel.component';
+import { UploadFileComponent } from './UI/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { AdminPanelComponent } from './ModelCRUD/admin-panel/admin-panel.compone
     ItemDetailsComponent,
     SortItemsInOrderComponent,
     AdminPanelComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,
