@@ -1,11 +1,21 @@
 <div class="jumbotron bg-secondary text-white">
     <h3 class="text-center mb-3">{{title}}</h3>
+    <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
     <div class="form-group">
         <div class="d-flex justify-content-center">
-            <input type="file" accept=".csv" id="file-upload" class="form-control w-50">
+            <input type="file" accept=".csv" id="file-upload" class="form-control w-50" #file>
         </div>
+
+        <div class="d-flex justify-content-center  m-3 ">
+            <select class="custom-select w-50 text-center" #selectCategory>
+                <option class="text-center" *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+            </select>
+        </div>
+
         <div class="d-flex justify-content-center m-3">
-            <button class="btn btn-primary w-50">Wyslij</button>
+            <button class="btn btn-primary w-50" (click)="sendFile(selectCategory.value, file)">Wyslij</button>
         </div>
+
+
     </div>
 </div>

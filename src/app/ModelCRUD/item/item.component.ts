@@ -150,7 +150,9 @@ export class ItemComponent implements OnInit {
     this.flatItemArray = this.itemArrayToItemFlatArray(filteredItems);
   }
 
-
+  public getItemsAfterUploadFile(){
+    this.getItems();
+  }
 
 }
 

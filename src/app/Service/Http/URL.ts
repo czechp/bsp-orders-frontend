@@ -11,5 +11,6 @@ export const superuserOrderStatusEndpoint = "superuser/status/";
 export const itemInOrderChangeStautsToOrderedEndpoint = "/status/ordered";
 export const itemInOrderChangeStautsToDeliveredEndpoint = "/status/delivered";
 export const userEndpoint="user";
-export const userChangeRoleEndpoint="user/role/"
+export const userChangeRoleEndpoint="user/role/";
+export const csvItemEndpoint="item/csv/category/";
 

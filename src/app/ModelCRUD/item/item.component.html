@@ -4,8 +4,8 @@
     <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
     <div class=" container d-flex flex-column align-items-center ">
         <app-item-create class="w-100" [producers]="producers" [providers]="providers" [itemCategories]="itemCategories" (createItemEmitter)="createItem($event)"></app-item-create>
-        <app-upload-file class="w-100" [title]="'Importuj plik CSV'"></app-upload-file>
         <app-item-modify *ngIf="modifyVisibility" class="w-100" [item]="itemToModify" [producers]="producers" [providers]="providers" [itemCategories]="itemCategories" (modifyItemEmitter)="modifyItem($event)"></app-item-modify>
+        <app-upload-file class="w-100" (getItemEventEmitter)="getItemsAfterUploadFile()" [categories]="itemCategories" [title]="'Importuj plik CSV'"></app-upload-file>
         <app-item-delete *ngIf="deleteVisbility" class="w-100" [item]="itemToDelete" (deleteItemEmitter)="deleteItem($event)"></app-item-delete>
         <app-filter-array [items]="items" (itemsEmitter)="filterItems($event)"></app-filter-array>
         <app-show-table [objects]="flatItemArray" [objectName]="'Elementy' " [fieldsName]="fieldsName " (modifyChanges)="getItemToModify($event)" (deleteChanges)="getItemToDelete($event)"></app-show-table>
