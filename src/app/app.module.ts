@@ -43,6 +43,7 @@ import { ItemDetailsComponent } from './ModelCRUD/item-details/item-details.comp
 import { SortItemsInOrderComponent } from './UI/sort-items-in-order/sort-items-in-order.component';
 import { AdminPanelComponent } from './ModelCRUD/admin-panel/admin-panel.component';
 import { UploadFileComponent } from './UI/upload-file/upload-file.component';
+import { ShowTableItemComponent } from './UI/show-table-item/show-table-item.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { UploadFileComponent } from './UI/upload-file/upload-file.component';
     SortItemsInOrderComponent,
     AdminPanelComponent,
     UploadFileComponent,
+    ShowTableItemComponent,
   ],
   imports: [
     BrowserModule,

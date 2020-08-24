@@ -8,6 +8,7 @@
         <app-upload-file class="w-100" (getItemEventEmitter)="getItemsAfterUploadFile()" [categories]="itemCategories" [title]="'Importuj plik CSV'"></app-upload-file>
         <app-item-delete *ngIf="deleteVisbility" class="w-100" [item]="itemToDelete" (deleteItemEmitter)="deleteItem($event)"></app-item-delete>
         <app-filter-array [items]="items" (itemsEmitter)="filterItems($event)"></app-filter-array>
-        <app-show-table [objects]="flatItemArray" [objectName]="'Elementy' " [fieldsName]="fieldsName " (modifyChanges)="getItemToModify($event)" (deleteChanges)="getItemToDelete($event)"></app-show-table>
     </div>
+    <app-show-table-item class="w-100" [items]="filteredItems" (getItemIdToModifyEventEmitter)="getItemToModify($event)" (getItemIdToDeleteEventEmitter)="getItemToDelete($event)"></app-show-table-item>
+
 </div>
