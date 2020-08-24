@@ -13,22 +13,13 @@ import { Category } from 'src/app/Model/Category';
 export class ItemComponent implements OnInit {
 
   public items: Item[];
+  public filteredItems: Item[];
   public statement: string;
-  public fieldsName = [
-    "Id",
-    "Nazwa",
-    "Nr. seryjny",
-    "Opis",
-    "Url",
-    "Producent",
-    "Dostawca",
-    "Kategoria"
-  ];
+
   public producers: Producer[];
   public providers: Provider[];
   public itemCategories: Category[];
 
-  public flatItemArray: ItemFlat[];
   public itemToModify: Item;
   public modifyVisibility: boolean = false;
 
@@ -40,7 +31,6 @@ export class ItemComponent implements OnInit {
   constructor(private httpApi: HttpApiService) {
     this.items = [];
     this.statement = "";
-    this.flatItemArray = [];
     this.producers = [];
     this.providers = [];
     this.itemCategories = [];
@@ -72,31 +62,12 @@ export class ItemComponent implements OnInit {
   private getItems() {
     this.httpApi.get(itemEndpoint)
       .subscribe(
-        data => { this.items = data; this.flatItemArray = this.itemArrayToItemFlatArray(this.items) },
+        data => { this.items = data; this.filteredItems = data},
         error => this.statement = "Błąd podczas pobierania danych z serwera");
   }
 
-  private itemToItemFlat(item: Item): ItemFlat {
-    return {
-      id: item.id.toString(),
-      name: item.name,
-      serialNumber: item.serialNumber,
-      description: item.description,
-      url: item.url,
-      producer: item.producer.name,
-      provider: item.provider.name,
-      category: item.itemCategory.name
-    };
-  }
 
-  private itemArrayToItemFlatArray(itemArray: Item[]): ItemFlat[] {
-    let result: ItemFlat[] = [];
-    for (let item of itemArray) {
-      result.push(this.itemToItemFlat(item));
-    }
-    return result;
 
-  }
 
   public createItem(item: Item) {
     this.httpApi.post(itemEndpoint, item)
@@ -147,7 +118,7 @@ export class ItemComponent implements OnInit {
   } 
 
   public filterItems(filteredItems: Item[]){
-    this.flatItemArray = this.itemArrayToItemFlatArray(filteredItems);
+    this.filteredItems = filteredItems;
   }
 
   public getItemsAfterUploadFile(){
@@ -156,13 +127,3 @@ export class ItemComponent implements OnInit {
 
 }
 
-interface ItemFlat {
-  id: string;
-  name: string;
-  serialNumber: string;
-  description: string;
-  url: string;
-  producer: string;
-  provider: string;
-  category: string;
-}
