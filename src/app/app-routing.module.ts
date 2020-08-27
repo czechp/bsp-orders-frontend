@@ -20,6 +20,7 @@ import {OrderSuperuserDetailsComponent} from './ModelCRUD/order-superuser-detail
 import {ItemDetailsComponent} from './ModelCRUD/item-details/item-details.component';
 import {AdminPanelComponent} from './ModelCRUD/admin-panel/admin-panel.component';
 import {AdminGuardService} from './Service/Utilities/admin-guard.service';
+import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login-error', component: LoginErrorComponent},
   {path: 'not-enough-permissions', component: NotEnoughPermissionsComponent},
+  {path: 'to-do-list', component: ToDoListComponent, canActivate: [AuthorizationGuardService]},
   {path: '', redirectTo: '/item', pathMatch: 'full', canActivate: [AuthorizationGuardService]},
   {path: '**', redirectTo: '/not-found'}
 ];

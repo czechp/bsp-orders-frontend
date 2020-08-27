@@ -45,6 +45,7 @@ import {AdminPanelComponent} from './ModelCRUD/admin-panel/admin-panel.component
 import {UploadFileComponent} from './UI/upload-file/upload-file.component';
 import {ShowTableItemComponent} from './UI/show-table-item/show-table-item.component';
 import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
+import { TaskDetailsComponent } from './UI/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
     UploadFileComponent,
     ShowTableItemComponent,
     ToDoListComponent,
+    TaskDetailsComponent,
   ],
   imports: [
     BrowserModule,

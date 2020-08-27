@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center m-5 ">
+  <div class="card w-50 bg-warning text-dark" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Użytkownik: <br> {{task.appUser.username}}</h5>
+      <p class="card-text">Problem: <br>{{task.name}}</p>
+      <div class="d-flex justify-content-center " *ngIf="isAdmin">
+        <button type="button" class="btn btn-outline-danger w-50" [attr.data-target]="'#delete-conf-' + task.id"
+                data-toggle="collapse">Usuń
+        </button>
+      </div>
+      <div class="collapse" [attr.id]="'delete-conf-' + task.id">
+        <div class="mt-3">
+          <h3 class="text-center">Czy chcesz usunąć zgłoszenie: </h3>
+        </div>
+        <div class="d-flex justify-content-around mt-3">
+          <button class="btn btn-outline-danger w-25" (click)="delete()">Usuń</button>
+          <button class="btn btn-outline-primary w-25" [attr.data-target]="'#delete-conf-' + task.id"
+                  data-toggle="collapse">Anuluj
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

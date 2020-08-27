@@ -13,4 +13,4 @@ export const itemInOrderChangeStautsToDeliveredEndpoint = '/status/delivered';
 export const userEndpoint = 'user';
 export const userChangeRoleEndpoint = 'user/role/';
 export const csvItemEndpoint = 'item/csv/category/';
-
+export const taskEndpoint = 'task';
