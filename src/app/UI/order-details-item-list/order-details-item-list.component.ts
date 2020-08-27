@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { ItemInOrder } from 'src/app/Model/ItemInOrder';
-import { Router } from '@angular/router';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {ItemInOrder} from 'src/app/Model/ItemInOrder';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-details-item-list',
@@ -39,12 +39,12 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
     }
   }
 
-  public delete(id:number){
+  public delete(id: number) {
     this.deleteEmit.emit(id);
   }
 
-  public goToItemDetails(id: number){
-    this.router.navigate(["/item-details", id]);
+  public goToItemDetails(id: number) {
+    this.router.navigate(['/item-details', id]);
   }
 
   private findById(id: number): ItemInOrder {
@@ -55,7 +55,6 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
     }
     return null;
   }
-
 
 
 }

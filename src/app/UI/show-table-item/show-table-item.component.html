@@ -1,32 +1,36 @@
 <table class="table">
-    <thead class="thead-dark">
-        <th scope="col" class="text-center">Id:</th>
-        <th scope="col" class="text-center">Nazwa:</th>
-        <th scope="col" class="text-center">Nr. seryjny:</th>
-        <th scope="col" class="text-center">Opis:</th>
-        <th scope="col" class="text-center">Link:</th>
-        <th scope="col" class="text-center">Producent:</th>
-        <th scope="col" class="text-center">Dostawca:</th>
-        <th scope="col" class="text-center">Kategoria:</th>
-        <th scope="col" class="text-center">Modyfikuj:</th>
-        <th scope="col" class="text-center">Usuń:</th>
+  <thead class="thead-dark">
+  <th class="text-center" scope="col">Id:</th>
+  <th class="text-center" scope="col">Nazwa:</th>
+  <th class="text-center" scope="col">Nr. seryjny:</th>
+  <th class="text-center" scope="col">Opis:</th>
+  <th class="text-center" scope="col">Link:</th>
+  <th class="text-center" scope="col">Producent:</th>
+  <th class="text-center" scope="col">Dostawca:</th>
+  <th class="text-center" scope="col">Kategoria:</th>
+  <th class="text-center" scope="col">Modyfikuj:</th>
+  <th class="text-center" scope="col">Usuń:</th>
 
-    </thead>
-    <tbody style="background-color: white;">
-        <tr *ngFor="let item of items" class="text-center">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.serialNumber}}</td>
-            <td>{{item.description}}</td>
-            <td>
-                <a href="{{item.url}}" target="_blank" class="">Klik</a>
-            </td>
-            <td>{{item.producer.name}}</td>
-            <td>{{item.provider.name}}</td>
-            <td>{{item.itemCategory.name}}</td>
-            <td><button class="btn btn-warning" style="min-width: 100px;" (click)="getItemIdToModify(item.id)">Modyfikuj:</button></td>
-            <td><button class="btn btn-danger" style="min-width: 100px; " (click)="getItemIdToDelete(item.id)">Usuń:</button></td>
+  </thead>
+  <tbody style="background-color: white;">
+  <tr *ngFor="let item of items" class="text-center">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.serialNumber}}</td>
+    <td>{{item.description}}</td>
+    <td>
+      <a class="" href="{{item.url}}" target="_blank">Klik</a>
+    </td>
+    <td>{{item.producer.name}}</td>
+    <td>{{item.provider.name}}</td>
+    <td>{{item.itemCategory.name}}</td>
+    <td>
+      <button (click)="getItemIdToModify(item.id)" class="btn btn-warning" style="min-width: 100px;">Modyfikuj:</button>
+    </td>
+    <td>
+      <button (click)="getItemIdToDelete(item.id)" class="btn btn-danger" style="min-width: 100px; ">Usuń:</button>
+    </td>
 
-        </tr>
-    </tbody>
+  </tr>
+  </tbody>
 </table>

@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Item } from 'src/app/Model/Item';
+import {Injectable} from '@angular/core';
+import {Item} from 'src/app/Model/Item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FindInArrayService {
 
-  constructor() { }
+  constructor() {
+  }
 
   public findByKey(array: Item[], key: string): Item[] {
     key = key.toLowerCase();

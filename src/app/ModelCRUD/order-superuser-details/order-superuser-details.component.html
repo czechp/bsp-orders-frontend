@@ -1,50 +1,56 @@
 <div class="jumbotron jumbotron-fluid bg-success text-white">
-    <h1 class="text-center">Realizuj zamówienie</h1>
+  <h1 class="text-center">Realizuj zamówienie</h1>
 </div>
-<app-crud-statement [statement]="statement" *ngIf="statement.length > 0">
+<app-crud-statement *ngIf="statement.length > 0" [statement]="statement">
 </app-crud-statement>
 
 <app-order-superuser-details-info [order]="order"></app-order-superuser-details-info>
 <app-sort-items-in-order [order]="order"></app-sort-items-in-order>
 <div class="jumbotron jumbotron-fluid bg-secondary text-white">
-    <h1 class="text-center mb-3">Elementy:</h1>
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th scope="col">Nazwa:</th>
-                <th scope="col">Nr. seryjny:</th>
-                <th scope="col">Opis:</th>
-                <th scope="col">Link:</th>
-                <th scope="col">Producent:</th>
-                <th scope="col">Dostawca:</th>
-                <th scope="col">Kategoria:</th>
-                <th sorted="col">Ilość:</th>
-                <th scope="col">Zamówiono: </th>
-                <th scope="col">Dostarczono: </th>
-                <th scope="col">Szczegóły</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of order.itemsInOrder" [ngClass]="{
+  <h1 class="text-center mb-3">Elementy:</h1>
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Nazwa:</th>
+      <th scope="col">Nr. seryjny:</th>
+      <th scope="col">Opis:</th>
+      <th scope="col">Link:</th>
+      <th scope="col">Producent:</th>
+      <th scope="col">Dostawca:</th>
+      <th scope="col">Kategoria:</th>
+      <th sorted="col">Ilość:</th>
+      <th scope="col">Zamówiono:</th>
+      <th scope="col">Dostarczono:</th>
+      <th scope="col">Szczegóły</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of order.itemsInOrder" [ngClass]="{
                 'bg-warning': item.ordered === true && item.delivered === false,
                 'bg-success': item.delivered === true
             }">
-                <td>{{item.name}}</td>
-                <td>{{item.serialNumber}}</td>
-                <td>{{item.description}}</td>
-                <td>
-                    <a href="{{item.url}}" class="">Klik</a>
-                </td>
-                <td>{{item.producer.name}}</td>
-                <td>{{item.provider.name}}</td>
-                <td>{{item.itemCategory.name}}</td>
-                <td>{{item.amount}}</td>
-                <td><button type="button" class="btn btn-primary" (click)="orderItem(item.id)">Zamówiono</button></td>
-                <td><button type="button" class="btn btn-primary" (click)="deliverItem(item.id)">Dostarczono</button></td>
-                <td><button type="button" class="btn btn-primary" (click)="goToItemDetails(item.id)">Szczegóły</button></td>
+      <td>{{item.name}}</td>
+      <td>{{item.serialNumber}}</td>
+      <td>{{item.description}}</td>
+      <td>
+        <a class="" href="{{item.url}}">Klik</a>
+      </td>
+      <td>{{item.producer.name}}</td>
+      <td>{{item.provider.name}}</td>
+      <td>{{item.itemCategory.name}}</td>
+      <td>{{item.amount}}</td>
+      <td>
+        <button (click)="orderItem(item.id)" class="btn btn-primary" type="button">Zamówiono</button>
+      </td>
+      <td>
+        <button (click)="deliverItem(item.id)" class="btn btn-primary" type="button">Dostarczono</button>
+      </td>
+      <td>
+        <button (click)="goToItemDetails(item.id)" class="btn btn-primary" type="button">Szczegóły</button>
+      </td>
 
-            </tr>
-        </tbody>
+    </tr>
+    </tbody>
 
-    </table>
+  </table>
 </div>

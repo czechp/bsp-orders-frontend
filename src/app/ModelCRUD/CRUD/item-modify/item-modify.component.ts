@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { Item } from 'src/app/Model/Item';
-import { Producer } from 'src/app/Model/Producer';
-import { Provider } from 'src/app/Model/Provider';
-import { Category } from 'src/app/Model/Category';
-import { SelectObjectComponent } from 'src/app/UI/select-object/select-object.component';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Item} from 'src/app/Model/Item';
+import {Producer} from 'src/app/Model/Producer';
+import {Provider} from 'src/app/Model/Provider';
+import {Category} from 'src/app/Model/Category';
+import {SelectObjectComponent} from 'src/app/UI/select-object/select-object.component';
 
 @Component({
   selector: 'app-item-modify',
@@ -24,34 +24,34 @@ export class ItemModifyComponent implements OnInit {
   @Input()
   public itemCategories: Category[];
 
-  @ViewChild("selectProducer")
+  @ViewChild('selectProducer')
   public selectProducer: SelectObjectComponent;
 
-  @ViewChild("selectProvider")
+  @ViewChild('selectProvider')
   public selectProvider: SelectObjectComponent;
 
-  @ViewChild("selectItemCategory")
+  @ViewChild('selectItemCategory')
   public selectItemCategory: SelectObjectComponent;
 
   @Output()
   public modifyItemEmitter = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  public modifyItem(status: boolean){
-    if(status){
+  public modifyItem(status: boolean) {
+    if (status) {
       this.item.producer = this.selectProducer.result;
       this.item.provider = this.selectProvider.result;
       this.item.itemCategory = this.selectItemCategory.result;
       this.modifyItemEmitter.emit(this.item);
-    }else{
+    } else {
       this.modifyItemEmitter.emit(null);
     }
   }
-
 
 
 }

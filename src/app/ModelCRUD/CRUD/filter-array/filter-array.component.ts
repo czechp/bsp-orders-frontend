@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-filter-array',
@@ -40,7 +40,6 @@ export class FilterArrayComponent implements OnInit {
     }
     this.itemsEmitter.emit(result);
   }
-
 
 
 }

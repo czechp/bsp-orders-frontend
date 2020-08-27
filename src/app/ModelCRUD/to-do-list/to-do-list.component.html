@@ -1,0 +1,9 @@
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="text-center">ToDo Lista</h1>
+  <h3 class="text-center">Tutaj można wpisaywać co nie działa, co można zmienić lub jaką funkcjonalność dołożyć</h3>
+</div>
+<app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+<div class="container">
+  <app-task-create></app-task-create>
+  <app-task-details *ngFor="let task of tasks" [task]="task" (deleteEmit)="delete($event)" ></app-task-details>
+</div>

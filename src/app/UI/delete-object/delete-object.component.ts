@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-delete-object',
@@ -8,18 +8,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class DeleteObjectComponent implements OnInit {
 
   @Input()
-  public objectToDelete:any;
+  public objectToDelete: any;
 
   @Input()
-  public fieldsName:any[];
+  public fieldsName: any[];
 
   @Output()
   public acceptDeleting = new EventEmitter();
 
-  public reducedFieldsName:string[];
+  public reducedFieldsName: string[];
   public values: string[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.reducedFieldsName = Object.assign([], this.fieldsName);
@@ -28,11 +29,11 @@ export class DeleteObjectComponent implements OnInit {
     this.values = Object.values(this.objectToDelete);
   }
 
-  public deleteObject(){
-      this.acceptDeleting.emit(true);
+  public deleteObject() {
+    this.acceptDeleting.emit(true);
   }
 
-  public cancelDeleteObject(){
+  public cancelDeleteObject() {
     this.acceptDeleting.emit(false);
   }
 

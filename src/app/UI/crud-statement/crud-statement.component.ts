@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-crud-statement',
@@ -9,7 +9,9 @@ export class CrudStatementComponent implements OnInit {
 
   @Input()
   public statement: string;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -3,6 +3,7 @@
 
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
 <div class=" container d-flex flex-column align-items-center ">
-    <app-order-create (createEmitter)="createOrder($event)" class="w-100"></app-order-create>
-    <app-order-new-list (getNewOrderList)="refreshOrderList()" [orderList]="orderList" (orderIdEmit)="routeToOrderDetails($event)"></app-order-new-list>
+  <app-order-create (createEmitter)="createOrder($event)" class="w-100"></app-order-create>
+  <app-order-new-list (getNewOrderList)="refreshOrderList()" (orderIdEmit)="routeToOrderDetails($event)"
+                      [orderList]="orderList"></app-order-new-list>
 </div>

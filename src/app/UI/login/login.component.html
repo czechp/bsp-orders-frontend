@@ -1,26 +1,29 @@
 <div class="row" class="text-white" style="margin-top: 200px;">
-    <div class="d-flex justify-content-center">
-        <div class="jumbotron text-center bg-dark" style="width: 500px;">
-            <h1>Zaloguj:</h1>
-            <div class="form-group mt-4">
-                <div class="input-group">
-                    <div class="input-group-prepend ">
-                        <span class="input-group-text bg-warning ">Login: </span>
-                    </div>
-                    <input #username type="text" placeholder="Wpisz login" class="form-control text-center">
-                </div>
-                <div class="input-group mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-warning">Hasło: </span>
-                    </div>
-                    <input #password type="password" placeholder="Wpisz hasło" class="form-control text-center">
-                </div>
-
-                <button class="m-5 btn btn-lg btn-outline-success" style="width: 300px;" (click)="login(username.value, password.value) ">Zaloguj</button>
-            </div>
-            <h3>Jeżeli nie posiadasz konta przejdź do rejestracji:</h3>
-            <button class="mt-3 btn btn-lg btn-outline-primary" style="width: 300px;" routerLink="/register">Rejestracja</button>
+  <div class="d-flex justify-content-center">
+    <div class="jumbotron text-center bg-dark" style="width: 500px;">
+      <h1>Zaloguj:</h1>
+      <div class="form-group mt-4">
+        <div class="input-group">
+          <div class="input-group-prepend ">
+            <span class="input-group-text bg-warning ">Login: </span>
+          </div>
+          <input #username class="form-control text-center" placeholder="Wpisz login" type="text">
+        </div>
+        <div class="input-group mt-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-warning">Hasło: </span>
+          </div>
+          <input #password class="form-control text-center" placeholder="Wpisz hasło" type="password">
         </div>
 
+        <button (click)="login(username.value, password.value) " class="m-5 btn btn-lg btn-outline-success"
+                style="width: 300px;">Zaloguj
+        </button>
+      </div>
+      <h3>Jeżeli nie posiadasz konta przejdź do rejestracji:</h3>
+      <button class="mt-3 btn btn-lg btn-outline-primary" routerLink="/register" style="width: 300px;">Rejestracja
+      </button>
     </div>
+
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-show-table',
@@ -7,13 +7,13 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 })
 export class ShowTableComponent implements OnInit, OnChanges {
 
-  @Input("objects")
+  @Input('objects')
   public objects: any[];
 
-  @Input("objectName")
+  @Input('objectName')
   public objectName: string;
 
-  @Input("fieldsName")
+  @Input('fieldsName')
   public fieldsName: string[];
 
   @Output()
@@ -25,7 +25,7 @@ export class ShowTableComponent implements OnInit, OnChanges {
   public objectMatrix: string[][];
 
   constructor() {
-    this.objectMatrix=[];
+    this.objectMatrix = [];
   }
 
 
@@ -34,22 +34,22 @@ export class ShowTableComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.fieldsName.push("Modyfikuj");
-    this.fieldsName.push("Usuń");
+    this.fieldsName.push('Modyfikuj');
+    this.fieldsName.push('Usuń');
     this.convertObjArrayToMatrixArray();
+  }
+
+  public emitObjectToModify(i: string) {
+    this.modifyChanges.emit(i);
+  }
+
+  public emitObjectToDelete(i: string) {
+    this.deleteChanges.emit(i);
   }
 
   private convertObjArrayToMatrixArray() {
     for (let iterator in this.objects) {
-      this.objectMatrix[iterator] = Object.values(this.objects[iterator]); 
+      this.objectMatrix[iterator] = Object.values(this.objects[iterator]);
     }
-  }
-
-  public emitObjectToModify(i:string){
-    this.modifyChanges.emit(i);
-  }
-
-  public emitObjectToDelete (i:string){
-      this.deleteChanges.emit(i);
   }
 }

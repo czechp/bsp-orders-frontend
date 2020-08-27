@@ -1,1 +1,3 @@
-<app-crud-basic (deleteObjectEmitter)="deleteProducer($event)" (modifyObjectEmitter)="modifyProducer($event)" (createObjectEmitter)="createProducer($event)" [objects]="producers" [objectName]="'Producenci'" [fieldsNames]="['Id', 'Nazwa']" [statement]="statement"></app-crud-basic>
+<app-crud-basic (createObjectEmitter)="createProducer($event)" (deleteObjectEmitter)="deleteProducer($event)"
+                (modifyObjectEmitter)="modifyProducer($event)" [fieldsNames]="['Id', 'Nazwa']" [objectName]="'Producenci'"
+                [objects]="producers" [statement]="statement"></app-crud-basic>

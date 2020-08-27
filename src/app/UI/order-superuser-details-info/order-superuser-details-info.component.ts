@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Order } from 'src/app/Model/Order';
+import {Component, Input, OnInit} from '@angular/core';
+import {Order} from 'src/app/Model/Order';
 
 @Component({
   selector: 'app-order-superuser-details-info',
@@ -10,8 +10,9 @@ export class OrderSuperuserDetailsInfoComponent implements OnInit {
 
   @Input()
   public order: Order;
-  
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

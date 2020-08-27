@@ -1,12 +1,20 @@
 <div class="table bg-white">
-    <thead class="thead-dark">
-        <th scope="col" class="table-header text-center" *ngFor="let field of fieldsName">{{field}}</th>
-        <tr *ngFor="let object of objects; let i = index" [attr.data-index]="i">
-            <td class="text-center" *ngFor="let value of objectMatrix[i];">
-                {{value}}
-            </td>
-            <td class="text-center"><button type="button" class="button-min-width btn btn-outline-warning" (click)="emitObjectToModify(objectMatrix[i][0])">Modyfikuj</button></td>
-            <td class="text-center"><button type="button" class="button-min-width btn btn-outline-danger" (click)="emitObjectToDelete(objectMatrix[i][0])">Usuń</button></td>
-        </tr>
-    </thead>
+  <thead class="thead-dark">
+  <th *ngFor="let field of fieldsName" class="table-header text-center" scope="col">{{field}}</th>
+  <tr *ngFor="let object of objects; let i = index" [attr.data-index]="i">
+    <td *ngFor="let value of objectMatrix[i];" class="text-center">
+      {{value}}
+    </td>
+    <td class="text-center">
+      <button (click)="emitObjectToModify(objectMatrix[i][0])" class="button-min-width btn btn-outline-warning"
+              type="button">Modyfikuj
+      </button>
+    </td>
+    <td class="text-center">
+      <button (click)="emitObjectToDelete(objectMatrix[i][0])" class="button-min-width btn btn-outline-danger"
+              type="button">Usuń
+      </button>
+    </td>
+  </tr>
+  </thead>
 </div>

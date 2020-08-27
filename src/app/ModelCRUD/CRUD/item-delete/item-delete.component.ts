@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Item } from 'src/app/Model/Item';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Item} from 'src/app/Model/Item';
 
 @Component({
   selector: 'app-item-delete',
@@ -14,7 +14,8 @@ export class ItemDeleteComponent implements OnInit {
   @Output()
   public deleteItemEmitter = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

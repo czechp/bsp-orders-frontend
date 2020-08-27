@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/Model/Order';
-import { HttpApiService } from 'src/app/Service/Http/http-api.service';
-import { orderEndpoint, superuserOrderStatusEndpoint } from 'src/app/Service/Http/URL';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Order} from 'src/app/Model/Order';
+import {HttpApiService} from 'src/app/Service/Http/http-api.service';
+import {orderEndpoint, superuserOrderStatusEndpoint} from 'src/app/Service/Http/URL';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-superuser',
@@ -13,39 +13,49 @@ export class OrderSuperuserComponent implements OnInit {
 
   public currentOrders: Order[] = [];
   public finishedOrders: Order[] = [];
-  public statement: string ="";
+  public statement: string = '';
+
   constructor(private httpApiService: HttpApiService,
-    private router:Router
-    ) { }
+              private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
     this.getCurrentOrders();
     this.getFinishedOrders();
   }
 
-  private getCurrentOrders():void{
-    this.httpApiService.get(orderEndpoint + "/" +  superuserOrderStatusEndpoint + "REALISE")
-    .subscribe(
-      response => {this.currentOrders = response;},
-      error => {this.statement="Błąd!!! Nie udało się pobrać zamówień z serwera"}
-    );
+  public goToOrderDetails(id: number) {
+    this.router.navigate(['/order-superuser-details', id]);
   }
 
-  private getFinishedOrders():void{
-    this.httpApiService.get(orderEndpoint + "/" +  superuserOrderStatusEndpoint + "FINISHED")
-    .subscribe(
-      response => {this.finishedOrders = response},
-      error => {this.statement="Błąd!!! Nie udało się pobrać zamówień z serwera";}
-    );
+  public goToFinishedOrderDetails(id: number) {
+    this.router.navigate(['/order-details', id]);
   }
 
-  public goToOrderDetails(id: number){
-    this.router.navigate(["/order-superuser-details", id]);
+  private getCurrentOrders(): void {
+    this.httpApiService.get(orderEndpoint + '/' + superuserOrderStatusEndpoint + 'REALISE')
+      .subscribe(
+        response => {
+          this.currentOrders = response;
+        },
+        error => {
+          this.statement = 'Błąd!!! Nie udało się pobrać zamówień z serwera';
+        }
+      );
   }
 
-  public goToFinishedOrderDetails(id: number){
-    this.router.navigate(["/order-details", id]);
+  private getFinishedOrders(): void {
+    this.httpApiService.get(orderEndpoint + '/' + superuserOrderStatusEndpoint + 'FINISHED')
+      .subscribe(
+        response => {
+          this.finishedOrders = response;
+        },
+        error => {
+          this.statement = 'Błąd!!! Nie udało się pobrać zamówień z serwera';
+        }
+      );
   }
-  
+
 
 }

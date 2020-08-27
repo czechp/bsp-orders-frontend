@@ -1,20 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { AuthorizationService } from './authorization.service';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {AuthorizationService} from './authorization.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationInterceptorService implements HttpInterceptor {
 
-  constructor(private authService: AuthorizationService) { }
+  constructor(private authService: AuthorizationService) {
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.authService.isLogin()) {
       let request = req.clone(
         {
           setHeaders: {
-            Authorization: sessionStorage.getItem("credentials")
+            Authorization: sessionStorage.getItem('credentials')
           }
         }
       );
