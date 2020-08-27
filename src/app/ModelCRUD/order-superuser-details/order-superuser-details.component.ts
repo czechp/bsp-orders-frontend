@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpApiService} from 'src/app/Service/Http/http-api.service';
 import {
-  itemInOrderChangeStautsToDeliveredEndpoint,
-  itemInOrderChangeStautsToOrderedEndpoint,
+  itemInOrderChangeStatusToDeliveredEndpoint,
+  itemInOrderChangeStatusToOrderedEndpoint,
   itemInOrderEndpoint,
   orderEndpoint
 } from 'src/app/Service/Http/URL';
@@ -31,7 +31,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
 
   public orderItem(id: number) {
     this.statement = '';
-    this.httpApi.patch(itemInOrderEndpoint + itemInOrderChangeStautsToOrderedEndpoint, id, {})
+    this.httpApi.patch(itemInOrderEndpoint + itemInOrderChangeStatusToOrderedEndpoint, id, {})
       .subscribe(
         response => {
           this.getOrder();
@@ -44,7 +44,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
 
   public deliverItem(id: number) {
     this.statement = '';
-    this.httpApi.patch(itemInOrderEndpoint + itemInOrderChangeStautsToDeliveredEndpoint, id, {})
+    this.httpApi.patch(itemInOrderEndpoint + itemInOrderChangeStatusToDeliveredEndpoint, id, {})
       .subscribe(
         response => {
           this.getOrder();

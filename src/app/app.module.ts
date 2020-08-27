@@ -46,6 +46,7 @@ import {UploadFileComponent} from './UI/upload-file/upload-file.component';
 import {ShowTableItemComponent} from './UI/show-table-item/show-table-item.component';
 import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
 import { TaskDetailsComponent } from './UI/task-details/task-details.component';
+import { TaskCreateComponent } from './UI/task-create/task-create.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { TaskDetailsComponent } from './UI/task-details/task-details.component';
     ShowTableItemComponent,
     ToDoListComponent,
     TaskDetailsComponent,
+    TaskCreateComponent,
   ],
   imports: [
     BrowserModule,
