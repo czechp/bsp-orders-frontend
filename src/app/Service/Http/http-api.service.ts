@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
-import { URL, orderEndpoint, userChangeRoleEndpoint } from "./URL";
-import { ItemInOrder } from 'src/app/Model/ItemInOrder';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {orderEndpoint, URL, userChangeRoleEndpoint} from './URL';
+import {Observable} from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HttpApiService {
 
+  constructor(private httpClient: HttpClient) {
+  }
+
   put(endpoint: string, object: any) {
     return this.httpClient.put<any>(URL + endpoint, object);
   }
-
-  constructor(private httpClient: HttpClient) { }
 
   public get(endpoint: string) {
     return this.httpClient.get<any[]>(URL + endpoint);
@@ -23,41 +24,41 @@ export class HttpApiService {
   }
 
   public patch(endpoint, id, object) {
-    return this.httpClient.patch<any>(URL + endpoint + "/" + id, object);
+    return this.httpClient.patch<any>(URL + endpoint + '/' + id, object);
   }
 
 
   public delete(endpoint, id) {
-    return this.httpClient.delete<any>(URL + endpoint + "/" + id);
+    return this.httpClient.delete<any>(URL + endpoint + '/' + id);
   }
 
   public getElement(endpoint, id) {
-    return this.httpClient.get<any>(URL + endpoint + "/" + id);
+    return this.httpClient.get<any>(URL + endpoint + '/' + id);
   }
 
   public patchWithParams(endpoint, id, body, paramName, paramValue) {
     let params = new HttpParams()
       .set(paramName, paramValue);
     return this.httpClient
-      .patch(URL + endpoint + "/" + id, body, { params: params });
+      .patch(URL + endpoint + '/' + id, body, {params: params});
   }
 
   public addItemToOrder(orderId, itemId, amount) {
     let params = new HttpParams()
-      .set("amount", amount.toString());
-    return this.httpClient.get(URL + orderEndpoint + "/" + orderId + "/item/" + itemId, { params: params });
+      .set('amount', amount.toString());
+    return this.httpClient.get(URL + orderEndpoint + '/' + orderId + '/item/' + itemId, {params: params});
   }
 
   public changeUserRole(userId: number, role: string) {
-    let params = new HttpParams().set("role", role);
+    let params = new HttpParams().set('role', role);
     return this.httpClient.patch(
       URL + userChangeRoleEndpoint + userId.toString(),
       {},
-      { params: params }
+      {params: params}
     );
   }
 
-  public uploadFile(endpoint: string, formData: FormData): Observable<any>{
-      return this.httpClient.post(URL + endpoint, formData);
+  public uploadFile(endpoint: string, formData: FormData): Observable<any> {
+    return this.httpClient.post(URL + endpoint, formData);
   }
 }

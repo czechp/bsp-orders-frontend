@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { Order } from 'src/app/Model/Order';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Order} from 'src/app/Model/Order';
 
 @Component({
   selector: 'app-order-details-frame',
@@ -10,7 +10,6 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
 
   @Input()
   public order: Order;
-
 
 
   @Output()
@@ -31,7 +30,8 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.createStatusArrays();
     if (this.statusArray.length > 0) {
-      this.changeStatusResult = this.statusArray[0];;
+      this.changeStatusResult = this.statusArray[0];
+
     }
   }
 
@@ -40,18 +40,18 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
   }
 
   public changeName(name: string) {
-    this.changeNameEmit.emit(name)
+    this.changeNameEmit.emit(name);
+  }
+
+  public changeStatus() {
+    this.changeStatusEmit.emit(this.changeStatusResult.status);
   }
 
   private createStatusArrays() {
     this.statusArray = [];
-    this.statusArray.push({ status: "NEW", statusName: "Nowe" });
-    this.statusArray.push({ status: "REALISE", statusName: "W realizacji" });
-    this.statusArray.push({ status: "FINISHED", statusName: "Zakończone" });
+    this.statusArray.push({status: 'NEW', statusName: 'Nowe'});
+    this.statusArray.push({status: 'REALISE', statusName: 'W realizacji'});
+    this.statusArray.push({status: 'FINISHED', statusName: 'Zakończone'});
 
-  }
-
-  public changeStatus(){
-    this.changeStatusEmit.emit(this.changeStatusResult.status);
   }
 }

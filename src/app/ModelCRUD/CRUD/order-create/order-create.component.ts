@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Order } from 'src/app/Model/Order';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-order-create',
@@ -11,12 +10,13 @@ export class OrderCreateComponent implements OnInit {
   @Output()
   createEmitter = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  public createOrder(name: string){
+  public createOrder(name: string) {
 
     this.createEmitter.emit({name: name});
   }

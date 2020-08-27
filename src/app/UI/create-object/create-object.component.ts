@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-create-object',
@@ -7,28 +7,30 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CreateObjectComponent implements OnInit {
 
-  @Input("fieldsNames")
+  @Input('fieldsNames')
   public fieldsName: string[];
 
 
   @Output()
   public acceptCreating = new EventEmitter();
 
-  public valuesArray:string[];
+  public valuesArray: string[];
   public reducedFieldsName: string[];
-  
-  
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.reducedFieldsName = Object.assign([], this.fieldsName);
-    this.valuesArray=[];
-    for(let i=0; i<this.reducedFieldsName.length; i++){this.valuesArray.push("")}
+    this.valuesArray = [];
+    for (let i = 0; i < this.reducedFieldsName.length; i++) {
+      this.valuesArray.push('');
+    }
   }
 
 
-  public createObject(){
+  public createObject() {
     this.acceptCreating.emit(true);
   }
 

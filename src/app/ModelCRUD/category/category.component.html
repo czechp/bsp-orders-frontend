@@ -1,1 +1,3 @@
-<app-crud-basic (deleteObjectEmitter)="deleteCategory($event)" (modifyObjectEmitter)="modifyCategory($event)" (createObjectEmitter)="createCategory($event)" [objects]="categories" [objectName]="'Kategorie'" [fieldsNames]="['Id', 'Nazwa']" [statement]="statement"></app-crud-basic>
+<app-crud-basic (createObjectEmitter)="createCategory($event)" (deleteObjectEmitter)="deleteCategory($event)"
+                (modifyObjectEmitter)="modifyCategory($event)" [fieldsNames]="['Id', 'Nazwa']" [objectName]="'Kategorie'"
+                [objects]="categories" [statement]="statement"></app-crud-basic>

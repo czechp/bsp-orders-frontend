@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/Model/Order';
-import { HttpApiService } from 'src/app/Service/Http/http-api.service';
-import { orderEndpoint } from 'src/app/Service/Http/URL';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Order} from 'src/app/Model/Order';
+import {HttpApiService} from 'src/app/Service/Http/http-api.service';
+import {orderEndpoint} from 'src/app/Service/Http/URL';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-current',
@@ -15,7 +15,7 @@ export class OrderCurrentComponent implements OnInit {
   public orderList: Order[];
 
   constructor(private httpApiService: HttpApiService, private router: Router) {
-    this.statement = "";
+    this.statement = '';
     this.orderList = [];
   }
 
@@ -24,27 +24,30 @@ export class OrderCurrentComponent implements OnInit {
   }
 
   public goToDetails(id): void {
-    this.router.navigate(["/order-details", id]);
+    this.router.navigate(['/order-details', id]);
+  }
+
+  public refreshOrderList() {
+    this.getOrders();
   }
 
   private getOrders() {
     this.httpApiService.get(orderEndpoint)
       .subscribe(
-        data => { this.orderList = data; this.onlyCurrentOrders() },
-        error => { this.statement = "Błąd! Nie udało sie pobrać danych z serwer" }
+        data => {
+          this.orderList = data;
+          this.onlyCurrentOrders();
+        },
+        error => {
+          this.statement = 'Błąd! Nie udało sie pobrać danych z serwer';
+        }
       );
   }
-
-  public refreshOrderList(){
-    this.getOrders();
-  }
-
-
 
   private onlyCurrentOrders() {
     let result: Order[] = [];
     for (let order of this.orderList) {
-      if (order.orderStatus === "REALISE") {
+      if (order.orderStatus === 'REALISE') {
         result.push(order);
       }
     }

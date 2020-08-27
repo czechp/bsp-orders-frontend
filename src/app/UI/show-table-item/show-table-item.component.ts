@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Item } from 'src/app/Model/Item';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Item} from 'src/app/Model/Item';
 
 @Component({
   selector: 'app-show-table-item',
@@ -14,19 +14,21 @@ export class ShowTableItemComponent implements OnInit {
   @Output()
   public getItemIdToModifyEventEmitter = new EventEmitter();
 
-  
+
   @Output()
   public getItemIdToDeleteEventEmitter = new EventEmitter();
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  public getItemIdToModify(id: number){
+  public getItemIdToModify(id: number) {
     this.getItemIdToModifyEventEmitter.emit(id);
   }
 
-  public getItemIdToDelete(id: number){
+  public getItemIdToDelete(id: number) {
     this.getItemIdToDeleteEventEmitter.emit(id);
   }
 

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpApiService } from 'src/app/Service/Http/http-api.service';
-import { orderEndpoint } from 'src/app/Service/Http/URL';
-import { Order } from 'src/app/Model/Order';
-import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {HttpApiService} from 'src/app/Service/Http/http-api.service';
+import {orderEndpoint} from 'src/app/Service/Http/URL';
+import {Order} from 'src/app/Model/Order';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-finished',
@@ -12,38 +11,41 @@ import { Router } from '@angular/router';
 })
 export class OrderFinishedComponent implements OnInit {
 
-  public statement: string = "";
+  public statement: string = '';
   public orderList: Order[];
 
-  constructor(private httpApi: HttpApiService, private router: Router) { }
+  constructor(private httpApi: HttpApiService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.getOrders();
+  }
+
+  public goToDetails(id: string): void {
+    this.router.navigate(['/order-details', id]);
+  }
+
+  public refereshOrdersList() {
     this.getOrders();
   }
 
   private getOrders() {
     this.httpApi.get(orderEndpoint)
       .subscribe(response => {
-        this.orderList = this.getOnlyFinishedOrder(response);
-      },
-        error => { this.statement = "Błąd! Podczas pobierania zamówien z serwera" })
+          this.orderList = this.getOnlyFinishedOrder(response);
+        },
+        error => {
+          this.statement = 'Błąd! Podczas pobierania zamówien z serwera';
+        });
   }
 
   private getOnlyFinishedOrder(list: Order[]): Order[] {
     let result: Order[] = [];
     for (let order of list) {
-      if (order.orderStatus === "FINISHED") {
+      if (order.orderStatus === 'FINISHED') {
         result.push(order);
       }
     }
     return result;
-  }
-
-  public goToDetails(id: string): void {
-    this.router.navigate(["/order-details", id]);
-  }
-
-  public refereshOrdersList(){
-    this.getOrders();
   }
 }

@@ -1,14 +1,20 @@
 <div class="contaier">
-    <h1 class="bg-success text-white text-center py-3 m-0">Elementy</h1>
+  <h1 class="bg-success text-white text-center py-3 m-0">Elementy</h1>
 
-    <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
-    <div class=" container d-flex flex-column align-items-center ">
-        <app-item-create class="w-100" [producers]="producers" [providers]="providers" [itemCategories]="itemCategories" (createItemEmitter)="createItem($event)"></app-item-create>
-        <app-item-modify *ngIf="modifyVisibility" class="w-100" [item]="itemToModify" [producers]="producers" [providers]="providers" [itemCategories]="itemCategories" (modifyItemEmitter)="modifyItem($event)"></app-item-modify>
-        <app-upload-file class="w-100" (getItemEventEmitter)="getItemsAfterUploadFile()" [categories]="itemCategories" [title]="'Importuj plik CSV'"></app-upload-file>
-        <app-item-delete *ngIf="deleteVisbility" class="w-100" [item]="itemToDelete" (deleteItemEmitter)="deleteItem($event)"></app-item-delete>
-        <app-filter-array [items]="items" (itemsEmitter)="filterItems($event)"></app-filter-array>
-    </div>
-    <app-show-table-item class="w-100" [items]="filteredItems" (getItemIdToModifyEventEmitter)="getItemToModify($event)" (getItemIdToDeleteEventEmitter)="getItemToDelete($event)"></app-show-table-item>
+  <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+  <div class=" container d-flex flex-column align-items-center ">
+    <app-item-create (createItemEmitter)="createItem($event)" [itemCategories]="itemCategories" [producers]="producers" [providers]="providers"
+                     class="w-100"></app-item-create>
+    <app-item-modify (modifyItemEmitter)="modifyItem($event)" *ngIf="modifyVisibility" [itemCategories]="itemCategories" [item]="itemToModify"
+                     [producers]="producers" [providers]="providers"
+                     class="w-100"></app-item-modify>
+    <app-upload-file (getItemEventEmitter)="getItemsAfterUploadFile()" [categories]="itemCategories" [title]="'Importuj plik CSV'"
+                     class="w-100"></app-upload-file>
+    <app-item-delete (deleteItemEmitter)="deleteItem($event)" *ngIf="deleteVisbility" [item]="itemToDelete"
+                     class="w-100"></app-item-delete>
+    <app-filter-array (itemsEmitter)="filterItems($event)" [items]="items"></app-filter-array>
+  </div>
+  <app-show-table-item (getItemIdToDeleteEventEmitter)="getItemToDelete($event)" (getItemIdToModifyEventEmitter)="getItemToModify($event)" [items]="filteredItems"
+                       class="w-100"></app-show-table-item>
 
 </div>

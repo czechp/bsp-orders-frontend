@@ -1,52 +1,52 @@
 <div class="jumbotron">
-    <h3 class="text-center text-dark mb-5">Stwórz</h3>
+  <h3 class="text-center text-dark mb-5">Stwórz</h3>
 
-    <div class="collapse" id="createCollapse">
-        <div class="form-group d-flex justify-content-between">
-            <!-- Name -->
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Nazwa: </div>
-                </div>
-                <input type="text" name="" id="" class="form-control" [(ngModel)]="item.name">
-            </div>
-            <!-- Serial number -->
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Nr. seryjny: </div>
-                </div>
-                <input type="text" name="" id="" class="form-control" [(ngModel)]="item.serialNumber">
-            </div>
-            <!-- URL -->
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">URL: </div>
-                </div>
-                <input type="text" name="" id="" class="form-control" [(ngModel)]="item.url">
-            </div>
+  <div class="collapse" id="createCollapse">
+    <div class="form-group d-flex justify-content-between">
+      <!-- Name -->
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Nazwa:</div>
         </div>
-        <!-- Description -->
-        <div class="form-group d-flex justify-content-center">
-            <div class="input-group w-100">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Opis: </div>
-                </div>
-                <input type="text" name="" id="" class="form-control" [(ngModel)]="item.description">
-            </div>
+        <input [(ngModel)]="item.name" class="form-control" id="" name="" type="text">
+      </div>
+      <!-- Serial number -->
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Nr. seryjny:</div>
         </div>
-
-        <!-- Selects fields -->
-        <div class="form-group d-flex justify-content-between">
-            <app-select-object #selectProducer [objects]="producers" [title]=" 'Producent:'"></app-select-object>
-            <app-select-object #selectProvider [objects]=" providers " [title]="'Dostawca:'"></app-select-object>
-            <app-select-object #selectItemCategory [objects]="itemCategories " [title]="'Kategoria:'"></app-select-object>
-
+        <input [(ngModel)]="item.serialNumber" class="form-control" id="" name="" type="text">
+      </div>
+      <!-- URL -->
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">URL:</div>
         </div>
-        <div class="form-group d-flex justify-content-around mt-3 ">
-            <button class="btn btn-success w-25 " (click)="createItem()">OK</button>
-        </div>
+        <input [(ngModel)]="item.url" class="form-control" id="" name="" type="text">
+      </div>
     </div>
-    <div class="d-flex justify-content-center">
-        <button class="btn btn-outline-primary w-25" data-toggle="collapse" href="#createCollapse">Pokaz / Ukryj</button>
+    <!-- Description -->
+    <div class="form-group d-flex justify-content-center">
+      <div class="input-group w-100">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Opis:</div>
+        </div>
+        <input [(ngModel)]="item.description" class="form-control" id="" name="" type="text">
+      </div>
     </div>
+
+    <!-- Selects fields -->
+    <div class="form-group d-flex justify-content-between">
+      <app-select-object #selectProducer [objects]="producers" [title]=" 'Producent:'"></app-select-object>
+      <app-select-object #selectProvider [objects]=" providers " [title]="'Dostawca:'"></app-select-object>
+      <app-select-object #selectItemCategory [objects]="itemCategories " [title]="'Kategoria:'"></app-select-object>
+
+    </div>
+    <div class="form-group d-flex justify-content-around mt-3 ">
+      <button (click)="createItem()" class="btn btn-success w-25 ">OK</button>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-outline-primary w-25" data-toggle="collapse" href="#createCollapse">Pokaz / Ukryj</button>
+  </div>
 </div>

@@ -1,71 +1,72 @@
 <div class="jumbotron d-block bg-secondary">
-    <div class="form-group d-flex justify-content-between">
-        <div class="input-group w-25">
-            <div class="input-group-prepend">
+  <div class="form-group d-flex justify-content-between">
+    <div class="input-group w-25">
+      <div class="input-group-prepend">
                 <span class="input-group-text">
-                    ID: 
+                    ID:
                 </span>
-            </div>
-            <input type="text" class="form-control" value="{{order.id}}" readonly>
-        </div>
-
-        <div class="input-group w-25">
-            <div class="input-group-prepend">
-                <span class="input-group-text">
-                    Nazwa: 
-                </span>
-            </div>
-            <input type="text" class="form-control" value="{{order.name}}" readonly>
-        </div>
-
-        <div class="input-group w-25">
-            <div class="input-group-prepend">
-                <span class="input-group-text">
-                    Ilość elementów: 
-                </span>
-            </div>
-            <input type="text" class="form-control" value="{{order.itemsInOrder.length}}" readonly>
-        </div>
+      </div>
+      <input class="form-control" readonly type="text" value="{{order.id}}">
     </div>
 
-    <div class="form-group d-flex justify-content-between">
-        <div class="input-group w-50">
-            <div class="input-group-prepend">
+    <div class="input-group w-25">
+      <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Nazwa:
+                </span>
+      </div>
+      <input class="form-control" readonly type="text" value="{{order.name}}">
+    </div>
+
+    <div class="input-group w-25">
+      <div class="input-group-prepend">
+                <span class="input-group-text">
+                    Ilość elementów:
+                </span>
+      </div>
+      <input class="form-control" readonly type="text" value="{{order.itemsInOrder.length}}">
+    </div>
+  </div>
+
+  <div class="form-group d-flex justify-content-between">
+    <div class="input-group w-50">
+      <div class="input-group-prepend">
                 <span class="input-group-text">
                     Status zamówienia:
                 </span>
-            </div>
-            <input type="text" class="form-control" [value]="order.orderStatus=='NEW' ? 'Nowe' : 'W realizacji'" readonly>
-        </div>
+      </div>
+      <input [value]="order.orderStatus=='NEW' ? 'Nowe' : 'W realizacji'" class="form-control" readonly type="text">
+    </div>
 
-        <div class="input-group" style="width: 400px;">
-            <div class="input-group-prepend">
+    <div class="input-group" style="width: 400px;">
+      <div class="input-group-prepend">
                 <span class="input-group-text ">
-                    Data utworzenia: 
+                    Data utworzenia:
                 </span>
-            </div>
-            <input type="text" class="form-control" value="{{order.creationDate| date: 'H:mm:ss EEEE dd-MM-yyyy' }} " readonly>
-        </div>
+      </div>
+      <input class="form-control" readonly type="text"
+             value="{{order.creationDate| date: 'H:mm:ss EEEE dd-MM-yyyy' }} ">
     </div>
+  </div>
 
-    <h2 class="text-white text-center">Zmień nazwę / status: </h2>
-    <div class="d-flex justify-content-around mt-3">
-        <div class="input-group w-50">
-            <div class="input-group-prepend">
+  <h2 class="text-white text-center">Zmień nazwę / status: </h2>
+  <div class="d-flex justify-content-around mt-3">
+    <div class="input-group w-50">
+      <div class="input-group-prepend">
                 <span class="input-group-text">
-                    Nowa nazwa: 
+                    Nowa nazwa:
                 </span>
-            </div>
-            <input #changeNameText type="text" class="form-control">
-        </div>
-        <button class="btn btn-outline-warning w-25 " (click)="changeName(changeNameText.value)">Zmień nazwę</button>
+      </div>
+      <input #changeNameText class="form-control" type="text">
     </div>
+    <button (click)="changeName(changeNameText.value)" class="btn btn-outline-warning w-25 ">Zmień nazwę</button>
+  </div>
 
-    <div class="d-flex justify-content-around mt-3">
-        <select class="custom-select w-50 text-center" [(ngModel)]="changeStatusResult">
-            <option *ngFor="let status of statusArray " [ngValue]="status" >{{status.statusName}}</option>
-            </select>
-        <button class="btn btn-outline-warning w-25 " (click)="changeStatus()">Zmień status</button>
-    </div>
+  <div class="d-flex justify-content-around mt-3">
+    <select [(ngModel)]="changeStatusResult" class="custom-select w-50 text-center">
+      <option *ngFor="let status of statusArray " [ngValue]="status">{{status.statusName}}</option>
+    </select>
+    <button (click)="changeStatus()" class="btn btn-outline-warning w-25 ">Zmień status</button>
+  </div>
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-modify-object',
@@ -16,10 +16,11 @@ export class ModifyObjectComponent implements OnInit {
   @Output()
   public acceptModifiying = new EventEmitter();
 
-  public reducedFieldsName:string[];
-  public valuesArray:string[];
+  public reducedFieldsName: string[];
+  public valuesArray: string[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.reducedFieldsName = Object.assign([], this.fieldsName);
@@ -28,11 +29,11 @@ export class ModifyObjectComponent implements OnInit {
     this.valuesArray = Object.values(this.objectToModify);
   }
 
-  public modifyObject(){
+  public modifyObject() {
     this.acceptModifiying.emit(true);
   }
 
-  public cancelModifing(){
+  public cancelModifing() {
     this.acceptModifiying.emit(false);
   }
 

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from 'src/app/Service/Authorization/authorization.service';
-import { CurrentUser } from 'src/app/Service/Authorization/CurrentUser';
-import { TestBed } from '@angular/core/testing';
-import { Subscription } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {AuthorizationService} from 'src/app/Service/Authorization/authorization.service';
+import {CurrentUser} from 'src/app/Service/Authorization/CurrentUser';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +25,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentUsername = sessionStorage.getItem("username");
+    this.currentUsername = sessionStorage.getItem('username');
     this.loginFormVisibility = !this.authService.isLogin();
   }
 

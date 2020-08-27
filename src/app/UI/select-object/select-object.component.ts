@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-select-object',
@@ -9,13 +9,15 @@ export class SelectObjectComponent implements OnInit, OnChanges {
 
   @Input()
   public objects: any[];
-  
+
   @Input()
   public title: string;
 
   public result: any;
-  
-  constructor() { }
+
+  constructor() {
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.result = this.objects[0];
   }
@@ -23,7 +25,7 @@ export class SelectObjectComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  public test(){
+  public test() {
     console.log(this.result.name);
   }
 }

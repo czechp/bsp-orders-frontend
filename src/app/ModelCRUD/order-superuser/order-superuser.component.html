@@ -1,25 +1,27 @@
 <h1 class="bg-success text-white text-center py-3 m-0">Zamówienia:</h1>
 <div class="container">
-    <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
-    <div class="jumbotron jumbotron-fluid " style="background-color:orange;">
-        <h2 class="text-center mb-5">Aktualne:</h2>
-        <div class="d-flex justify-content-center">
-            <ul class="list-group w-75">
-                <li (click)="goToOrderDetails(orderCurrent.id)" class="list-group-item  text-center" *ngFor="let orderCurrent of currentOrders">
-                    {{orderCurrent.name}}
-                    <-------> {{orderCurrent.appUser.username}}</li>
-            </ul>
-        </div>
+  <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+  <div class="jumbotron jumbotron-fluid " style="background-color:orange;">
+    <h2 class="text-center mb-5">Aktualne:</h2>
+    <div class="d-flex justify-content-center">
+      <ul class="list-group w-75">
+        <li (click)="goToOrderDetails(orderCurrent.id)" *ngFor="let orderCurrent of currentOrders"
+            class="list-group-item  text-center">
+          {{orderCurrent.name}}
+          <-------> {{orderCurrent.appUser.username}}</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="jumbotron jumbotron-fluid bg-dark ">
-        <h2 class="text-center mb-5">Zakończone:</h2>
-        <div class="d-flex justify-content-center">
-            <ul class="list-group w-75">
-                <li (click)="goToFinishedOrderDetails(orderFinished.id)" class="list-group-item  text-center" *ngFor="let orderFinished of finishedOrders">
-                    {{orderFinished.name}}
-                    <-------> {{orderFinished.appUser.username}}</li>
-            </ul>
-        </div>
+  <div class="jumbotron jumbotron-fluid bg-dark ">
+    <h2 class="text-center mb-5">Zakończone:</h2>
+    <div class="d-flex justify-content-center">
+      <ul class="list-group w-75">
+        <li (click)="goToFinishedOrderDetails(orderFinished.id)" *ngFor="let orderFinished of finishedOrders"
+            class="list-group-item  text-center">
+          {{orderFinished.name}}
+          <-------> {{orderFinished.appUser.username}}</li>
+      </ul>
     </div>
+  </div>
 </div>

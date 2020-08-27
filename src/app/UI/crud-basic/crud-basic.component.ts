@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
-import { ModifyObjectComponent } from '../modify-object/modify-object.component';
-import { CreateObjectComponent } from '../create-object/create-object.component';
-import { DeleteObjectComponent } from '../delete-object/delete-object.component';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {ModifyObjectComponent} from '../modify-object/modify-object.component';
+import {CreateObjectComponent} from '../create-object/create-object.component';
+import {DeleteObjectComponent} from '../delete-object/delete-object.component';
 
 @Component({
   selector: 'app-crud-basic',
@@ -10,16 +10,16 @@ import { DeleteObjectComponent } from '../delete-object/delete-object.component'
 })
 export class CrudBasicComponent implements OnInit {
 
-  @Input("objects")
+  @Input('objects')
   public objects: any[];
 
-  @Input("objectName")
+  @Input('objectName')
   public objectName: string;
 
-  @Input("fieldsNames")
+  @Input('fieldsNames')
   public fieldsNames: string[];
 
-  @Input("statement")
+  @Input('statement')
   public statement: string;
 
   @ViewChild(ModifyObjectComponent)
@@ -49,7 +49,7 @@ export class CrudBasicComponent implements OnInit {
   public visibilityDeletePanel: boolean = false;
 
   constructor() {
-    this.statement = "";
+    this.statement = '';
   }
 
   ngOnInit(): void {
@@ -58,7 +58,7 @@ export class CrudBasicComponent implements OnInit {
   public readObjectToModify(i) {
     this.objectToModify = this.findElementById(i);
     this.visibilityModifyPanel = !this.visibilityModifyPanel;
-    this.statement = "";
+    this.statement = '';
   }
 
   public modifyObject(success) {
@@ -74,22 +74,22 @@ export class CrudBasicComponent implements OnInit {
     }
   }
 
-  public deleteObject(success){
-    if(success){
+  public deleteObject(success) {
+    if (success) {
       this.deleteObjectEmitter.emit(this.deleteObjectComponent.values[0]);
     }
-    this.visibilityDeletePanel =!this.visibilityDeletePanel;
+    this.visibilityDeletePanel = !this.visibilityDeletePanel;
   }
 
-  public readObjectToDelete(i){
+  public readObjectToDelete(i) {
     this.objectToDelete = this.findElementById(i);
     this.visibilityDeletePanel = !this.visibilityDeletePanel;
-    this.statement = "";
+    this.statement = '';
   }
 
-  private findElementById(id:number){
-    for(let object of this.objects){
-      if(object.id === id){
+  private findElementById(id: number) {
+    for (let object of this.objects) {
+      if (object.id === id) {
         return object;
       }
     }
