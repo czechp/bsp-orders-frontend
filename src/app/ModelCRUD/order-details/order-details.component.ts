@@ -48,13 +48,31 @@ export class OrderDetailsComponent implements OnInit {
     this.httpApiService.patchWithParams(orderEndpoint + '/status', this.order.id, {}, 'status', status)
       .subscribe(
         data => {
-          this.statement = 'Sukces! Status zostaył zmieniony';
+          this.statement = 'Sukces! Status został zmieniony';
           this.getOrder();
         },
         error => {
           this.statement = 'Błąd podczas zmiany statusu';
         }
       );
+  }
+
+  changeCommentary(commentary: string) {
+    this.statement = '';
+    if (commentary.length > 5) {
+      this.httpApiService.patchWithParams(orderEndpoint + '/commentary', this.order.id, {}, 'commentary', commentary)
+        .subscribe(
+          response => {
+            this.statement = 'Sukces! Komentarz został zmieniony';
+            this.getOrder();
+          },
+          error => {
+            'Błąd! Wystąpił błąd podczas zmiany komentarza';
+          }
+        );
+    } else {
+      this.statement = 'Błąd! Komentarz jest za krótki';
+    }
   }
 
   public modifiyItemAmount(itemInOrder: ItemInOrder) {
@@ -114,4 +132,6 @@ export class OrderDetailsComponent implements OnInit {
     }
     return false;
   }
+
+
 }

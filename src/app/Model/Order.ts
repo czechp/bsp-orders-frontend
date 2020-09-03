@@ -9,4 +9,5 @@ export interface Order {
   creationDate?: Date;
   closedDate?: Date;
   orderStatus?: string;
+  commentary?: string;
 }

@@ -16,9 +16,9 @@ export class OrderCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public createOrder(name: string) {
+  public createOrder(name: string, commentary: string) {
 
-    this.createEmitter.emit({name: name});
+    this.createEmitter.emit({name: name, commentary: commentary});
   }
 
 }

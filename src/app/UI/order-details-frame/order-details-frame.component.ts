@@ -18,6 +18,9 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
   @Output()
   public changeStatusEmit = new EventEmitter();
 
+  @Output()
+  public changeCommentaryEmit = new EventEmitter();
+
   public statusArray: any[];
 
   public changeStatusResult;
@@ -53,5 +56,9 @@ export class OrderDetailsFrameComponent implements OnInit, OnChanges {
     this.statusArray.push({status: 'REALISE', statusName: 'W realizacji'});
     this.statusArray.push({status: 'FINISHED', statusName: 'Zakończone'});
 
+  }
+
+  public changeCommentary(value: string) {
+    this.changeCommentaryEmit.emit(value);
   }
 }
