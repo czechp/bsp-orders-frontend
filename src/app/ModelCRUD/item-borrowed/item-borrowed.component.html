@@ -1,0 +1,6 @@
+<div class="jumbotron jumbotron-fluid bg-success text-white">
+  <h1 class="text-center">Elementy pożyczone/wydane</h1>
+</div>
+<app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
+<app-item-borrowed-list (deleteEmitter)="delete($event)" [itemsBorrowed]="itemsBorrowed"></app-item-borrowed-list>
+<app-item-borrowed-create [items]="items" (newItemEmitter)="createNewItemBorrowed($event)"></app-item-borrowed-create>

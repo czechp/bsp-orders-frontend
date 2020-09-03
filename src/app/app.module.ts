@@ -47,6 +47,9 @@ import {ShowTableItemComponent} from './UI/show-table-item/show-table-item.compo
 import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
 import { TaskDetailsComponent } from './UI/task-details/task-details.component';
 import { TaskCreateComponent } from './UI/task-create/task-create.component';
+import { ItemBorrowedComponent } from './ModelCRUD/item-borrowed/item-borrowed.component';
+import { ItemBorrowedCreateComponent } from './UI/item-borrowed-create/item-borrowed-create.component';
+import { ItemBorrowedListComponent } from './UI/item-borrowed-list/item-borrowed-list.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +95,9 @@ import { TaskCreateComponent } from './UI/task-create/task-create.component';
     ToDoListComponent,
     TaskDetailsComponent,
     TaskCreateComponent,
+    ItemBorrowedComponent,
+    ItemBorrowedCreateComponent,
+    ItemBorrowedListComponent,
   ],
   imports: [
     BrowserModule,

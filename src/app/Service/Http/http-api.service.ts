@@ -61,4 +61,14 @@ export class HttpApiService {
   public uploadFile(endpoint: string, formData: FormData): Observable<any> {
     return this.httpClient.post(URL + endpoint, formData);
   }
+
+  postWithParams(endpoint: string, body: any, params: any[]) {
+    let httpParams = new HttpParams();
+    for (let param of params) {
+      httpParams = httpParams.append(param.name, param.value);
+    }
+    console.log(httpParams);
+
+    return this.httpClient.post(URL + endpoint, body, {params: httpParams});
+  }
 }
