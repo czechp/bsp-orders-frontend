@@ -1,0 +1,8 @@
+tr:hover {
+  background-color: blue;
+  color: white;
+}
+
+tr{
+  background-color: darkorange;
+}
