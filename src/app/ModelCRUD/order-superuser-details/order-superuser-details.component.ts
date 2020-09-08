@@ -74,7 +74,13 @@ export class OrderSuperuserDetailsComponent implements OnInit {
   }
 
   private sortItemsByName(): void {
-    this.order.itemsInOrder = this.order.itemsInOrder.sort((x1, x2) => x1.name.localeCompare(x2.name));
+    this.order.itemsInOrder = this.order.itemsInOrder.sort((x1, x2) => {
+      if (x1.name.localeCompare(x2.name) === 0) {
+        return x1.serialNumber.localeCompare(x2.serialNumber);
+      } else {
+        return x1.name.localeCompare(x2.name);
+      }
+    });
   }
 
 
