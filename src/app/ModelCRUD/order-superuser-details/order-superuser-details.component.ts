@@ -74,7 +74,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
   }
 
   private sortItemsByName(): void {
-    this.order.itemsInOrder.sort((x1, x2) => x1.name.localeCompare(x2.name));
+    this.order.itemsInOrder = this.order.itemsInOrder.sort((x1, x2) => x1.name.localeCompare(x2.name));
   }
 
 
