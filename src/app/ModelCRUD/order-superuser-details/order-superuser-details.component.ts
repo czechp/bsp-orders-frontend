@@ -24,6 +24,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
               private router: Router) {
   }
 
+
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.getOrder();
@@ -64,11 +65,16 @@ export class OrderSuperuserDetailsComponent implements OnInit {
       .subscribe(
         response => {
           this.order = response;
+          this.sortItemsByName();
         },
         error => {
           this.statement = 'Błąd! Nie udało się pobrać elementu z serwera';
         }
       );
+  }
+
+  private sortItemsByName(): void {
+    this.order.itemsInOrder.sort((x1, x2) => x1.name.localeCompare(x2.name));
   }
 
 
