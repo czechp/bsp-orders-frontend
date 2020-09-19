@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Order} from 'src/app/Model/Order';
 import {HttpApiService} from '../../Service/Http/http-api.service';
-import {addOrderCommentBySuperUser, orderEndpoint} from '../../Service/Http/URL';
+import {addOrderCommentBySuperUserEndpoint, addOrderNrEndpoint, orderEndpoint} from '../../Service/Http/URL';
 
 @Component({
   selector: 'app-order-superuser-details-info',
@@ -27,7 +27,7 @@ export class OrderSuperuserDetailsInfoComponent implements OnInit {
   public addCommentary(commentary: string): void {
     this.statement = '';
     if (commentary.length > 5) {
-      this.httpApiService.patchWithParams(orderEndpoint + addOrderCommentBySuperUser,
+      this.httpApiService.patchWithParams(orderEndpoint + addOrderCommentBySuperUserEndpoint,
         this.order.id,
         {},
         'commentary',
@@ -45,4 +45,20 @@ export class OrderSuperuserDetailsInfoComponent implements OnInit {
     }
   }
 
+  public addOrderNr(orderNr: string) {
+    this.statement = '';
+    if (orderNr.length > 5) {
+      this.httpApiService.patchWithParams(orderEndpoint + addOrderNrEndpoint, this.order.id, {}, 'orderNr', orderNr)
+        .subscribe(
+          (next: any) => {
+            this.refreshEmit.emit();
+          },
+          (error: any) => {
+            this.statement = 'Błąd pdoczas dodawania numeru zamówienia';
+          }
+        );
+    } else {
+      this.statement = 'Błąd! Numer zamówienia za krótki';
+    }
+  }
 }
