@@ -15,3 +15,5 @@ export const userChangeRoleEndpoint = 'user/role/';
 export const csvItemEndpoint = 'item/csv/category/';
 export const taskEndpoint = 'task';
 export const itemBorrowedEndpoint = 'itemBorrowed';
+export const addOrderCommentBySuperUserEndpoint = '/commentary/superuser';
+export const addOrderNrEndpoint = '/orderNr';

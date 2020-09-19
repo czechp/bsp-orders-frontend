@@ -1,5 +1,5 @@
 .list-group-item:hover {
-  background-color: ;
+  background-color: blue;
   color: white;
   cursor: pointer;
 }

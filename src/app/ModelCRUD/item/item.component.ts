@@ -42,7 +42,7 @@ export class ItemComponent implements OnInit {
     this.httpApi.get(producerEndpoint)
       .subscribe(
         data => {
-          this.producers = data;
+          this.producers = data.sort((x1, x2) => x1.name.localeCompare(x2.name));
           this.producers = this.producers.slice();
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera'
@@ -51,7 +51,7 @@ export class ItemComponent implements OnInit {
     this.httpApi.get(providerEndpoint)
       .subscribe(
         data => {
-          this.providers = data;
+          this.providers = data.sort((x1, x2) => x1.name.localeCompare(x2.name));
           this.providers = this.providers.slice();
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera'
@@ -60,7 +60,7 @@ export class ItemComponent implements OnInit {
     this.httpApi.get(categoryEndpoint)
       .subscribe(
         data => {
-          this.itemCategories = data;
+          this.itemCategories = data.sort((x1, x2) => x1.name.localeCompare(x2.name));
           this.itemCategories = this.itemCategories.slice();
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera'
