@@ -4,7 +4,7 @@
 <app-crud-statement *ngIf="statement.length > 0" [statement]="statement">
 </app-crud-statement>
 
-<app-order-superuser-details-info [order]="order"></app-order-superuser-details-info>
+<app-order-superuser-details-info [order]="order" (refreshEmit)="getOrder()"></app-order-superuser-details-info>
 <app-sort-items-in-order [order]="order"></app-sort-items-in-order>
 <div class="jumbotron jumbotron-fluid bg-secondary text-white">
   <h1 class="text-center mb-3">Elementy:</h1>

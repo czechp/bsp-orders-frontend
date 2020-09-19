@@ -15,9 +15,9 @@ import {Order} from 'src/app/Model/Order';
   styleUrls: ['./order-superuser-details.component.css']
 })
 export class OrderSuperuserDetailsComponent implements OnInit {
-  public statement: string = '';
+  public statement = '';
   public order: Order;
-  private id: number = 0;
+  private id = 0;
 
   constructor(private activatedRoute: ActivatedRoute,
               private httpApi: HttpApiService,
@@ -26,7 +26,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
     this.getOrder();
   }
 
@@ -60,7 +60,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
     this.router.navigate(['/item-details', id]);
   }
 
-  private getOrder() {
+  public getOrder() {
     this.httpApi.getElement(orderEndpoint, this.id)
       .subscribe(
         response => {
