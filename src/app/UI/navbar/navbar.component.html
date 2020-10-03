@@ -1,71 +1,68 @@
 <div class="navbar bg-dark text-white navbar-expand-lg">
-  <div class="navbar-brand"><img alt="" src="assets/img/bispol_logo.png" width="200px">
-    <div class="ml-3">Created by PCzech</div>
-  </div>
-  <div class="navbar-nav mr-auto">
-    <div class="nav-item dropdown">
-      <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Zamówienia
+    <div class="navbar-brand"><img alt="" src="assets/img/bispol_logo.png" width="200px">
+        <div class="ml-3">Created by PCzech</div>
+    </div>
+    <div class="navbar-nav mr-auto">
+        <div class="nav-item dropdown">
+            <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Zamówienia
       </button>
-      <div class="dropdown-menu bg-dark ">
-        <a class="dropdown-item" routerLink="/order-new">Nowe</a>
-        <a class="dropdown-item" routerLink="/order-current">Aktualne</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" routerLink="/order-finished">Zakończone</a>
-      </div>
-    </div>
-    <div class="nav-item dropdown">
-      <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Baza</button>
-      <div class="dropdown-menu bg-dark ">
-        <a class="dropdown-item" routerLink="/producer">Prodcuenci</a>
-        <a class="dropdown-item" routerLink="/category">Kategorie</a>
-        <a class="dropdown-item" routerLink="/provider">Dostawcy</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Elementy</a>
-      </div>
-    </div>
-    <div class="nav-item">
-      <button class="nav-button nav-link btn btn-outline-primary">Zamówienie warsztatowe</button>
-    </div>
-    <div class="nav-item">
-      <button class="nav-button nav-link btn btn-outline-primary" routerLink="/item-borrowed">Elementy  pożyczone</button>
-    </div>
-    <div class="nav-item">
-      <button class="nav-button nav-link btn btn-outline-primary" routerLink="/order-superuser">Zarządzaj zamówieniami
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" routerLink="/order-new">Nowe</a>
+                <a class="dropdown-item" routerLink="/order-current">Aktualne</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/order-finished">Zakończone</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Baza</button>
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" routerLink="/producer">Producenci</a>
+                <a class="dropdown-item" routerLink="/category">Kategorie</a>
+                <a class="dropdown-item" routerLink="/provider">Dostawcy</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Elementy</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary">Zamówienie warsztatowe</button>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary" routerLink="/item-borrowed">Elementy  pożyczone</button>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary" routerLink="/order-superuser">Zarządzaj zamówieniami
       </button>
-    </div>
-    <div class="nav-item">
-      <button class="nav-button nav-link btn btn-outline-primary" routerLink="/admin-panel">Panel admina</button>
-    </div>
-    <div class="nav-item">
-      <button class="nav-button nav-link btn btn-outline-primary" routerLink="/to-do-list">ToDo Lista</button>
-    </div>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary" routerLink="/admin-panel">Panel admina</button>
+        </div>
+        <div class="nav-item">
+            <button class="nav-button nav-link btn btn-outline-primary" routerLink="/to-do-list">ToDo Lista</button>
+        </div>
 
-  </div>
-  <form *ngIf="loginFormVisibility" class="form-inline my-2 my-lg-0 ">
-    <div class=" input-group mr-2 ">
-      <div class="input-group-prepend ">
-        <span class="input-group-text bg-warning " id="basic-addon1 ">Login:</span>
-      </div>
-      <input #username aria-describedby="basic-addon1 " aria-label="Username " class="form-control login-input-form "
-             placeholder="Wpisz login " style="width: 150px;" type="text">
     </div>
+    <form *ngIf="loginFormVisibility" class="form-inline my-2 my-lg-0 ">
+        <div class=" input-group mr-2 ">
+            <div class="input-group-prepend ">
+                <span class="input-group-text bg-warning " id="basic-addon1 ">Login:</span>
+            </div>
+            <input #username aria-describedby="basic-addon1 " aria-label="Username " class="form-control login-input-form " placeholder="Wpisz login " style="width: 150px;" type="text">
+        </div>
 
-    <div class="input-group mr-2 ">
-      <div class="input-group-prepend ">
-        <span class="input-group-text bg-warning " id="basic-addon1 ">Hasło:</span>
-      </div>
-      <input #password aria-describedby="basic-addon1 " aria-label="Username " class="form-control login-input-form "
-             placeholder="Wpisz hasło " style="width: 150px;" type="password">
-    </div>
+        <div class="input-group mr-2 ">
+            <div class="input-group-prepend ">
+                <span class="input-group-text bg-warning " id="basic-addon1 ">Hasło:</span>
+            </div>
+            <input #password aria-describedby="basic-addon1 " aria-label="Username " class="form-control login-input-form " placeholder="Wpisz hasło " style="width: 150px;" type="password">
+        </div>
 
-    <button (click)="login( username.value, password.value) " class="btn btn-outline-success my-2 my-sm-0 "
-            type="submit ">Zaloguj
+        <button (click)="login( username.value, password.value) " class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Zaloguj
     </button>
-  </form>
+    </form>
 
-  <form *ngIf="!loginFormVisibility" class="form-inline my-2 my-lg-0 ">
+    <form *ngIf="!loginFormVisibility" class="form-inline my-2 my-lg-0 ">
 
-    <h4 class="text-primary p-1 ">Zalogowany jako: <span class="text-white">{{currentUsername}}</span></h4>
-    <button (click)="logout() " class="btn btn-outline-danger ml-3 mb-1">Wyloguj</button>
-  </form>
+        <h4 class="text-primary p-1 ">Zalogowany jako: <span class="text-white">{{currentUsername}}</span></h4>
+        <button (click)="logout() " class="btn btn-outline-danger ml-3 mb-1">Wyloguj</button>
+    </form>
 </div>

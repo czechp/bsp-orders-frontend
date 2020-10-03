@@ -1,48 +1,48 @@
 <div class="table d-flex justify-content-center w-100">
-  <table class="table">
-    <thead class="thead-dark">
-    <th scope="col">Id:</th>
-    <th scope="col">Nazwa:</th>
-    <th scope="col">Nr. seryjny</th>
-    <th scope="col">Opis:</th>
-    <th scope="col">Url:</th>
-    <th scope="col">Producent:</th>
-    <th scope="col">Dostawca:</th>
-    <th scope="col">Kategoria:</th>
-    <th scope="col">Ilość:</th>
-    <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Zmień ilość:</th>
-    <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Usuń:</th>
-    <th scope="col">Szczegóły:</th>
-    </thead>
-    <tbody class="bg-white">
-    <tr *ngFor="let itemInOrder of itemsInOrderList" [ngClass]="{
+    <table class="table">
+        <thead class="thead-dark">
+            <th scope="col">Id:</th>
+            <th scope="col">Nazwa:</th>
+            <th scope="col">Nr. seryjny</th>
+            <th scope="col">Opis:</th>
+            <th scope="col">Url:</th>
+            <th scope="col">Producent:</th>
+            <th scope="col">Dostawca:</th>
+            <th scope="col">Kategoria:</th>
+            <th scope="col">Ilość:</th>
+            <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Zmień ilość:</th>
+            <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Usuń:</th>
+            <th scope="col">Szczegóły:</th>
+        </thead>
+        <tbody class="bg-white">
+            <tr *ngFor="let itemInOrder of itemsInOrderList" [ngClass]="{
                 'bg-warning': itemInOrder.delivered === false,
                 'bg-danger': itemInOrder.ordered === false
             }" class="bg-success">
-      <td>{{itemInOrder.id}}</td>
-      <td>{{itemInOrder.name}}</td>
-      <td>{{itemInOrder.serialNumber}}</td>
-      <td>{{itemInOrder.description}}</td>
-      <td>
-        <a class="" href="{{itemInOrder.url}}">Klik</a>
-      </td>
-      <td>{{itemInOrder.producer.name}}</td>
-      <td>{{itemInOrder.provider.name}}</td>
-      <td>{{itemInOrder.itemCategory.name}}</td>
-      <td><input [(ngModel)]="itemInOrder.amount" class="form-control text-center" style="width: 100px;" type="text">
-      </td>
-      <td *ngIf="orderStatus !== 'FINISHED'">
-        <button (click)="changeAmount(itemInOrder.id)" class="btn btn-outline-dark">Zmień</button>
-      </td>
-      <td *ngIf="orderStatus !== 'FINISHED'">
-        <button (click)="delete(itemInOrder.id)" class="btn btn-outline-dark">Usuń</button>
-      </td>
-      <td>
-        <button (click)="goToItemDetails(itemInOrder.id)" class="btn btn-outline-dark" type="button">Szczegóły</button>
-      </td>
+                <td>{{itemInOrder.id}}</td>
+                <td>{{itemInOrder.name}}</td>
+                <td>{{itemInOrder.serialNumber}}</td>
+                <td>{{itemInOrder.description}}</td>
+                <td>
+                    <a class="" href="{{itemInOrder.url}}" target="_blank">Klik</a>
+                </td>
+                <td>{{itemInOrder.producer.name}}</td>
+                <td>{{itemInOrder.provider.name}}</td>
+                <td>{{itemInOrder.itemCategory.name}}</td>
+                <td><input [(ngModel)]="itemInOrder.amount" class="form-control text-center" style="width: 100px;" type="text">
+                </td>
+                <td *ngIf="orderStatus !== 'FINISHED'">
+                    <button (click)="changeAmount(itemInOrder.id)" class="btn btn-outline-dark">Zmień</button>
+                </td>
+                <td *ngIf="orderStatus !== 'FINISHED'">
+                    <button (click)="delete(itemInOrder.id)" class="btn btn-outline-dark">Usuń</button>
+                </td>
+                <td>
+                    <button (click)="goToItemDetails(itemInOrder.id)" class="btn btn-outline-dark" type="button">Szczegóły</button>
+                </td>
 
 
-    </tr>
-    </tbody>
-  </table>
+            </tr>
+        </tbody>
+    </table>
 </div>
