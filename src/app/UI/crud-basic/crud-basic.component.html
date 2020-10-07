@@ -3,13 +3,19 @@
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
 
 <div class=" container d-flex flex-column align-items-center ">
-  <app-create-object (acceptCreating)="createObject($event)" [fieldsNames]="fieldsNames"
-                     class="w-100"></app-create-object>
-  <app-modify-object (acceptModifiying)="modifyObject($event)" *ngIf="visibilityModifyPanel " [fieldsName]="fieldsNames "
-                     [objectToModify]=" objectToModify " class="w-100 "></app-modify-object>
-  <app-delete-object (acceptDeleting)="deleteObject($event)" *ngIf="visibilityDeletePanel" [fieldsName]="fieldsNames "
-                     [objectToDelete]="objectToDelete" class="w-100"></app-delete-object>
-  <app-show-table (deleteChanges)="readObjectToDelete($event)" (modifyChanges)="readObjectToModify($event)" [fieldsName]="fieldsNames "
-                  [objectName]="objectName " [objects]=objects>
-  </app-show-table>
+    <app-create-object (acceptCreating)="createObject($event)" [fieldsNames]="fieldsNames" class="w-100"></app-create-object>
+    <app-modify-object (acceptModifiying)="modifyObject($event)" *ngIf="visibilityModifyPanel " [fieldsName]="fieldsNames " [objectToModify]=" objectToModify " class="w-100 "></app-modify-object>
+    <app-delete-object (acceptDeleting)="deleteObject($event)" *ngIf="visibilityDeletePanel" [fieldsName]="fieldsNames " [objectToDelete]="objectToDelete" class="w-100"></app-delete-object>
+    <div class="card w-75 p-5 mb-5">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Wyszukaj:</span>
+                </div>
+                <input #filterText type="text" class="form-control" (keyup)="filterObjects(filterText.value)">
+            </div>
+        </div>
+    </div>
+    <app-show-table (deleteChanges)="readObjectToDelete($event)" (modifyChanges)="readObjectToModify($event)" [fieldsName]="fieldsNames " [objectName]="objectName " [objects]="filteredObjects">
+    </app-show-table>
 </div>

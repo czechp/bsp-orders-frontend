@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {ModifyObjectComponent} from '../modify-object/modify-object.component';
 import {CreateObjectComponent} from '../create-object/create-object.component';
 import {DeleteObjectComponent} from '../delete-object/delete-object.component';
@@ -8,7 +8,7 @@ import {DeleteObjectComponent} from '../delete-object/delete-object.component';
   templateUrl: './crud-basic.component.html',
   styleUrls: ['./crud-basic.component.css']
 })
-export class CrudBasicComponent implements OnInit {
+export class CrudBasicComponent implements OnInit, OnChanges {
 
   @Input('objects')
   public objects: any[];
@@ -42,6 +42,8 @@ export class CrudBasicComponent implements OnInit {
   @Output()
   deleteObjectEmitter = new EventEmitter();
 
+  public filteredObjects: any[]=[];
+
   public objectToModify: any;
   public objectToDelete: any;
 
@@ -51,8 +53,20 @@ export class CrudBasicComponent implements OnInit {
   constructor() {
     this.statement = '';
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.filteredObjects = this.objects;
+  }
 
   ngOnInit(): void {
+  }
+
+  public filterObjects(filterText: string):void{
+    this.filteredObjects = [];
+    for(let object of this.objects){
+      if(object.name.toLowerCase().includes(filterText.toLowerCase())){
+        this.filteredObjects.push(object);
+      }
+    }
   }
 
   public readObjectToModify(i) {
