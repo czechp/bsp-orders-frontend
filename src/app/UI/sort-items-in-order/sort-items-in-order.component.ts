@@ -14,6 +14,7 @@ export class SortItemsInOrderComponent implements OnInit {
   orderEventEmitter = new EventEmitter();
   public option: String = 'Nazwa';
 
+  
   constructor() {
   }
 

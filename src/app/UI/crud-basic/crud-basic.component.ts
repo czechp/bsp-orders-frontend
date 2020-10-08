@@ -67,7 +67,7 @@ export class CrudBasicComponent implements OnInit, OnChanges {
         this.filteredObjects.push(object);
       }
     }
-  }
+   }
 
   public readObjectToModify(i) {
     this.objectToModify = this.findElementById(i);
