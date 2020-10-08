@@ -74,8 +74,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
         error => {
           this.statement = 'Błąd! Nie udało się pobrać elementu z serwera';
         },
-        () => 
-        {this.sort();}
+        () => { this.sort(); }
       );
   }
 
@@ -88,21 +87,36 @@ export class OrderSuperuserDetailsComponent implements OnInit {
         break;
       case 'Producent':
         {
-          this.order.itemsInOrder.sort((x1, x2) =>
-          {
-            if(x1.producer.name.localeCompare(x2.producer.name) !== 0){
+          this.order.itemsInOrder.sort((x1, x2) => {
+            if (x1.producer.name.localeCompare(x2.producer.name) !== 0) {
               return x1.producer.name.localeCompare(x2.producer.name)
             }
-            return  x1.serialNumber.localeCompare(x2.serialNumber)
-          } );
+            return x1.serialNumber.localeCompare(x2.serialNumber)
+          });
 
         }
         break;
       case 'Dostawca':
-        this.order.itemsInOrder.sort((x1, x2) => x1.provider.name.localeCompare(x2.provider.name));
+        {
+          this.order.itemsInOrder.sort((x1, x2) => {
+            if (x1.provider.name.localeCompare(x2.provider.name) !== 0) {
+              return x1.provider.name.localeCompare(x2.provider.name)
+            }
+            return x1.serialNumber.localeCompare(x2.serialNumber)
+          });
+
+        }
         break;
       case 'Kategoria':
-        this.order.itemsInOrder.sort((x1, x2) => x1.itemCategory.name.localeCompare(x2.itemCategory.name));
+        {
+          this.order.itemsInOrder.sort((x1, x2) => {
+            if (x1.itemCategory.name.localeCompare(x2.itemCategory.name) !== 0) {
+              return x1.itemCategory.name.localeCompare(x2.itemCategory.name)
+            }
+            return x1.serialNumber.localeCompare(x2.serialNumber)
+          });
+
+        }
         break;
       case 'Zamówione':
         break;

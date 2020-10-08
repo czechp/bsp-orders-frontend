@@ -1,8 +1,9 @@
 <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text">{{title}} </label>
-  </div>
-  <select [(ngModel)]="result" class="custom-select">
+    <div class="input-group-prepend">
+        <label class="input-group-text">{{title}} </label>
+    </div>
+    <select [(ngModel)]="result" class="custom-select">
+    <option *ngIf="default !== undefined" selected [ngValue]="default">{{default.name}}</option>
     <option *ngFor="let object of objects " [ngValue]="object">{{object.name}}</option>
   </select>
 </div>

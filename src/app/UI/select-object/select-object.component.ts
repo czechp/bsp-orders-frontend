@@ -13,19 +13,19 @@ export class SelectObjectComponent implements OnInit, OnChanges {
   @Input()
   public title: string;
 
+  @Input()
+  public default: any;
+
   public result: any;
 
   constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.result = this.objects[0];
+      this.result = this.default;
   }
 
   ngOnInit(): void {
   }
 
-  public test() {
-    console.log(this.result.name);
-  }
 }
