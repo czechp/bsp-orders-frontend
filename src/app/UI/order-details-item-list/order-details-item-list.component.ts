@@ -13,7 +13,7 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
   public orderStatus: string;
 
   @Input()
-  public itemsInOrderList: ItemInOrder[];
+  public itemsInOrderList: ItemInOrder[]=[];
 
   @Output()
   public modifyAmountEmit = new EventEmitter();
@@ -27,6 +27,7 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.itemsInOrderList = this.itemsInOrderList.sort((x1: ItemInOrder, x2: ItemInOrder)=>x1.id - x2.id);
   }
 
   ngOnInit(): void {

@@ -2,25 +2,26 @@
 <div class="container">
     <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
     <div class="jumbotron jumbotron-fluid " style="background-color:orange;">
-        <h2 class="text-center mb-5">Aktualne:</h2>
+        <h2 class="text-center mb-5 text-light">Aktualne:</h2>
         <div class="d-flex justify-content-center">
             <ul class="list-group w-75">
-                <li (click)="goToOrderDetails(orderCurrent.id)" *ngFor="let orderCurrent of currentOrders" class="list-group-item  text-center">
-                    Id: {{orderCurrent.id}}
-                    <------->
-                        {{orderCurrent.name}}
-                        <-------> {{orderCurrent.appUser.username}}</li>
+                <li (click)="goToOrderDetails(orderCurrent.id)" *ngFor="let orderCurrent of currentOrders" class="list-group-item  py-4  text-center d-flex justify-content-between">
+                    <p>Id: {{orderCurrent.id}}</p>
+                    <p>{{orderCurrent.name}}</p>
+                    <p>{{orderCurrent.appUser.username}}</p>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="jumbotron jumbotron-fluid bg-dark ">
-        <h2 class="text-center mb-5">Zakończone:</h2>
+        <h2 class="text-center mb-5 text-light">Zakończone:</h2>
         <div class="d-flex justify-content-center">
             <ul class="list-group w-75">
-                <li (click)="goToFinishedOrderDetails(orderFinished.id)" *ngFor="let orderFinished of finishedOrders" class="list-group-item  text-center">
-                    {{orderFinished.name}}
-                    <-------> {{orderFinished.appUser.username}}</li>
+                <li (click)="goToFinishedOrderDetails(orderFinished.id)" *ngFor="let orderFinished of finishedOrders" class="list-group-item  py-4  text-center d-flex justify-content-between">
+                    <p>Id: {{orderFinished.id}}</p>
+                    <p>Nazwa: {{orderFinished.name}}</p>
+                    <p>Autor: {{orderFinished.appUser.username}}</p>
             </ul>
         </div>
     </div>

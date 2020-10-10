@@ -16,6 +16,8 @@ export class FilterArrayComponent implements OnInit {
   @Input()
   public filteredElement: any[];
 
+  public filterText:string;
+
   constructor() {
     this.filteredElement = [];
   }
@@ -23,8 +25,8 @@ export class FilterArrayComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public filter(text: string) {
-    let lowerText = text.toLowerCase();
+  public filter() {
+    let lowerText = this.filterText.toLowerCase();
     let result: any[] = [];
     for (let item of this.items) {
       if (item.name.toLowerCase().includes(lowerText) ||

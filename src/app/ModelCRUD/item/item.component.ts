@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {categoryEndpoint, itemEndpoint, producerEndpoint, providerEndpoint} from '../../Service/Http/URL';
-import {Item} from 'src/app/Model/Item';
-import {HttpApiService} from 'src/app/Service/Http/http-api.service';
-import {Producer} from 'src/app/Model/Producer';
-import {Provider} from 'src/app/Model/Provider';
-import {Category} from 'src/app/Model/Category';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { categoryEndpoint, itemEndpoint, producerEndpoint, providerEndpoint } from '../../Service/Http/URL';
+import { Item } from 'src/app/Model/Item';
+import { HttpApiService } from 'src/app/Service/Http/http-api.service';
+import { Producer } from 'src/app/Model/Producer';
+import { Provider } from 'src/app/Model/Provider';
+import { Category } from 'src/app/Model/Category';
+import { FilterArrayComponent } from '../CRUD/filter-array/filter-array.component';
 
 @Component({
   selector: 'app-item',
@@ -27,6 +28,8 @@ export class ItemComponent implements OnInit {
   public itemToDelete: Item;
   public deleteVisbility: boolean = false;
 
+  @ViewChild(FilterArrayComponent)
+  private filterArrayComponentRef: FilterArrayComponent;
 
   constructor(private httpApi: HttpApiService) {
     this.items = [];
@@ -44,6 +47,7 @@ export class ItemComponent implements OnInit {
         data => {
           this.producers = data.sort((x1, x2) => x1.name.localeCompare(x2.name));
           this.producers = this.producers.slice();
+          
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera'
       );
@@ -133,6 +137,7 @@ export class ItemComponent implements OnInit {
         data => {
           this.items = data;
           this.filteredItems = data;
+          this.filterAfterGetting();
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera');
   }
@@ -142,6 +147,13 @@ export class ItemComponent implements OnInit {
       if (item.id === parseInt(id)) {
         return item;
       }
+    }
+  }
+
+  private filterAfterGetting() {
+    if (this.filterArrayComponentRef.filterText !== undefined
+      && this.filterArrayComponentRef.filterText.length > 0) {
+        this.filterArrayComponentRef.filter();
     }
   }
 

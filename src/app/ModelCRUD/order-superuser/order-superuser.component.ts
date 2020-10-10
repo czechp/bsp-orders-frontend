@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Order} from 'src/app/Model/Order';
-import {HttpApiService} from 'src/app/Service/Http/http-api.service';
-import {orderEndpoint, superuserOrderStatusEndpoint} from 'src/app/Service/Http/URL';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/Model/Order';
+import { HttpApiService } from 'src/app/Service/Http/http-api.service';
+import { orderEndpoint, superuserOrderStatusEndpoint } from 'src/app/Service/Http/URL';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-superuser',
@@ -16,7 +16,7 @@ export class OrderSuperuserComponent implements OnInit {
   public statement: string = '';
 
   constructor(private httpApiService: HttpApiService,
-              private router: Router
+    private router: Router
   ) {
   }
 
@@ -37,7 +37,8 @@ export class OrderSuperuserComponent implements OnInit {
     this.httpApiService.get(orderEndpoint + '/' + superuserOrderStatusEndpoint + 'REALISE')
       .subscribe(
         response => {
-          this.currentOrders = response;
+          this.currentOrders = response.sort((x1: Order, x2: Order) =>-1 * (x1.id - x2.id));
+
         },
         error => {
           this.statement = 'Błąd!!! Nie udało się pobrać zamówień z serwera';
@@ -49,7 +50,7 @@ export class OrderSuperuserComponent implements OnInit {
     this.httpApiService.get(orderEndpoint + '/' + superuserOrderStatusEndpoint + 'FINISHED')
       .subscribe(
         response => {
-          this.finishedOrders = response;
+          this.finishedOrders = response.sort((x1: Order, x2: Order) =>-1 * (x1.id - x2.id));
         },
         error => {
           this.statement = 'Błąd!!! Nie udało się pobrać zamówień z serwera';
