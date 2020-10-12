@@ -4,19 +4,10 @@
 
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
 <div class="container">
-  <div class="row">
-    <app-order-details-frame (changeNameEmit)="changeName($event)"
-                             (changeStatusEmit)="changeStatus($event)"
-                             (changeCommentaryEmit)="changeCommentary($event)"
-                             *ngIf="order.orderStatus !=='FINISHED'"
-                             [order]="order"
-                             class="w-100"></app-order-details-frame>
-
-
-    <app-order-details-item-list (deleteEmit)="delete($event)" (modifyAmountEmit)="modifiyItemAmount($event)" [itemsInOrderList]="order.itemsInOrder"
-                                 [orderStatus]="order.orderStatus"
-                                 class="w-100"></app-order-details-item-list>
-    <app-order-detail-add-list (refreshEmit)="refresh() " *ngIf="order.orderStatus !=='FINISHED'" [currentOrderId]="order.id "
-                               class=" w-100 "></app-order-detail-add-list>
-  </div>
+    <div class="row">
+        <app-order-details-frame (changeNameEmit)="changeName($event)" (changeStatusEmit)="changeStatus($event)" (changeCommentaryEmit)="changeCommentary($event)" *ngIf="order.orderStatus !=='FINISHED'" [order]="order" class="w-100"></app-order-details-frame>
+    </div>
 </div>
+
+<app-order-details-item-list (deleteEmit)="delete($event)" (modifyAmountEmit)="modifiyItemAmount($event)" [itemsInOrderList]="order.itemsInOrder" [orderStatus]="order.orderStatus" class="w-100"></app-order-details-item-list>
+<app-order-detail-add-list (refreshEmit)="refresh() " *ngIf="order.orderStatus !=='FINISHED'" [currentOrderId]="order.id " class=" w-100 "></app-order-detail-add-list>
