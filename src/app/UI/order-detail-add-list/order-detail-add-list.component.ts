@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {HttpApiService} from 'src/app/Service/Http/http-api.service';
-import {Item} from 'src/app/Model/Item';
-import {itemEndpoint} from 'src/app/Service/Http/URL';
-import {FindInArrayService} from 'src/app/Service/Utilities/find-in-array.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpApiService } from 'src/app/Service/Http/http-api.service';
+import { Item } from 'src/app/Model/Item';
+import { itemEndpoint } from 'src/app/Service/Http/URL';
+import { FindInArrayService } from 'src/app/Service/Utilities/find-in-array.service';
 
 @Component({
   selector: 'app-order-detail-add-list',
@@ -14,6 +14,7 @@ export class OrderDetailAddListComponent implements OnInit {
   public itemList: Item[] = [];
   public filteredItemList: Item[] = [];
   public statement: string = '';
+  public addedItem: Item = {accessories: []};
 
   @Input()
   public currentOrderId: number;
@@ -23,7 +24,7 @@ export class OrderDetailAddListComponent implements OnInit {
 
 
   constructor(private httpApiService: HttpApiService,
-              private findInArray: FindInArrayService) {
+    private findInArray: FindInArrayService) {
   }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class OrderDetailAddListComponent implements OnInit {
     this.httpApiService.addItemToOrder(this.currentOrderId, itemId, amount)
       .subscribe(
         data => {
+          this.addedItem = this.findInArray.findInArrayById(itemId, this.itemList);
           this.refreshEmit.emit();
           this.statement = '';
         },
@@ -51,6 +53,8 @@ export class OrderDetailAddListComponent implements OnInit {
         }
       );
   }
+
+
 
   public filterItems(key: string) {
     this.filteredItemList = this.findInArray.findByKey(this.itemList, key);
