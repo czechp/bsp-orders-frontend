@@ -49,6 +49,12 @@ export class HttpApiService {
     return this.httpClient.get(URL + orderEndpoint + '/' + orderId + '/item/' + itemId, {params: params});
   }
 
+  public addItemToOrderFromAccesories(orderId, accessoryId, amount) {
+    let params = new HttpParams()
+      .set('amount', amount.toString());
+    return this.httpClient.get(URL + orderEndpoint + '/' + orderId + '/accessory/' + accessoryId, {params: params});
+  }
+
   public changeUserRole(userId: number, role: string) {
     let params = new HttpParams().set('role', role);
     return this.httpClient.patch(

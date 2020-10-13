@@ -46,7 +46,7 @@
     </div>
 
     <div class="form-group d-flex flex-column align-items-center mt-3 ">
-        <h3>Akcesoria:</h3>
+        <h3 class="mb-3">Akcesoria:</h3>
         <table class="table">
             <thead class="thead-dark">
                 <th class="text-center" scope="col">Id:</th>
@@ -65,7 +65,9 @@
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.serialNumber}}</td>
-                    <td>{{item.description}}</td>
+                    <td>
+                        <p *ngIf="item.description.length < 20">{{item.description}}</p>
+                    </td>
                     <td>
                         <a class="" href="{{item.url}}" target="_blank">Klik</a>
                     </td>
@@ -92,8 +94,11 @@
             </div>
             <input #accessoryId class="form-control text-center" type="text" placeholder="Wpisz Id elementu">
         </div>
-        <button class="btn btn-primary w-50 mt-4" (click)="addAccessory(accessoryId.value)">Dodaj</button>
+        <div class="d-flex justify-content-around w-100 mt-4">
+            <button class="btn btn-primary w-25 " (click)="addAccessory(accessoryId.value)">Dodaj</button>
+            <button (click)="modifyItem(false)" class="btn btn-danger w-25 ">Anuluj</button>
 
+        </div>
     </div>
 
 </div>

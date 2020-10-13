@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { Item } from 'src/app/Model/Item';
-import { itemEndpoint } from 'src/app/Service/Http/URL';
+import { itemEndpoint, orderEndpoint } from 'src/app/Service/Http/URL';
 import { FindInArrayService } from 'src/app/Service/Utilities/find-in-array.service';
 
 @Component({
@@ -38,6 +38,19 @@ export class OrderDetailAddListComponent implements OnInit {
           this.statement = 'Błąd podczas pobierania listy elementów';
         }
       );
+  }
+
+  public saveNewItemFromAccessories(amount: number, accessoryId: number){
+    this.httpApiService.addItemToOrderFromAccesories(this.currentOrderId, accessoryId, amount)
+    .subscribe(
+      (next:any)=>{
+        this.refreshEmit.emit();
+        this.statement = '';
+      },
+      (error: any) => {
+        this.statement = 'Błąd nie udało się dodać elementu';
+      }
+    );
   }
 
   public saveNewItem(amount: number, itemId: number) {

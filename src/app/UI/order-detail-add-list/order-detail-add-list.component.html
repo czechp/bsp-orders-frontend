@@ -2,9 +2,9 @@
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement" class="w-100"></app-crud-statement>
 
 
-<div class="jumbotron bg-primary sticky-top flex-column align-items-center collapse text-white" id="accessoriesList">
+<div class="jumbotron sticky-top flex-column align-items-center collapse text-white " id="accessoriesList" style="background-color: darkblue;">
     <div class="d-flex flex-column align-items-center">
-        <h2>Akcesoria do dodanego elementu:</h2>
+        <h2 class="mb-3">Akcesoria do dodanego elementu:</h2>
 
         <table class="table">
             <thead class="thead-dark">
@@ -20,7 +20,7 @@
                 <th scope="col">Dodaj:</th>
             </thead>
             <tbody class="bg-white">
-                <tr *ngFor="let item of addedItem.accessories" class="bg-success">
+                <tr *ngFor="let item of addedItem.accessories" class="">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.serialNumber}}</td>
@@ -33,7 +33,7 @@
                     <td>{{item.itemCategory.name}}</td>
                     <td style="width: 150px;"><input #amount class="form-control text-center" type="text"></td>
                     <td>
-                        <button (click)="saveNewItem(amount.value, item.id)" class="btn btn-outline-primary" type="button" data-target="#accessoriesList" data-toggle="collapse">Dodaj</button>
+                        <button (click)="saveNewItemFromAccessories(amount.value, item.id)" class="btn btn-outline-primary" type="button">Dodaj</button>
                     </td>
 
                 </tr>
