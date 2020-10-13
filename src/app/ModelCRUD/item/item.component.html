@@ -4,7 +4,8 @@
     <app-crud-statement *ngIf="statement.length > 0" [statement]="statement"></app-crud-statement>
     <div class=" container d-flex flex-column align-items-center ">
         <app-item-create (createItemEmitter)="createItem($event)" [itemCategories]="itemCategories" [producers]="producers" [providers]="providers" class="w-100"></app-item-create>
-        <app-item-modify (modifyItemEmitter)="modifyItem($event)" (addAccessoryEmitter)="addAccessory($event)" *ngIf="modifyVisibility" [itemCategories]="itemCategories" [item]="itemToModify" [producers]="producers" [providers]="providers" class="w-100"></app-item-modify>
+        <app-item-modify (modifyItemEmitter)="modifyItem($event)" (addAccessoryEmitter)="addAccessory($event)" *ngIf="modifyVisibility" (deleteAccessoryEmitter)="deleteAccessory($event)" [itemCategories]="itemCategories" [item]="itemToModify" [producers]="producers"
+            [providers]="providers" class="w-100"></app-item-modify>
         <app-upload-file (getItemEventEmitter)="getItemsAfterUploadFile()" [categories]="itemCategories" [title]="'Importuj plik CSV'" class="w-100"></app-upload-file>
         <app-item-delete (deleteItemEmitter)="deleteItem($event)" *ngIf="deleteVisbility" [item]="itemToDelete" class="w-100"></app-item-delete>
         <app-filter-array (itemsEmitter)="filterItems($event)" [items]="items"></app-filter-array>

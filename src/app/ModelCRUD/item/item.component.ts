@@ -183,5 +183,16 @@ export class ItemComponent implements OnInit {
     return undefined;
   }
 
+  public deleteAccessory(accessoryId: number) {
+    this.httpApi.delete(itemEndpoint + '/accessory', accessoryId)
+      .subscribe(
+        (next: any) => {
+          this.statement = 'Sukces! Akcesorium usunięte';
+          this.getItems();
+        },
+        (error: any) => this.statement = 'Błąd! Nie udało się usunąć akcesorium'
+      );
+  }
+
 }
 
