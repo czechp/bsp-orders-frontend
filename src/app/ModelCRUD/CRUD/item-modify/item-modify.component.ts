@@ -36,6 +36,9 @@ export class ItemModifyComponent implements OnInit {
   @Output()
   public modifyItemEmitter = new EventEmitter();
 
+  @Output()
+  public addAccessoryEmitter = new EventEmitter();
+
   constructor() {
   }
 
@@ -51,6 +54,10 @@ export class ItemModifyComponent implements OnInit {
     } else {
       this.modifyItemEmitter.emit(null);
     }
+  }
+
+  public  addAccessory(accesoryId: number): void{
+    this.addAccessoryEmitter.emit({id: this.item.id, accessoryId: accesoryId});
   }
 
 

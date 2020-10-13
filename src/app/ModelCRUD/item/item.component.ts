@@ -47,7 +47,7 @@ export class ItemComponent implements OnInit {
         data => {
           this.producers = data.sort((x1, x2) => x1.name.localeCompare(x2.name));
           this.producers = this.producers.slice();
-          
+
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera'
       );
@@ -138,6 +138,8 @@ export class ItemComponent implements OnInit {
           this.items = data;
           this.filteredItems = data;
           this.filterAfterGetting();
+          this.itemToModify = this.findById(this.itemToModify.id);
+
         },
         error => this.statement = 'Błąd podczas pobierania danych z serwera');
   }
@@ -153,8 +155,32 @@ export class ItemComponent implements OnInit {
   private filterAfterGetting() {
     if (this.filterArrayComponentRef.filterText !== undefined
       && this.filterArrayComponentRef.filterText.length > 0) {
-        this.filterArrayComponentRef.filter();
+      this.filterArrayComponentRef.filter();
     }
+  }
+
+  public addAccessory(accessory: any): void {
+    this.statement = '';
+    this.httpApi.get(itemEndpoint + '/' + accessory.id + '/accessory/' + accessory.accessoryId)
+      .subscribe(
+        (next: any) => {
+          this.statement = "Sukces! Akcesorium dodane";
+          this.getItems();
+        },
+        (error: any) => this.statement = 'Błąd! Nie udało się dodać akcesorium'
+      );
+  }
+
+  private findById(id: number): Item {
+    if (id !== undefined) {
+      for (let item of this.items) {
+        if (id === item.id) {
+          return item;
+        }
+      }
+    }
+
+    return undefined;
   }
 
 }

@@ -43,6 +43,57 @@
     <div class="form-group d-flex justify-content-around mt-3 ">
         <button (click)="modifyItem(true)" class="btn btn-success w-25 ">OK</button>
         <button (click)="modifyItem(false)" class="btn btn-danger w-25 ">Anuluj</button>
+    </div>
+
+    <div class="form-group d-flex flex-column align-items-center mt-3 ">
+        <h3>Akcesoria:</h3>
+        <table class="table">
+            <thead class="thead-dark">
+                <th class="text-center" scope="col">Id:</th>
+                <th class="text-center" scope="col">Nazwa:</th>
+                <th class="text-center" scope="col">Nr. seryjny:</th>
+                <th class="text-center" scope="col">Opis:</th>
+                <th class="text-center" scope="col">Link:</th>
+                <th class="text-center" scope="col">Producent:</th>
+                <th class="text-center" scope="col">Dostawca:</th>
+                <th class="text-center" scope="col">Kategoria:</th>
+                <th class="text-center" scope="col">Usuń:</th>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of item.accessories" class="text-center" style="background-color: white;">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.serialNumber}}</td>
+                    <td>{{item.description}}</td>
+                    <td>
+                        <a class="" href="{{item.url}}" target="_blank">Klik</a>
+                    </td>
+                    <td>{{item.producer.name}}</td>
+                    <td>{{item.provider.name}}</td>
+                    <td>{{item.itemCategory.name}}</td>
+
+                    <td>
+                        <button class="btn btn-danger" style="min-width: 100px; ">Usuń:</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
 
     </div>
+
+
+    <div class="form-group d-flex flex-column align-items-center mt-3 ">
+        <h4>Dodaj:</h4>
+        <div class="input-group w-75 mt-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Id:</div>
+            </div>
+            <input #accessoryId class="form-control text-center" type="text" placeholder="Wpisz Id elementu">
+        </div>
+        <button class="btn btn-primary w-50 mt-4" (click)="addAccessory(accessoryId.value)">Dodaj</button>
+
+    </div>
+
 </div>
