@@ -7,7 +7,8 @@ import { FindInArrayService } from 'src/app/Service/Utilities/find-in-array.serv
 @Component({
   selector: 'app-order-detail-add-list',
   templateUrl: './order-detail-add-list.component.html',
-  styleUrls: ['./order-detail-add-list.component.css']
+  styleUrls: ['./order-detail-add-list.component.css'],
+  animations:[]
 })
 export class OrderDetailAddListComponent implements OnInit {
 
@@ -54,10 +55,10 @@ export class OrderDetailAddListComponent implements OnInit {
   }
 
   public saveNewItem(amount: number, itemId: number) {
+    this.addedItem = this.findInArray.findInArrayById(itemId, this.itemList);
     this.httpApiService.addItemToOrder(this.currentOrderId, itemId, amount)
       .subscribe(
         data => {
-          this.addedItem = this.findInArray.findInArrayById(itemId, this.itemList);
           this.refreshEmit.emit();
           this.statement = '';
         },

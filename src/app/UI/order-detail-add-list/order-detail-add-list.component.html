@@ -2,7 +2,7 @@
 <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement" class="w-100"></app-crud-statement>
 
 
-<div class="jumbotron sticky-top flex-column align-items-center collapse text-white " id="accessoriesList" style="background-color: darkblue;">
+<div *ngIf="addedItem.accessories.length !== 0" class="py-3 sticky-top flex-column align-items-center collapse text-white " id="accessoriesList" style="background-color: darkblue;">
     <div class="d-flex flex-column align-items-center">
         <h2 class="mb-3">Akcesoria do dodanego elementu:</h2>
 
