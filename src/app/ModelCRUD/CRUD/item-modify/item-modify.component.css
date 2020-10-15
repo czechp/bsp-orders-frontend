@@ -1,3 +1,7 @@
 .input-group {
-  width: 320px;
+    width: 320px;
+}
+
+tr:hover {
+    color: blue;
 }

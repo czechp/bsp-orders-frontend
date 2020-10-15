@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {Item} from 'src/app/Model/Item';
-import {Producer} from 'src/app/Model/Producer';
-import {Provider} from 'src/app/Model/Provider';
-import {Category} from 'src/app/Model/Category';
-import {SelectObjectComponent} from 'src/app/UI/select-object/select-object.component';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Item } from 'src/app/Model/Item';
+import { Producer } from 'src/app/Model/Producer';
+import { Provider } from 'src/app/Model/Provider';
+import { Category } from 'src/app/Model/Category';
+import { SelectObjectComponent } from 'src/app/UI/select-object/select-object.component';
 
 @Component({
   selector: 'app-item-modify',
@@ -36,6 +36,12 @@ export class ItemModifyComponent implements OnInit {
   @Output()
   public modifyItemEmitter = new EventEmitter();
 
+  @Output()
+  public addAccessoryEmitter = new EventEmitter();
+
+  @Output()
+  public deleteAccessoryEmitter = new EventEmitter();
+
   constructor() {
   }
 
@@ -53,5 +59,12 @@ export class ItemModifyComponent implements OnInit {
     }
   }
 
+  public addAccessory(accesoryId: number): void {
+    this.addAccessoryEmitter.emit({ id: this.item.id, accessoryId: accesoryId });
+  }
+
+  public deleteAccessories(accessoryId: number) {
+    this.deleteAccessoryEmitter.emit(accessoryId);
+  }
 
 }
