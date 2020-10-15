@@ -3,12 +3,13 @@ import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { Item } from 'src/app/Model/Item';
 import { itemEndpoint, orderEndpoint } from 'src/app/Service/Http/URL';
 import { FindInArrayService } from 'src/app/Service/Utilities/find-in-array.service';
+import { fade } from '../animations/fade';
 
 @Component({
   selector: 'app-order-detail-add-list',
   templateUrl: './order-detail-add-list.component.html',
   styleUrls: ['./order-detail-add-list.component.css'],
-  animations:[]
+  animations:[fade]
 })
 export class OrderDetailAddListComponent implements OnInit {
 

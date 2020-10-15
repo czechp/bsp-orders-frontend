@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'item', component: ItemComponent, canActivate: [AuthorizationGuardService]},
   {path: 'order-new', component: OrderNewComponent, canActivate: [AuthorizationGuardService]},
   {path: 'order-current', component: OrderCurrentComponent, canActivate: [AuthorizationGuardService]},
-  {path: 'order-details/:id', component: OrderDetailsComponent, canActivate: [AuthorizationGuardService]},
+  {path: 'order-details/:id', component: OrderDetailsComponent, canActivate: [AuthorizationGuardService], },
   {
     path: 'order-superuser-details/:id',
     component: OrderSuperuserDetailsComponent,

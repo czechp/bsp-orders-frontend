@@ -29,7 +29,7 @@
                 <td>{{itemInOrder.producer.name}}</td>
                 <td>{{itemInOrder.provider.name}}</td>
                 <td>{{itemInOrder.itemCategory.name}}</td>
-                <td><input [(ngModel)]="itemInOrder.amount" class="form-control text-center" style="width: 100px;" type="text">
+                <td style="width: 150px"><input [(ngModel)]="itemInOrder.amount" class="form-control text-center" type="text">
                 </td>
                 <td *ngIf="orderStatus !== 'FINISHED'">
                     <button (click)="changeAmount(itemInOrder.id)" class="btn btn-outline-dark">Zmień</button>
