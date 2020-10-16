@@ -1,3 +1,10 @@
 tr:hover {
     color: blue;
 }
+
+th,
+td,
+td,
+tr {
+    text-align: center;
+}

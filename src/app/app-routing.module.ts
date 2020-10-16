@@ -22,6 +22,7 @@ import {AdminPanelComponent} from './ModelCRUD/admin-panel/admin-panel.component
 import {AdminGuardService} from './Service/Utilities/admin-guard.service';
 import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
 import {ItemBorrowedComponent} from './ModelCRUD/item-borrowed/item-borrowed.component';
+import { OrderAllComponent } from './ModelCRUD/order-all/order-all.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path: 'item-details/:id', component: ItemDetailsComponent, canActivate: [AuthorizationGuardService]},
   {path: 'admin-panel', component: AdminPanelComponent, canActivate: [AuthorizationGuardService, AdminGuardService]},
   {path: 'item-borrowed', component: ItemBorrowedComponent, canActivate: [AuthorizationGuardService]},
+  {path: 'order-all', component:OrderAllComponent, canActivate: [AuthorizationGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login-error', component: LoginErrorComponent},
