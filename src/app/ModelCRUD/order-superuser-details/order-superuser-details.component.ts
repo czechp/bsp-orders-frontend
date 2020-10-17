@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import {
@@ -28,6 +28,10 @@ export class OrderSuperuserDetailsComponent implements OnInit {
     private httpApi: HttpApiService,
     private router: Router) {
   }
+
+
+
+
 
 
   ngOnInit(): void {
@@ -74,7 +78,6 @@ export class OrderSuperuserDetailsComponent implements OnInit {
         error => {
           this.statement = 'Błąd! Nie udało się pobrać elementu z serwera';
         },
-        () => { this.sort(); }
       );
   }
 

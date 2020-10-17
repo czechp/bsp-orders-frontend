@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Order} from 'src/app/Model/Order';
 
 @Component({
@@ -6,16 +6,23 @@ import {Order} from 'src/app/Model/Order';
   templateUrl: './sort-items-in-order.component.html',
   styleUrls: ['./sort-items-in-order.component.css']
 })
-export class SortItemsInOrderComponent implements OnInit {
+export class SortItemsInOrderComponent implements OnInit, OnChanges {
 
   @Input()
   public order: Order;
   @Output()
   orderEventEmitter = new EventEmitter();
+
+
   public option: String = 'Producent';
 
   
   constructor() {
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.sort();
   }
 
   ngOnInit(): void {
