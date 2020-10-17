@@ -12,7 +12,7 @@ export class SortItemsInOrderComponent implements OnInit {
   public order: Order;
   @Output()
   orderEventEmitter = new EventEmitter();
-  public option: String = 'Nazwa';
+  public option: String = 'Producent';
 
   
   constructor() {

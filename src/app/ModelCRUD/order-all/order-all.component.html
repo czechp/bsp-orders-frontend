@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let order of filteredOrders">
+                <tr *ngFor="let order of filteredOrders" (click)="goToOrderDetails(order.id)">
                     <td scope="row">{{order.id}}</td>
                     <td>{{order.name}}</td>
                     <td>

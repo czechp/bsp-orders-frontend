@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Order } from 'src/app/Model/Order';
 import { HttpApiService } from 'src/app/Service/Http/http-api.service';
 import { allOrderEndpoit } from 'src/app/Service/Http/URL';
@@ -19,7 +20,8 @@ export class OrderAllComponent implements OnInit {
   public statement = '';
 
   constructor(
-    private httpApiService: HttpApiService
+    private httpApiService: HttpApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -81,8 +83,7 @@ export class OrderAllComponent implements OnInit {
         || this.textIncludesOrderStatus(x, textToFilter)
         || x.orderNr.toLowerCase().includes(textToFilter)
         || x.appUser.username.toLowerCase().includes(textToFilter)
-
-
+        || x.orderNr.toLowerCase().includes(textToFilter)
     );
     if (text.length === 0) {
       this.filteredOrders = this.orders;
@@ -99,5 +100,9 @@ export class OrderAllComponent implements OnInit {
      if(order.orderStatus === 'FINISHED'){ return 'zakończone'.includes(text.toLowerCase())}
 
     return false;
+  }
+
+  public goToOrderDetails(orderId: number){
+    this.router.navigate(['order-details', orderId]);
   }
 }

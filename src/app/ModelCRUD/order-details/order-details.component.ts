@@ -15,6 +15,7 @@ export class OrderDetailsComponent implements OnInit {
   public statement: string;
   public id: number;
   public order: Order;
+  public currentUser: string;
 
   constructor(private activatedRoute: ActivatedRoute, private httpApiService: HttpApiService) {
     this.statement = '';
@@ -24,6 +25,7 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.getOrder();
+    this.currentUser = sessionStorage.getItem('username');
   }
 
   public changeName(name: string) {
@@ -131,6 +133,10 @@ export class OrderDetailsComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  public isOwner():boolean{
+    return this.order.appUser.username === this.currentUser;
   }
 
 
