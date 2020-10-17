@@ -79,6 +79,11 @@ export class OrderAllComponent implements OnInit {
   }
 
   public filterOrders(text: string): void {
+    this.orders.forEach(
+      (x: Order)=>{
+        if(x.orderNr === null) {x.orderNr=''}
+      }
+    );
     const textToFilter = text.toLowerCase();
     this.filteredOrders = this.orders.filter(
       (x: Order) =>
@@ -87,7 +92,7 @@ export class OrderAllComponent implements OnInit {
         || this.textIncludesOrderStatus(x, textToFilter)
         || x.orderNr.toLowerCase().includes(textToFilter)
         || x.appUser.username.toLowerCase().includes(textToFilter)
-        || x.orderNr.toLowerCase().includes(textToFilter)
+
     );
     if (text.length === 0) {
       this.filteredOrders = this.orders;
