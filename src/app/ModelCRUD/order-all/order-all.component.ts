@@ -62,6 +62,10 @@ export class OrderAllComponent implements OnInit {
       .sort((x1: Order, x2: Order) => this.sortMultpilier * (new Date(x1.creationDate.toString()).getTime() - new Date(x2.creationDate.toString()).getTime()));
   }
 
+  public sortByUser():void{
+    this.filteredOrders = this.filteredOrders.sort((x1: Order, x2: Order) => this.sortMultpilier * x1.appUser.username.localeCompare(x2.appUser.username));
+  }
+
   public sortByOrderNr(): void {
     this.filteredOrders = this.filteredOrders.sort((x1: Order, x2: Order) => this.sortMultpilier * x1.orderNr.localeCompare(x2.orderNr));
   }
