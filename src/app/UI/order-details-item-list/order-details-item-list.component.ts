@@ -15,14 +15,20 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
   @Input()
   public itemsInOrderList: ItemInOrder[]=[];
 
+  @Input()
+  public owner: string;
+
   @Output()
   public modifyAmountEmit = new EventEmitter();
 
   @Output()
   public deleteEmit = new EventEmitter();
 
+  private currentUser: string;
+
   constructor(private router: Router) {
     this.itemsInOrderList = [];
+    this.currentUser = sessionStorage.getItem('username');
   }
 
 
@@ -57,5 +63,7 @@ export class OrderDetailsItemListComponent implements OnInit, OnChanges {
     return null;
   }
 
-
+  public isOwner():boolean{
+    return this.owner === this.currentUser;
+  }
 }

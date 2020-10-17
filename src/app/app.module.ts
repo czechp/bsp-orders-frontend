@@ -51,6 +51,7 @@ import { TaskCreateComponent } from './UI/task-create/task-create.component';
 import { ItemBorrowedComponent } from './ModelCRUD/item-borrowed/item-borrowed.component';
 import { ItemBorrowedCreateComponent } from './UI/item-borrowed-create/item-borrowed-create.component';
 import { ItemBorrowedListComponent } from './UI/item-borrowed-list/item-borrowed-list.component';
+import { OrderAllComponent } from './ModelCRUD/order-all/order-all.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ItemBorrowedListComponent } from './UI/item-borrowed-list/item-borrowed
     ItemBorrowedComponent,
     ItemBorrowedCreateComponent,
     ItemBorrowedListComponent,
+    OrderAllComponent,
   ],
   imports: [
     BrowserModule,

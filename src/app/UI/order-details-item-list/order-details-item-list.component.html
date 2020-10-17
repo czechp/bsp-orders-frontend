@@ -10,8 +10,8 @@
             <th scope="col">Dostawca:</th>
             <th scope="col">Kategoria:</th>
             <th scope="col">Ilość:</th>
-            <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Zmień ilość:</th>
-            <th *ngIf="orderStatus !== 'FINISHED'" scope="col">Usuń:</th>
+            <th *ngIf="orderStatus !== 'FINISHED' && isOwner()" scope="col">Zmień ilość:</th>
+            <th *ngIf="orderStatus !== 'FINISHED' && isOwner()" scope="col">Usuń:</th>
             <th scope="col">Szczegóły:</th>
         </thead>
         <tbody class="bg-white">
@@ -31,10 +31,10 @@
                 <td>{{itemInOrder.itemCategory.name}}</td>
                 <td style="width: 150px"><input [(ngModel)]="itemInOrder.amount" class="form-control text-center" type="text">
                 </td>
-                <td *ngIf="orderStatus !== 'FINISHED'">
+                <td *ngIf="orderStatus !== 'FINISHED' && isOwner()">
                     <button (click)="changeAmount(itemInOrder.id)" class="btn btn-outline-dark">Zmień</button>
                 </td>
-                <td *ngIf="orderStatus !== 'FINISHED'">
+                <td *ngIf="orderStatus !== 'FINISHED' && isOwner()">
                     <button (click)="delete(itemInOrder.id)" class="btn btn-outline-dark">Usuń</button>
                 </td>
                 <td>

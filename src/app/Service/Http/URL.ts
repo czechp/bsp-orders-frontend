@@ -18,3 +18,4 @@ export const taskEndpoint = 'task';
 export const itemBorrowedEndpoint = 'itemBorrowed';
 export const addOrderCommentBySuperUserEndpoint = '/commentary/superuser';
 export const addOrderNrEndpoint = '/orderNr';
+export const allOrderEndpoit = 'order/all';

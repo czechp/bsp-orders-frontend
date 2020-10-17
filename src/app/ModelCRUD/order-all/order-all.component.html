@@ -1,0 +1,49 @@
+<div @fade class="">
+    <h1 class="bg-success text-center py-3  text-light">Wszystkie zamówienia</h1>
+    <app-crud-statement *ngIf="statement.length !== 0" [statement]="statement"></app-crud-statement>
+
+    <div class="d-flex flex-column align-items-center mt-3">
+
+        <div class="card w-50 my-3 p-4 bg-transparent border-white">
+            <h3 class="text-center mb-4 text-white">Filtruj zamówienia:</h3>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Wpisz fraze: </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Wyszukiwany tekst" (keyup)="filterOrders($event.target.value)">
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-dark">
+            <thead>
+                <tr (click)="toggleSortMultiplier()">
+                    <th scope="col" (click)="sortById()">Id:</th>
+                    <th scope="col" (click)="sortByName()">Nazwa:</th>
+                    <th scope="col" (click)="sortByStatus()">Status:</th>
+                    <th scope="col" (click)="sortByStatus()">Użytkownik:</th>
+                    <th scope="col" (click)="sortByCreationDate()">Data utworzenia:</th>
+                    <th scope="col" (click)="sortByOrderNr()">Nr: zamówienia:</th>
+                    <th scope="col" (click)="sortByItemsAmount()">Ilość elementów:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of filteredOrders" (click)="goToOrderDetails(order.id)">
+                    <td scope="row">{{order.id}}</td>
+                    <td>{{order.name}}</td>
+                    <td>
+                        <span *ngIf="order.orderStatus === 'NEW'">Nowe</span>
+                        <span *ngIf="order.orderStatus === 'REALISE'">Realizowane</span>
+                        <span *ngIf="order.orderStatus === 'FINISHED'">Zakończone</span>
+                    </td>
+                    <td>{{order.appUser.username}}</td>
+                    <td>{{order.creationDate | date: 'HH:MM:SS dd-mm-yyyy'}}</td>
+                    <td>{{order.orderNr}}</td>
+                    <td>{{order.itemsInOrder.length}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
