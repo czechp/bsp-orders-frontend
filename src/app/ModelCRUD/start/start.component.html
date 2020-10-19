@@ -1,0 +1,9 @@
+<div @fade class="w-50 d-flex flex-column justify-content-center mx-auto  rounded align-items-center " style="margin-top: 300px; min-height: 300px; font-size: 50px;" [ngClass]="{
+'bg-light text-primary': applicationReady === 0,
+'bg-success text-light': applicationReady === 1,
+'bg-danger text-dark': applicationReady === 2
+}
+">
+    {{message}}
+    <div *ngIf="applicationReady === 0" class="" style="font-size: 100px;">{{loader}}</div>
+</div>

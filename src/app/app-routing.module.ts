@@ -23,6 +23,7 @@ import {AdminGuardService} from './Service/Utilities/admin-guard.service';
 import {ToDoListComponent} from './ModelCRUD/to-do-list/to-do-list.component';
 import {ItemBorrowedComponent} from './ModelCRUD/item-borrowed/item-borrowed.component';
 import { OrderAllComponent } from './ModelCRUD/order-all/order-all.component';
+import { StartComponent } from './ModelCRUD/start/start.component';
 
 
 const routes: Routes = [
@@ -50,7 +51,8 @@ const routes: Routes = [
   {path: 'login-error', component: LoginErrorComponent},
   {path: 'not-enough-permissions', component: NotEnoughPermissionsComponent},
   {path: 'to-do-list', component: ToDoListComponent, canActivate: [AuthorizationGuardService]},
-  {path: '', redirectTo: '/item', pathMatch: 'full', canActivate: [AuthorizationGuardService]},
+  {path: 'start', component: StartComponent},
+  {path: '', redirectTo: '/start', pathMatch: 'full'},
   {path: '**', redirectTo: '/not-found'}
 ];
 
