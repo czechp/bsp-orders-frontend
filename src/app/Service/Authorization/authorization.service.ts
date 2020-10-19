@@ -34,7 +34,7 @@ export class AuthorizationService {
           sessionStorage.setItem('credentials', credentials);
           sessionStorage.setItem('role', data.role);
           CurrentUser.appUser = data;
-          this.router.navigate(['/']);
+          this.router.navigate(['/item']);
           this.loggingSubject.next();
         },
         error => {
