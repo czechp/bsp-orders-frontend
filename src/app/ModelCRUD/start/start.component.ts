@@ -25,7 +25,7 @@ export class StartComponent implements OnInit {
     .subscribe(
       (next: any)=>{this.message = "Aplikacja gotowa do pracy"; 
       this.applicationReady=1;
-      setTimeout(()=> this.router.navigate(['/items']), 2000)
+      setTimeout(()=> this.router.navigate(['/item']), 2000)
     },
       (error: any) =>{this.message = "Błąd!"; this.applicationReady=2}
     );
