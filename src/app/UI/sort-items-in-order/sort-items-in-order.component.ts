@@ -33,8 +33,16 @@ export class SortItemsInOrderComponent implements OnInit, OnChanges {
       case 'Nazwa':
         this.order.itemsInOrder.sort((x1, x2) => x1.name.localeCompare(x2.name));
         break;
-      case 'Producent':
-        this.order.itemsInOrder.sort((x1, x2) => x1.producer.name.localeCompare(x2.producer.name));
+        case 'Producent':
+          {
+            this.order.itemsInOrder.sort((x1, x2) => {
+              if (x1.producer.name.localeCompare(x2.producer.name) !== 0) {
+                return x1.producer.name.localeCompare(x2.producer.name)
+              }
+              return x1.serialNumber.localeCompare(x2.serialNumber)
+            });
+  
+          }
         break;
       case 'Dostawca':
         this.order.itemsInOrder.sort((x1, x2) => x1.provider.name.localeCompare(x2.provider.name));
