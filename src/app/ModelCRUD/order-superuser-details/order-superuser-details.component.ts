@@ -78,6 +78,7 @@ export class OrderSuperuserDetailsComponent implements OnInit {
         error => {
           this.statement = 'Błąd! Nie udało się pobrać elementu z serwera';
         },
+        () => this.sort()
       );
   }
 
