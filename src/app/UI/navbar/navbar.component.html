@@ -24,9 +24,15 @@
             </div>
         </div>
 
-        <div class="nav-item">
-            <button class="nav-button nav-link btn btn-outline-primary" routerLink="/order-all">Wszystkie zamówienia</button>
+        <div class="nav-item dropdown">
+            <button class="nav-button nav-link btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Zestawienia</button>
+            <div class="dropdown-menu bg-dark ">
+                <a class="dropdown-item" routerLink="/order-all">Wszystkie zamówienia</a>
+                <a class="dropdown-item" routerLink="/items-ordered">Zamówione elementy</a>
+            </div>
+
         </div>
+
 
         <div class="nav-item">
             <button class="nav-button nav-link btn btn-outline-primary" routerLink="/item-borrowed">Elementy  pożyczone</button>

@@ -1,0 +1,13 @@
+td:hover,
+td:hover,
+tr:hover {
+    color: white;
+    cursor: pointer;
+    background-color: blue;
+}
+
+th:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}

@@ -117,6 +117,7 @@ export class OrderDetailsComponent implements OnInit {
     this.httpApiService.getElement(orderEndpoint, this.id)
       .subscribe(
         data => {
+          console.log(data.itemsInOrder)
           this.order = data;
           this.statement = '';
         },

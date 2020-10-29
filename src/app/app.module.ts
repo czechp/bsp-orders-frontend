@@ -53,6 +53,7 @@ import { ItemBorrowedCreateComponent } from './UI/item-borrowed-create/item-borr
 import { ItemBorrowedListComponent } from './UI/item-borrowed-list/item-borrowed-list.component';
 import { OrderAllComponent } from './ModelCRUD/order-all/order-all.component';
 import { StartComponent } from './ModelCRUD/start/start.component';
+import { ItemsOrderedComponent } from './ModelCRUD/items-ordered/items-ordered.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { StartComponent } from './ModelCRUD/start/start.component';
     ItemBorrowedListComponent,
     OrderAllComponent,
     StartComponent,
+    ItemsOrderedComponent,
   ],
   imports: [
     BrowserModule,

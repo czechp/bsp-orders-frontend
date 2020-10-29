@@ -1,4 +1,5 @@
 import {Item} from './Item';
+import { Order } from './Order';
 
 export interface ItemInOrder extends Item {
   orderDate: Date;
@@ -6,4 +7,5 @@ export interface ItemInOrder extends Item {
   isOrdered: boolean;
   isDelivered: boolean;
   amount: number;
+  order: Order;
 }
