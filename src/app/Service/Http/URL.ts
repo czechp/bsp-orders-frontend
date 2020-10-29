@@ -19,3 +19,5 @@ export const itemBorrowedEndpoint = 'itemBorrowed';
 export const addOrderCommentBySuperUserEndpoint = '/commentary/superuser';
 export const addOrderNrEndpoint = '/orderNr';
 export const allOrderEndpoit = 'order/all';
+export const itemsOrderedEndpoint = 'itemInOrder/status/ordered';
+
