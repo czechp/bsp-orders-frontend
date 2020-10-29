@@ -28,13 +28,14 @@
                     <th scope="col" (click)="sortByItemId()">Id:</th>
                     <th scope="col" (click)="sortByItemName()">Nazwa:</th>
                     <th scope="col" (click)="sortByItemSerialNumber()">Nr. seryjny:</th>
+                    <th scope="col">Ilość:</th>
                     <th scope="col">URL:</th>
                     <th scope="col" (click)="sortByItemProducer()">Producent:</th>
                     <th scope="col" (click)="sortByItemCategory()">Kategoria:</th>
                     <th scope="col" (click)="sortByOrderId()">Id zamówienia:</th>
                     <th scope="col" (click)="sortByItemOrderName()">Nazwa zamówienia:</th>
                     <th scope="col" (click)="sortByItemOrderNumber()">Nr. zamówienia:</th>
-                    <th scope="col" (click)="sortByOrderOwner()">Właściciel:</th>
+                    <th scope="col" (click)="sortByOrderOwner()">Autor:</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,7 @@
                     <th scope="row">{{item.id}}</th>
                     <td>{{item.name}}</td>
                     <td>{{item.serialNumber}}</td>
+                    <td>{{item.amount}}</td>
                     <td>
                         <a href="{{item.url}}" target="_blank">Klik</a>
                     </td>
