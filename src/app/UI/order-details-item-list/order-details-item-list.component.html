@@ -17,7 +17,7 @@
         <tbody class="bg-white">
             <tr *ngFor="let itemInOrder of itemsInOrderList" [ngClass]="{
                 'bg-warning': itemInOrder.delivered === false,
-                'bg-danger': itemInOrder.ordered === false
+                'bg-danger': itemInOrder.ordered === false && itemInOrder.delivered === false
             }" class="bg-success">
                 <td>{{itemInOrder.id}}</td>
                 <td>{{itemInOrder.name}}</td>
